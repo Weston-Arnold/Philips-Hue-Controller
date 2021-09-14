@@ -1,17 +1,10 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class Form1
+    partial class MainWindow
     {
-        /// <summary>
-        ///  Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        ///  Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -29,10 +22,18 @@ namespace PhilipsHueController
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MainWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1236, 779);
+            this.Name = "MainWindow";
+            this.Text = "Philips Hue Controller";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

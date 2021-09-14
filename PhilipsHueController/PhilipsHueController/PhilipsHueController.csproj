@@ -6,4 +6,9 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Q42.HueApi" Version="3.18.1" />
+    <PackageReference Include="Q42.HueApi.ColorConverters" Version="3.18.1" />
+  </ItemGroup>
+
 </Project>
