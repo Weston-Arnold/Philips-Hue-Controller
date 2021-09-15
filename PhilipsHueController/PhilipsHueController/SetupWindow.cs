@@ -32,18 +32,20 @@ namespace PhilipsHueController
 
         private async void btnConnectBridge_Click(object sender, EventArgs e)
         {
+            btnConnectBridge.Text = "Connecting...";
             var connectedSuccessfully = await HueConnectionHelpers.ConfigureBridge(lbBridgeList.SelectedItem.ToString());
             if (connectedSuccessfully)
             {
                 pnlApplicationRegistration.Visible = false;
-                Close();
+                Hide();
 
                 var dashboard = new Dashboard();
-                dashboard.Show();
+                dashboard.ShowDialog();
 
                 return;
             }
             lblConnectionError.Visible = true;
+            btnConnectBridge.Text = "Connect Hue Bridge";
         }
 
         private void lbBridgeList_SelectedIndexChanged(object sender, EventArgs e)
