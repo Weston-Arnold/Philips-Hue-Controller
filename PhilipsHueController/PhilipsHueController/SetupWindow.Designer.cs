@@ -22,6 +22,7 @@ namespace PhilipsHueController
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupWindow));
             this.lblConnectionError = new System.Windows.Forms.Label();
             this.lbBridgeList = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -70,9 +71,7 @@ namespace PhilipsHueController
             this.lblSetupInstructions.Name = "lblSetupInstructions";
             this.lblSetupInstructions.Size = new System.Drawing.Size(482, 100);
             this.lblSetupInstructions.TabIndex = 6;
-            this.lblSetupInstructions.Text = "Click the button below to search for your Hue Bridge and select the one you wish " +
-    "to connect to. Once selected, press the button on your Hue bridge and click \"Con" +
-    "nect Hue Bridge\" within 30 seconds.";
+            this.lblSetupInstructions.Text = resources.GetString("lblSetupInstructions.Text");
             // 
             // btnConnectBridge
             // 
