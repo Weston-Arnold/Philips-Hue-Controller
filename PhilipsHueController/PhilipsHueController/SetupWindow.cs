@@ -36,11 +36,8 @@ namespace PhilipsHueController
             var connectedSuccessfully = await HueConnectionHelpers.ConfigureBridge(lbBridgeList.SelectedItem.ToString());
             if (connectedSuccessfully)
             {
-                pnlApplicationRegistration.Visible = false;
-                Hide();
-
-                var dashboard = new Dashboard();
-                dashboard.ShowDialog();
+                Close();
+                Application.Run(new Dashboard());
 
                 return;
             }
