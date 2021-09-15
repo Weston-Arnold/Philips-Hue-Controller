@@ -15,8 +15,8 @@ namespace PhilipsHueController
             if (isApplicationRegistered)
             {
                 pnlContinueSetup.Visible = false;
-                HueConnectionHelpers.LoadConfiguredBridge();
 
+                HueConnectionHelpers.LoadConfiguredBridge();
                 return;
             }
             else

@@ -5,6 +5,8 @@ namespace PhilipsHueController
 {
     public partial class SetupWindow : Form
     {
+        private string ListItemPrefix = "Bridge: ";
+
         public SetupWindow()
         {
             InitializeComponent();
@@ -24,9 +26,12 @@ namespace PhilipsHueController
             var bridges = await HueConnectionHelpers.GetNearbyBridges();
 
             lbBridgeList.Items.Clear();
+            var count = 0;
+
             foreach(var bridge in bridges)
             {
-                lbBridgeList.Items.Add(bridge.IpAddress);
+                count++;
+                lbBridgeList.Items.Add($"{ListItemPrefix}{bridge.IpAddress}");
             }
 
             btnSearch.Text = "Search Again";
@@ -35,11 +40,16 @@ namespace PhilipsHueController
         private async void btnConnectBridge_Click(object sender, EventArgs e)
         {
             btnConnectBridge.Text = "Connecting...";
-            var connectedSuccessfully = await HueConnectionHelpers.ConfigureBridge(lbBridgeList.SelectedItem.ToString());
+
+            var selectedItem = lbBridgeList.SelectedItem.ToString();
+            var ipAddress = selectedItem.Remove(0, ListItemPrefix.Length);
+
+            var connectedSuccessfully = await HueConnectionHelpers.ConfigureBridge(ipAddress);
             if (!connectedSuccessfully)
             {
                 lblConnectionError.Visible = true;
                 btnConnectBridge.Text = "Connect Hue Bridge";
+
                 return;
             }
             Close();

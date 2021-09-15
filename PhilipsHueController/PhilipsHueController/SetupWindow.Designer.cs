@@ -71,8 +71,8 @@ namespace PhilipsHueController
             this.lblSetupInstructions.Size = new System.Drawing.Size(482, 100);
             this.lblSetupInstructions.TabIndex = 6;
             this.lblSetupInstructions.Text = "Click the button below to search for your Hue Bridge and select the one you wish " +
-    "to connect to. Once selected, press the button on your Hue bridge and click conn" +
-    "ect within 30 seconds.";
+    "to connect to. Once selected, press the button on your Hue bridge and click \"Con" +
+    "nect Hue Bridge\" within 30 seconds.";
             // 
             // btnConnectBridge
             // 
