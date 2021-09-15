@@ -2,27 +2,29 @@
 using Q42.HueApi;
 using Q42.HueApi.Models.Bridge;
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PhilipsHueController
 {
     public static class HueConnectionHelpers
     {
-        public static async Task ConfigureBridge()
+        public static async Task<bool> ConfigureBridge(string ipAddress)
         {
-            var bridge = await GetNearbyBridge();
-            if(bridge == null)
+            try
             {
-                //todo
-                return;
+                var localHueClient = new LocalHueClient(ipAddress);
+                var appKey = await localHueClient.RegisterAsync("PhilipsHueController", "MyPC");
+
+                localHueClient.Initialize(appKey);
+                ConfigHelpers.AddOrUpdateAppSetting("AppKey", appKey);
+
+                return true;
             }
-
-            var localHueClient = new LocalHueClient(bridge.IpAddress);
-            var appKey = await localHueClient.RegisterAsync("PhilipsHueController", "MyPC");
-
-            localHueClient.Initialize(appKey);
-            ConfigHelpers.AddOrUpdateAppSetting("AppKey", appKey);
+            catch (LinkButtonNotPressedException)
+            {
+                return false;
+            }
         }
 
         public static void LoadConfiguredBridge()
@@ -39,20 +41,13 @@ namespace PhilipsHueController
             return appKey != null;
         }
 
-        public static async Task<LocatedBridge> GetNearbyBridge()
+        public static async Task<List<LocatedBridge>> GetNearbyBridges()
         {
             //todo: multiple bridges found -- user selection?
             var locator = new HttpBridgeLocator();
 
             await locator.LocateBridgesAsync(TimeSpan.FromSeconds(5));
-            var bridgesFound = await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
-
-            if (bridgesFound.Any())
-            {
-                return bridgesFound[0];
-            }
-
-            return null;
+            return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
         }
     }
 }
