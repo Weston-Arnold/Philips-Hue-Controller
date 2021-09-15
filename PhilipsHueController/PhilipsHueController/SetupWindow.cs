@@ -11,7 +11,7 @@ namespace PhilipsHueController
             InitializeComponent();
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
+        private void SetupWindow_Load(object sender, EventArgs e)
         {
             ConfigHelpers.DeleteSettingByKey("AppKey");
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();

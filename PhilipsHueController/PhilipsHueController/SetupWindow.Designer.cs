@@ -98,15 +98,15 @@ namespace PhilipsHueController
             this.btnConnectBridge.UseVisualStyleBackColor = false;
             this.btnConnectBridge.Click += new System.EventHandler(this.btnConnectBridge_Click);
             // 
-            // MainWindow
+            // SetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 779);
             this.Controls.Add(this.pnlApplicationRegistration);
-            this.Name = "MainWindow";
+            this.Name = "SetupWindow";
             this.Text = "Philips Hue Controller";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.Load += new System.EventHandler(this.SetupWindow_Load);
             this.pnlApplicationRegistration.ResumeLayout(false);
             this.pnlApplicationRegistration.PerformLayout();
             this.ResumeLayout(false);
