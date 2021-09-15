@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class MainWindow
+    partial class SetupWindow
     {
         private System.ComponentModel.IContainer components = null;
 

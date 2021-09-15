@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
-    public partial class MainWindow : Form
+    public partial class SetupWindow : Form
     {
-        public MainWindow()
+        public SetupWindow()
         {
             InitializeComponent();
         }
