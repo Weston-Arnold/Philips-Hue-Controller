@@ -107,6 +107,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.lblSetupInstructions);
             this.Controls.Add(this.btnConnectBridge);
             this.Name = "SetupWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Setup";
             this.Load += new System.EventHandler(this.SetupWindow_Load);
             this.ResumeLayout(false);

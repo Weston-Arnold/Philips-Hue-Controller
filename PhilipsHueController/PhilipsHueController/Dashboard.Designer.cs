@@ -31,8 +31,8 @@ namespace PhilipsHueController
         {
             this.btnCompleteSetup = new System.Windows.Forms.Button();
             this.pnlContinueSetup = new System.Windows.Forms.Panel();
-            this.lblContinueSetupPrompt = new System.Windows.Forms.Label();
             this.lblSetupRequiredTitle = new System.Windows.Forms.Label();
+            this.lblContinueSetupPrompt = new System.Windows.Forms.Label();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,16 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Size = new System.Drawing.Size(795, 447);
             this.pnlContinueSetup.TabIndex = 1;
             // 
+            // lblSetupRequiredTitle
+            // 
+            this.lblSetupRequiredTitle.AutoSize = true;
+            this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(187, 27);
+            this.lblSetupRequiredTitle.Name = "lblSetupRequiredTitle";
+            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(410, 74);
+            this.lblSetupRequiredTitle.TabIndex = 2;
+            this.lblSetupRequiredTitle.Text = "Setup Required";
+            // 
             // lblContinueSetupPrompt
             // 
             this.lblContinueSetupPrompt.AutoSize = true;
@@ -67,16 +77,6 @@ namespace PhilipsHueController
             this.lblContinueSetupPrompt.Text = "Connection to a Philips Hue Bridge is required to use this application. Please Co" +
     "mplete the setup process before continuing.";
             // 
-            // lblSetupRequiredTitle
-            // 
-            this.lblSetupRequiredTitle.AutoSize = true;
-            this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(187, 27);
-            this.lblSetupRequiredTitle.Name = "lblSetupRequiredTitle";
-            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(410, 74);
-            this.lblSetupRequiredTitle.TabIndex = 2;
-            this.lblSetupRequiredTitle.Text = "Setup Required";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -84,6 +84,7 @@ namespace PhilipsHueController
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pnlContinueSetup);
             this.Name = "Dashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.pnlContinueSetup.ResumeLayout(false);
