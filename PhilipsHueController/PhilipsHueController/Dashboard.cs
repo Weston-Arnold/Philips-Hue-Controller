@@ -14,7 +14,7 @@ namespace PhilipsHueController
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegistered)
             {
-                btnSetup.Visible = false;
+                pnlContinueSetup.Visible = false;
                 HueConnectionHelpers.LoadConfiguredBridge();
 
                 return;
@@ -25,7 +25,7 @@ namespace PhilipsHueController
             }
         }
 
-        private void btnSetup_Click(object sender, System.EventArgs e)
+        private void btnCompleteSetup_Click(object sender, System.EventArgs e)
         {
             LaunchSetup(sender, e);
         }
