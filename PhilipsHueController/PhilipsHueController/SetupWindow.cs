@@ -57,7 +57,7 @@ namespace PhilipsHueController
 
         private void lbBridgeList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btnConnectBridge.Visible = true;
+            btnConnectBridge.Visible = lbBridgeList.SelectedItem != null;
         }
     }
 }
