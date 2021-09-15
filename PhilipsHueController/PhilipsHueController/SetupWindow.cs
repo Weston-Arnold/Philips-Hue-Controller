@@ -19,6 +19,8 @@ namespace PhilipsHueController
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             btnSearch.Text = "Searching...";
+            btnConnectBridge.Visible = false;
+
             var bridges = await HueConnectionHelpers.GetNearbyBridges();
 
             lbBridgeList.Items.Clear();
@@ -38,6 +40,7 @@ namespace PhilipsHueController
             {
                 lblConnectionError.Visible = true;
                 btnConnectBridge.Text = "Connect Hue Bridge";
+                return;
             }
             Close();
         }

@@ -27,13 +27,14 @@ namespace PhilipsHueController
             this.btnSearch = new System.Windows.Forms.Button();
             this.lblSetupInstructions = new System.Windows.Forms.Label();
             this.btnConnectBridge = new System.Windows.Forms.Button();
+            this.lblSetupTitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblConnectionError
             // 
             this.lblConnectionError.AutoSize = true;
             this.lblConnectionError.ForeColor = System.Drawing.Color.Red;
-            this.lblConnectionError.Location = new System.Drawing.Point(12, 661);
+            this.lblConnectionError.Location = new System.Drawing.Point(12, 704);
             this.lblConnectionError.MaximumSize = new System.Drawing.Size(750, 0);
             this.lblConnectionError.Name = "lblConnectionError";
             this.lblConnectionError.Size = new System.Drawing.Size(737, 50);
@@ -45,7 +46,7 @@ namespace PhilipsHueController
             // 
             this.lbBridgeList.FormattingEnabled = true;
             this.lbBridgeList.ItemHeight = 25;
-            this.lbBridgeList.Location = new System.Drawing.Point(206, 180);
+            this.lbBridgeList.Location = new System.Drawing.Point(206, 223);
             this.lbBridgeList.Name = "lbBridgeList";
             this.lbBridgeList.Size = new System.Drawing.Size(316, 279);
             this.lbBridgeList.TabIndex = 8;
@@ -53,7 +54,7 @@ namespace PhilipsHueController
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(206, 491);
+            this.btnSearch.Location = new System.Drawing.Point(206, 534);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(316, 65);
             this.btnSearch.TabIndex = 7;
@@ -64,7 +65,7 @@ namespace PhilipsHueController
             // lblSetupInstructions
             // 
             this.lblSetupInstructions.AutoSize = true;
-            this.lblSetupInstructions.Location = new System.Drawing.Point(132, 67);
+            this.lblSetupInstructions.Location = new System.Drawing.Point(132, 110);
             this.lblSetupInstructions.MaximumSize = new System.Drawing.Size(500, 0);
             this.lblSetupInstructions.Name = "lblSetupInstructions";
             this.lblSetupInstructions.Size = new System.Drawing.Size(482, 100);
@@ -76,7 +77,7 @@ namespace PhilipsHueController
             // btnConnectBridge
             // 
             this.btnConnectBridge.BackColor = System.Drawing.Color.White;
-            this.btnConnectBridge.Location = new System.Drawing.Point(206, 580);
+            this.btnConnectBridge.Location = new System.Drawing.Point(206, 623);
             this.btnConnectBridge.Name = "btnConnectBridge";
             this.btnConnectBridge.Size = new System.Drawing.Size(316, 64);
             this.btnConnectBridge.TabIndex = 5;
@@ -84,18 +85,29 @@ namespace PhilipsHueController
             this.btnConnectBridge.UseVisualStyleBackColor = false;
             this.btnConnectBridge.Click += new System.EventHandler(this.btnConnectBridge_Click);
             // 
+            // lblSetupTitle
+            // 
+            this.lblSetupTitle.AutoSize = true;
+            this.lblSetupTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSetupTitle.Location = new System.Drawing.Point(76, 22);
+            this.lblSetupTitle.Name = "lblSetupTitle";
+            this.lblSetupTitle.Size = new System.Drawing.Size(596, 74);
+            this.lblSetupTitle.TabIndex = 10;
+            this.lblSetupTitle.Text = "Connect to Hue Bridge";
+            // 
             // SetupWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 779);
+            this.Controls.Add(this.lblSetupTitle);
             this.Controls.Add(this.lblConnectionError);
             this.Controls.Add(this.lbBridgeList);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblSetupInstructions);
             this.Controls.Add(this.btnConnectBridge);
             this.Name = "SetupWindow";
-            this.Text = "Philips Hue Controller";
+            this.Text = "Application Setup";
             this.Load += new System.EventHandler(this.SetupWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,6 +121,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblSetupInstructions;
         private System.Windows.Forms.Button btnConnectBridge;
+        private System.Windows.Forms.Label lblSetupTitle;
     }
 }
 
