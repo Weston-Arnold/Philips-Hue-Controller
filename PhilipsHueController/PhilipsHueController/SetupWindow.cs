@@ -1,5 +1,4 @@
-﻿using PhilipsHueController.Helpers;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -13,15 +12,6 @@ namespace PhilipsHueController
 
         private void SetupWindow_Load(object sender, EventArgs e)
         {
-            ConfigHelpers.DeleteSettingByKey("AppKey");
-            var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
-            if (isApplicationRegistered) 
-            {
-                pnlApplicationRegistration.Visible = false;
-                HueConnectionHelpers.LoadConfiguredBridge();
-                return;
-            }
-
             btnConnectBridge.Visible = false;
             lblConnectionError.Visible = false;
         }
@@ -46,6 +36,11 @@ namespace PhilipsHueController
             if (connectedSuccessfully)
             {
                 pnlApplicationRegistration.Visible = false;
+                Close();
+
+                var dashboard = new Dashboard();
+                dashboard.Show();
+
                 return;
             }
             lblConnectionError.Visible = true;
