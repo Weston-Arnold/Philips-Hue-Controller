@@ -29,13 +29,25 @@ namespace PhilipsHueController
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnSetup = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnSetup
+            // 
+            this.btnSetup.Location = new System.Drawing.Point(324, 192);
+            this.btnSetup.Name = "btnSetup";
+            this.btnSetup.Size = new System.Drawing.Size(112, 34);
+            this.btnSetup.TabIndex = 0;
+            this.btnSetup.Text = "Setup";
+            this.btnSetup.UseVisualStyleBackColor = true;
+            this.btnSetup.Click += new System.EventHandler(this.btnSetup_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSetup);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
@@ -44,5 +56,7 @@ namespace PhilipsHueController
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnSetup;
     }
 }
