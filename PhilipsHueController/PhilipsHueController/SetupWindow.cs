@@ -1,12 +1,11 @@
-﻿using System;
+﻿using PhilipsHueController.Extensions;
+using System;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
     public partial class SetupWindow : Form
     {
-        private string ListItemPrefix = "Bridge: ";
-
         public SetupWindow()
         {
             InitializeComponent();
@@ -31,9 +30,15 @@ namespace PhilipsHueController
             foreach(var bridge in bridges)
             {
                 count++;
-                lbBridgeList.Items.Add($"{ListItemPrefix}{bridge.IpAddress}");
+                lbBridgeList.Items.Add(new
+                {
+                    IpAddress = bridge.IpAddress,
+                    BridgeId = bridge.BridgeId,
+                    DisplayName = $"Bridge #{count} - {bridge.BridgeId} - ({bridge.IpAddress})"
+                });
             }
 
+            lbBridgeList.DisplayMember = "DisplayName";
             btnSearch.Text = "Search Again";
         }
 
@@ -41,8 +46,8 @@ namespace PhilipsHueController
         {
             btnConnectBridge.Text = "Connecting...";
 
-            var selectedItem = lbBridgeList.SelectedItem.ToString();
-            var ipAddress = selectedItem.Remove(0, ListItemPrefix.Length);
+            var selectedItem = lbBridgeList.SelectedItem;
+            var ipAddress = selectedItem.GetObjectPropertyByName("IpAddress");
 
             var connectedSuccessfully = await HueConnectionHelpers.ConfigureBridge(ipAddress);
             if (!connectedSuccessfully)

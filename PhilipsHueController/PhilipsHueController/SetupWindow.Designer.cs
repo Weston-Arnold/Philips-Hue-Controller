@@ -48,17 +48,17 @@ namespace PhilipsHueController
             // 
             this.lbBridgeList.FormattingEnabled = true;
             this.lbBridgeList.ItemHeight = 25;
-            this.lbBridgeList.Location = new System.Drawing.Point(206, 223);
+            this.lbBridgeList.Location = new System.Drawing.Point(132, 223);
             this.lbBridgeList.Name = "lbBridgeList";
-            this.lbBridgeList.Size = new System.Drawing.Size(316, 279);
+            this.lbBridgeList.Size = new System.Drawing.Size(477, 279);
             this.lbBridgeList.TabIndex = 8;
             this.lbBridgeList.SelectedIndexChanged += new System.EventHandler(this.lbBridgeList_SelectedIndexChanged);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(206, 534);
+            this.btnSearch.Location = new System.Drawing.Point(132, 534);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(316, 65);
+            this.btnSearch.Size = new System.Drawing.Size(477, 65);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -78,9 +78,9 @@ namespace PhilipsHueController
             // btnConnectBridge
             // 
             this.btnConnectBridge.BackColor = System.Drawing.Color.White;
-            this.btnConnectBridge.Location = new System.Drawing.Point(206, 623);
+            this.btnConnectBridge.Location = new System.Drawing.Point(132, 623);
             this.btnConnectBridge.Name = "btnConnectBridge";
-            this.btnConnectBridge.Size = new System.Drawing.Size(316, 64);
+            this.btnConnectBridge.Size = new System.Drawing.Size(477, 64);
             this.btnConnectBridge.TabIndex = 5;
             this.btnConnectBridge.Text = "Connect Hue Bridge";
             this.btnConnectBridge.UseVisualStyleBackColor = false;
