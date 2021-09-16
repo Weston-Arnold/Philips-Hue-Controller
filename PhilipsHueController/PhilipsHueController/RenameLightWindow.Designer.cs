@@ -58,6 +58,7 @@ namespace PhilipsHueController
             this.ClientSize = new System.Drawing.Size(674, 184);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RenameLightWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rename Light";

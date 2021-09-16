@@ -120,6 +120,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
             this.Controls.Add(this.pnlContinueSetup);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

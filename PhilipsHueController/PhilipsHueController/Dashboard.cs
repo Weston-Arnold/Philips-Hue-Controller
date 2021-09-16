@@ -33,6 +33,7 @@ namespace PhilipsHueController
         private async void LoadLightListBox()
         {
             lbLights.Items.Clear();
+
             var lightList = await HueLightHelpers.GetAllLights();
 
             foreach (var light in lightList.OrderBy(x => x.Name))
@@ -42,12 +43,14 @@ namespace PhilipsHueController
                     LightName = light.Name
                 });
             }
-            lbLights.DisplayMember = "lightname";
+
+            lbLights.DisplayMember = "LightName";
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)
         {
             var setupWindow = new SetupWindow();
+
             setupWindow.ShowDialog();
 
             var isApplicationRegisteredAfterWindowClose = HueConnectionHelpers.IsApplicationRegistered();

@@ -38,7 +38,7 @@ namespace PhilipsHueController
             this.lblConnectionError.Location = new System.Drawing.Point(12, 704);
             this.lblConnectionError.MaximumSize = new System.Drawing.Size(750, 0);
             this.lblConnectionError.Name = "lblConnectionError";
-            this.lblConnectionError.Size = new System.Drawing.Size(737, 50);
+            this.lblConnectionError.Size = new System.Drawing.Size(732, 50);
             this.lblConnectionError.TabIndex = 9;
             this.lblConnectionError.Text = "Could not connect to selected bridge. Ensure that you are pressing the button on " +
     "your Hue Bridge within 30 seconds prior to clicking the connect button.";
@@ -70,7 +70,7 @@ namespace PhilipsHueController
             this.lblSetupInstructions.Location = new System.Drawing.Point(132, 110);
             this.lblSetupInstructions.MaximumSize = new System.Drawing.Size(500, 0);
             this.lblSetupInstructions.Name = "lblSetupInstructions";
-            this.lblSetupInstructions.Size = new System.Drawing.Size(482, 100);
+            this.lblSetupInstructions.Size = new System.Drawing.Size(477, 100);
             this.lblSetupInstructions.TabIndex = 6;
             this.lblSetupInstructions.Text = resources.GetString("lblSetupInstructions.Text");
             this.lblSetupInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,6 +107,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblSetupInstructions);
             this.Controls.Add(this.btnConnectBridge);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SetupWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Setup";
