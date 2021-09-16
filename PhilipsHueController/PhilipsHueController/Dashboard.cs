@@ -1,5 +1,6 @@
 ﻿using PhilipsHueController.Helpers;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -11,7 +12,7 @@ namespace PhilipsHueController
             InitializeComponent();
         }
 
-        private void Dashboard_Load(object sender, System.EventArgs e)
+        private async void Dashboard_Load(object sender, System.EventArgs e)
         {
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegistered)
@@ -21,7 +22,7 @@ namespace PhilipsHueController
                 txtAdditionalInformation.Text = "Select a light to show additional information...";
 
                 HueConnectionHelpers.LoadConfiguredBridge();
-                LoadLightListBox();
+                await LoadLightListBox();
 
                 return;
             }
@@ -31,7 +32,7 @@ namespace PhilipsHueController
             }
         }
 
-        private async void LoadLightListBox()
+        private async Task LoadLightListBox()
         {
             lbLights.Items.Clear();
 
@@ -66,12 +67,14 @@ namespace PhilipsHueController
             LaunchSetup(sender, e);
         }
 
-        private void btnRename_Click(object sender, System.EventArgs e)
+        private async void btnRename_Click(object sender, System.EventArgs e)
         {
+            var currentlySelectedLightIndex = lbLights.SelectedIndex;
             var renameLightWindow = new RenameLightWindow(lbLights.SelectedItem);
             renameLightWindow.ShowDialog();
 
-            LoadLightListBox();
+            await LoadLightListBox();
+            lbLights.SelectedIndex = currentlySelectedLightIndex;
         }
 
         private async void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)

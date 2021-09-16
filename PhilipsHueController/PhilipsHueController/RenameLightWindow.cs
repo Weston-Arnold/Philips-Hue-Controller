@@ -1,4 +1,5 @@
-﻿using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Extensions;
+using PhilipsHueController.Helpers;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -12,17 +13,8 @@ namespace PhilipsHueController
         {
             InitializeComponent();
 
-            LightId = selectedLight
-                .GetType()
-                .GetProperty("Id")
-                .GetValue(selectedLight, null)
-                .ToString();
-
-            LightName = selectedLight
-                .GetType()
-                .GetProperty("LightName")
-                .GetValue(selectedLight, null)
-                .ToString();
+            LightId = selectedLight.GetObjectPropertyByName("Id");
+            LightName = selectedLight.GetObjectPropertyByName("LightName");
 
             txtRename.Text = LightName;
         }
