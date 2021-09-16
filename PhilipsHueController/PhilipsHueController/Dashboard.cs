@@ -1,4 +1,5 @@
 ﻿using PhilipsHueController.Helpers;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -33,10 +34,12 @@ namespace PhilipsHueController
         {
             lbLights.Items.Clear();
 
+            var allGroups = await GroupHelpers.GetAllGroups();
             var lightList = await HueLightHelpers.GetAllLights();
+
             foreach (var light in lightList)
             {
-
+                var group = allGroups.FirstOrDefault(x => x.Lights.Contains(light.Id));
                 lbLights.Items.Add(new { 
                     Id = light.Id,
                     LightName = light.Name
