@@ -51,6 +51,11 @@ namespace PhilipsHueController
             LocalHueClient.Initialize(appKey);
         }
 
+        public async static Task<Bridge> GetConnectedBridge()
+        {
+            return await LocalHueClient.GetBridgeAsync();
+        }
+
         public static bool IsApplicationRegistered()
         {
             var appKey = ConfigHelpers.GetSettingByKey("AppKey");

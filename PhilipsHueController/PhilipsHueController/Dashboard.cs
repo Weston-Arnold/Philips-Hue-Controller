@@ -17,14 +17,20 @@ namespace PhilipsHueController
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegistered)
             {
+                var bridge = await HueConnectionHelpers.GetConnectedBridge();
+
                 btnRename.Enabled = false;
                 pnlContinueSetup.Visible = false;
                 txtAdditionalInformation.Text = "Select a light to show additional information...";
 
+                txtBridgeInfo.Text = $"Bridge Information - " +
+                    $"{bridge.Config.Name} | " +
+                    $"Id : {bridge.Config.BridgeId} | " +
+                    $"{bridge.Config.IpAddress} | " +
+                    $"{bridge.Config.MacAddress}";
+
                 HueConnectionHelpers.LoadConfiguredBridge();
                 await LoadLightListBox();
-
-                return;
             }
             else
             {

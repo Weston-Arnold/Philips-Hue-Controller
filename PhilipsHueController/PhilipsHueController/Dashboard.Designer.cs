@@ -38,6 +38,7 @@ namespace PhilipsHueController
             this.btnRename = new System.Windows.Forms.Button();
             this.txtAdditionalInformation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,11 +135,21 @@ namespace PhilipsHueController
             this.label1.TabIndex = 6;
             this.label1.Text = "Additional Information";
             // 
+            // txtBridgeInfo
+            // 
+            this.txtBridgeInfo.AutoSize = true;
+            this.txtBridgeInfo.Location = new System.Drawing.Point(27, 1175);
+            this.txtBridgeInfo.Name = "txtBridgeInfo";
+            this.txtBridgeInfo.Size = new System.Drawing.Size(59, 25);
+            this.txtBridgeInfo.TabIndex = 7;
+            this.txtBridgeInfo.Text = "label2";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.txtBridgeInfo);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAdditionalInformation);
@@ -168,5 +179,6 @@ namespace PhilipsHueController
         private System.Windows.Forms.Button btnRename;
         private System.Windows.Forms.RichTextBox txtAdditionalInformation;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtBridgeInfo;
     }
 }
