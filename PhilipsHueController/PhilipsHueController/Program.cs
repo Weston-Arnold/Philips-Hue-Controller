@@ -14,7 +14,7 @@ namespace PhilipsHueController
             Application.SetCompatibleTextRenderingDefault(false);
 
             ConfigHelpers.DeleteSettingByKey("AppKey");
-            Application.Run(new Dashboard());
+            Application.Run(new DashboardWindow());
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class Dashboard
+    partial class DashboardWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -60,7 +60,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(1019, 60);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(751, 45);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -154,21 +154,21 @@ namespace PhilipsHueController
             this.btnDisconnect.Text = "Disconnect Application";
             this.btnDisconnect.UseVisualStyleBackColor = true;
             // 
-            // Dashboard
+            // DashboardWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
-            this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAdditionalInformation);
             this.Controls.Add(this.btnRename);
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Dashboard";
+            this.Name = "DashboardWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);

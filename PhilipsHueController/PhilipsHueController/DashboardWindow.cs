@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
-    public partial class Dashboard : Form
+    public partial class DashboardWindow : Form
     {
-        public Dashboard()
+        public DashboardWindow()
         {
             InitializeComponent();
         }
