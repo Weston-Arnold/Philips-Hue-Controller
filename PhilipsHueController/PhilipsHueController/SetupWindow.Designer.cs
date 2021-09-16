@@ -42,6 +42,7 @@ namespace PhilipsHueController
             this.lblConnectionError.TabIndex = 9;
             this.lblConnectionError.Text = "Could not connect to selected bridge. Ensure that you are pressing the button on " +
     "your Hue Bridge within 30 seconds prior to clicking the connect button.";
+            this.lblConnectionError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbBridgeList
             // 
@@ -72,6 +73,7 @@ namespace PhilipsHueController
             this.lblSetupInstructions.Size = new System.Drawing.Size(482, 100);
             this.lblSetupInstructions.TabIndex = 6;
             this.lblSetupInstructions.Text = resources.GetString("lblSetupInstructions.Text");
+            this.lblSetupInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnConnectBridge
             // 
