@@ -6,12 +6,24 @@ namespace PhilipsHueController
     public partial class RenameLightWindow : Form
     {
         private readonly string LightName = string.Empty;
+        private readonly string LightId = string.Empty;
 
-        public RenameLightWindow(string lightName)
+        public RenameLightWindow(object selectedLight)
         {
             InitializeComponent();
 
-            LightName = lightName;
+            LightId = selectedLight
+                .GetType()
+                .GetProperty("Id")
+                .GetValue(selectedLight, null)
+                .ToString();
+
+            LightName = selectedLight
+                .GetType()
+                .GetProperty("LightName")
+                .GetValue(selectedLight, null)
+                .ToString();
+
             txtRename.Text = LightName;
         }
 
@@ -22,7 +34,7 @@ namespace PhilipsHueController
 
             foreach (var light in lights)
             {
-                if(light.Name != LightName)
+                if(light.Id != LightId)
                 {
                     continue;
                 }

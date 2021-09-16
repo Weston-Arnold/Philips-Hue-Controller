@@ -36,8 +36,13 @@ namespace PhilipsHueController
             var lightList = await HueLightHelpers.GetAllLights();
             foreach (var light in lightList)
             {
-                lbLights.Items.Add(light.Name);
+
+                lbLights.Items.Add(new { 
+                    Id = light.Id,
+                    LightName = light.Name
+                });
             }
+            lbLights.DisplayMember = "lightname";
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)
@@ -59,7 +64,7 @@ namespace PhilipsHueController
 
         private void btnRename_Click(object sender, System.EventArgs e)
         {
-            var renameLightWindow = new RenameLightWindow(lbLights.SelectedItem.ToString());
+            var renameLightWindow = new RenameLightWindow(lbLights.SelectedItem);
             renameLightWindow.ShowDialog();
 
             LoadLightListBox();
