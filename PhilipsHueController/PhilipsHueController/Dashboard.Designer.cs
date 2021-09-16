@@ -59,8 +59,9 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(2058, 1213);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(2059, 1209);
             this.pnlContinueSetup.TabIndex = 1;
+            this.pnlContinueSetup.Visible = false;
             // 
             // lblSetupRequiredTitle
             // 
@@ -140,9 +141,8 @@ namespace PhilipsHueController
             this.txtBridgeInfo.AutoSize = true;
             this.txtBridgeInfo.Location = new System.Drawing.Point(27, 1175);
             this.txtBridgeInfo.Name = "txtBridgeInfo";
-            this.txtBridgeInfo.Size = new System.Drawing.Size(59, 25);
+            this.txtBridgeInfo.Size = new System.Drawing.Size(0, 25);
             this.txtBridgeInfo.TabIndex = 7;
-            this.txtBridgeInfo.Text = "label2";
             // 
             // Dashboard
             // 

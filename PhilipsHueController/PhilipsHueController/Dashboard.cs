@@ -14,28 +14,31 @@ namespace PhilipsHueController
 
         private async void Dashboard_Load(object sender, System.EventArgs e)
         {
+            pnlContinueSetup.Visible = false;
+
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
-            if (isApplicationRegistered)
+            if (!isApplicationRegistered)
             {
-                var bridge = await HueConnectionHelpers.GetConnectedBridge();
-
-                btnRename.Enabled = false;
-                pnlContinueSetup.Visible = false;
-                txtAdditionalInformation.Text = "Select a light to show additional information...";
-
-                txtBridgeInfo.Text = $"Bridge Information - " +
-                    $"{bridge.Config.Name} | " +
-                    $"Id : {bridge.Config.BridgeId} | " +
-                    $"{bridge.Config.IpAddress} | " +
-                    $"{bridge.Config.MacAddress}";
-
-                HueConnectionHelpers.LoadConfiguredBridge();
-                await LoadLightListBox();
-            }
-            else
-            {
+                pnlContinueSetup.Visible = true;
                 LaunchSetup(sender, e);
+
+                return;
             }
+
+            var bridge = await HueConnectionHelpers.GetConnectedBridge();
+
+            btnRename.Enabled = false;
+            pnlContinueSetup.Visible = false;
+            txtAdditionalInformation.Text = "Select a light to show additional information...";
+
+            txtBridgeInfo.Text = $"Bridge Information - " +
+                $"{bridge.Config.Name} | " +
+                $"Id : {bridge.Config.BridgeId} | " +
+                $"{bridge.Config.IpAddress} | " +
+                $"{bridge.Config.MacAddress}";
+
+            HueConnectionHelpers.LoadConfiguredBridge();
+            await LoadLightListBox();
         }
 
         private async Task LoadLightListBox()

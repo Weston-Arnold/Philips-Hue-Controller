@@ -44,10 +44,9 @@ namespace PhilipsHueController
         public static void LoadConfiguredBridge()
         {
             var bridgeIpAddress = ConfigHelpers.GetSettingByKey("BridgeIpAddress");
-            LocalHueClient = new LocalHueClient(bridgeIpAddress);
-
             var appKey = ConfigHelpers.GetSettingByKey("AppKey");
 
+            LocalHueClient = new LocalHueClient(bridgeIpAddress);
             LocalHueClient.Initialize(appKey);
         }
 
