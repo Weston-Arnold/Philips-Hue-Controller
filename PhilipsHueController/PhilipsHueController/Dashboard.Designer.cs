@@ -59,7 +59,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(993, 60);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(2058, 1213);
             this.pnlContinueSetup.TabIndex = 1;
             // 
             // lblSetupRequiredTitle
