@@ -17,7 +17,7 @@ namespace PhilipsHueController
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegistered)
             {
-                btnRename.Visible = false;
+                btnRename.Enabled = false;
                 pnlContinueSetup.Visible = false;
                 txtAdditionalInformation.Text = "Select a light to show additional information...";
 
@@ -81,12 +81,12 @@ namespace PhilipsHueController
         {
             if (lbLights.SelectedItem != null)
             {
-                btnRename.Visible = true;
+                btnRename.Enabled = true;
                 txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
             }
             else
             {
-                btnRename.Visible = false;
+                btnRename.Enabled = false;
             }
         }
     }

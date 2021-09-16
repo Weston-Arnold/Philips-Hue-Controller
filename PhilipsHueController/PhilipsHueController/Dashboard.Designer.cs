@@ -43,7 +43,7 @@ namespace PhilipsHueController
             // 
             // btnCompleteSetup
             // 
-            this.btnCompleteSetup.Location = new System.Drawing.Point(797, 632);
+            this.btnCompleteSetup.Location = new System.Drawing.Point(863, 628);
             this.btnCompleteSetup.Name = "btnCompleteSetup";
             this.btnCompleteSetup.Size = new System.Drawing.Size(344, 73);
             this.btnCompleteSetup.TabIndex = 0;
@@ -58,14 +58,14 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(1259, 67);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(2058, 1211);
             this.pnlContinueSetup.TabIndex = 1;
             // 
             // lblSetupRequiredTitle
             // 
             this.lblSetupRequiredTitle.AutoSize = true;
             this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(766, 348);
+            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(832, 344);
             this.lblSetupRequiredTitle.Name = "lblSetupRequiredTitle";
             this.lblSetupRequiredTitle.Size = new System.Drawing.Size(410, 74);
             this.lblSetupRequiredTitle.TabIndex = 2;
@@ -74,7 +74,7 @@ namespace PhilipsHueController
             // lblContinueSetupPrompt
             // 
             this.lblContinueSetupPrompt.AutoSize = true;
-            this.lblContinueSetupPrompt.Location = new System.Drawing.Point(602, 502);
+            this.lblContinueSetupPrompt.Location = new System.Drawing.Point(668, 498);
             this.lblContinueSetupPrompt.MaximumSize = new System.Drawing.Size(750, 0);
             this.lblContinueSetupPrompt.Name = "lblContinueSetupPrompt";
             this.lblContinueSetupPrompt.Size = new System.Drawing.Size(724, 50);
@@ -90,7 +90,7 @@ namespace PhilipsHueController
             this.lbLights.Location = new System.Drawing.Point(27, 116);
             this.lbLights.Name = "lbLights";
             this.lbLights.ScrollAlwaysVisible = true;
-            this.lbLights.Size = new System.Drawing.Size(317, 429);
+            this.lbLights.Size = new System.Drawing.Size(431, 304);
             this.lbLights.TabIndex = 2;
             this.lbLights.SelectedIndexChanged += new System.EventHandler(this.lbLights_SelectedIndexChanged);
             // 
@@ -106,9 +106,9 @@ namespace PhilipsHueController
             // 
             // btnRename
             // 
-            this.btnRename.Location = new System.Drawing.Point(27, 1132);
+            this.btnRename.Location = new System.Drawing.Point(27, 442);
             this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(333, 65);
+            this.btnRename.Size = new System.Drawing.Size(431, 65);
             this.btnRename.TabIndex = 4;
             this.btnRename.Text = "Rename Light";
             this.btnRename.UseVisualStyleBackColor = true;
@@ -118,9 +118,9 @@ namespace PhilipsHueController
             // 
             this.txtAdditionalInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAdditionalInformation.Enabled = false;
-            this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 629);
+            this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 588);
             this.txtAdditionalInformation.Name = "txtAdditionalInformation";
-            this.txtAdditionalInformation.Size = new System.Drawing.Size(431, 434);
+            this.txtAdditionalInformation.Size = new System.Drawing.Size(431, 609);
             this.txtAdditionalInformation.TabIndex = 5;
             this.txtAdditionalInformation.Text = "";
             // 
@@ -128,7 +128,7 @@ namespace PhilipsHueController
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(27, 576);
+            this.label1.Location = new System.Drawing.Point(27, 533);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(317, 41);
             this.label1.TabIndex = 6;

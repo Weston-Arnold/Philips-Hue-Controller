@@ -23,6 +23,8 @@ namespace PhilipsHueController.Helpers
         {
             var id = selectedLight.GetObjectPropertyByName("Id");
             var light = await GetLightById(id);
+            var lightGroups = await HueGroupHelpers.GetAllGroupNamesForLight(id);
+            var lightGroupsFormattedString = string.Join(", ", lightGroups);
 
             var lightPowerState = light.State.On ? "On" : "Off";
             var isReachable = light.State.IsReachable.HasValue && light.State.IsReachable.Value ? "Yes" : "No";
@@ -43,7 +45,8 @@ namespace PhilipsHueController.Helpers
                 $"Model Id: {light.ModelId}\n" +
                 $"Product Id: {light.ProductId}\n" +
                 $"Type: {light.Type}\n" +
-                $"Manufacturer Name: {light.ManufacturerName}\n";
+                $"Manufacturer Name: {light.ManufacturerName}\n\n" +
+                $"Groups: {lightGroupsFormattedString}\n";
         }
     }
 }
