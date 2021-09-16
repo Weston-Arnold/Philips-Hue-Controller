@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class RenameLightWindow
+    partial class RenameLight
     {
         /// <summary>
         /// Required designer variable.

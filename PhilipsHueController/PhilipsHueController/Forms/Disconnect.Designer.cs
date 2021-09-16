@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class DisconnectWindow
+    partial class Disconnect
     {
         /// <summary>
         /// Required designer variable.

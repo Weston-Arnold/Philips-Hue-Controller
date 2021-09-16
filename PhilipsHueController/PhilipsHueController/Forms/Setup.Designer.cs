@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController
 {
-    partial class SetupWindow
+    partial class Setup
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -22,7 +22,7 @@ namespace PhilipsHueController
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupWindow));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Setup));
             this.lblConnectionError = new System.Windows.Forms.Label();
             this.lbBridgeList = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();

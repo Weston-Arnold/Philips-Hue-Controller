@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
-    public partial class DashboardWindow : Form
+    public partial class Dashboard : Form
     {
-        public DashboardWindow()
+        public Dashboard()
         {
             InitializeComponent();
         }
@@ -60,7 +60,7 @@ namespace PhilipsHueController
 
         private void LaunchSetup(object sender, System.EventArgs e)
         {
-            var setupWindow = new SetupWindow();
+            var setupWindow = new Setup();
 
             setupWindow.ShowDialog();
 
@@ -79,7 +79,7 @@ namespace PhilipsHueController
         private async void btnRename_Click(object sender, System.EventArgs e)
         {
             var currentlySelectedLightIndex = lbLights.SelectedIndex;
-            var renameLightWindow = new RenameLightWindow(lbLights.SelectedItem);
+            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
             renameLightWindow.ShowDialog();
 
             await LoadLightListBox();

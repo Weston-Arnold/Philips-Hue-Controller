@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
-    public partial class DisconnectWindow : Form
+    public partial class Disconnect : Form
     {
-        public DisconnectWindow()
+        public Disconnect()
         {
             InitializeComponent();
         }
