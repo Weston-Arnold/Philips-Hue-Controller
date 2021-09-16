@@ -39,6 +39,7 @@ namespace PhilipsHueController
             this.txtAdditionalInformation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
+            this.btnDisconnect = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(2059, 1209);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(1019, 60);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -144,11 +145,21 @@ namespace PhilipsHueController
             this.txtBridgeInfo.Size = new System.Drawing.Size(0, 25);
             this.txtBridgeInfo.TabIndex = 7;
             // 
+            // btnDisconnect
+            // 
+            this.btnDisconnect.Location = new System.Drawing.Point(1815, 1136);
+            this.btnDisconnect.Name = "btnDisconnect";
+            this.btnDisconnect.Size = new System.Drawing.Size(233, 61);
+            this.btnDisconnect.TabIndex = 8;
+            this.btnDisconnect.Text = "Disconnect Application";
+            this.btnDisconnect.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.label1);
@@ -180,5 +191,6 @@ namespace PhilipsHueController
         private System.Windows.Forms.RichTextBox txtAdditionalInformation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtBridgeInfo;
+        private System.Windows.Forms.Button btnDisconnect;
     }
 }
