@@ -43,9 +43,9 @@ namespace PhilipsHueController
             // 
             // btnSaveChange
             // 
-            this.btnSaveChange.Location = new System.Drawing.Point(190, 99);
+            this.btnSaveChange.Location = new System.Drawing.Point(228, 100);
             this.btnSaveChange.Name = "btnSaveChange";
-            this.btnSaveChange.Size = new System.Drawing.Size(273, 61);
+            this.btnSaveChange.Size = new System.Drawing.Size(195, 50);
             this.btnSaveChange.TabIndex = 1;
             this.btnSaveChange.Text = "Save Change";
             this.btnSaveChange.UseVisualStyleBackColor = true;

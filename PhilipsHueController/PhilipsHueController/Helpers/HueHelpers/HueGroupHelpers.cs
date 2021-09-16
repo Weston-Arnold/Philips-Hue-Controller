@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace PhilipsHueController.Helpers
 {
-    public static class GroupHelpers
+    public static class HueGroupHelpers
     {
         public async static Task<IEnumerable<Group>> GetAllGroups()
         {

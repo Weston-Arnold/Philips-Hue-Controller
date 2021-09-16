@@ -33,13 +33,10 @@ namespace PhilipsHueController
         private async void LoadLightListBox()
         {
             lbLights.Items.Clear();
-
-            var allGroups = await GroupHelpers.GetAllGroups();
             var lightList = await HueLightHelpers.GetAllLights();
 
-            foreach (var light in lightList)
+            foreach (var light in lightList.OrderBy(x => x.Name))
             {
-                var group = allGroups.FirstOrDefault(x => x.Lights.Contains(light.Id));
                 lbLights.Items.Add(new { 
                     Id = light.Id,
                     LightName = light.Name
