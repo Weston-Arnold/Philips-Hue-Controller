@@ -36,7 +36,7 @@ namespace PhilipsHueController
             this.lbLights = new System.Windows.Forms.ListBox();
             this.lblLightListHeader = new System.Windows.Forms.Label();
             this.btnRename = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtAdditionalInformation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,7 @@ namespace PhilipsHueController
             this.lbLights.Location = new System.Drawing.Point(27, 116);
             this.lbLights.Name = "lbLights";
             this.lbLights.ScrollAlwaysVisible = true;
-            this.lbLights.Size = new System.Drawing.Size(333, 379);
+            this.lbLights.Size = new System.Drawing.Size(317, 429);
             this.lbLights.TabIndex = 2;
             this.lbLights.SelectedIndexChanged += new System.EventHandler(this.lbLights_SelectedIndexChanged);
             // 
@@ -114,14 +114,15 @@ namespace PhilipsHueController
             this.btnRename.UseVisualStyleBackColor = true;
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
-            // richTextBox1
+            // txtAdditionalInformation
             // 
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Location = new System.Drawing.Point(27, 629);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(333, 434);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.txtAdditionalInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAdditionalInformation.Enabled = false;
+            this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 629);
+            this.txtAdditionalInformation.Name = "txtAdditionalInformation";
+            this.txtAdditionalInformation.Size = new System.Drawing.Size(431, 434);
+            this.txtAdditionalInformation.TabIndex = 5;
+            this.txtAdditionalInformation.Text = "";
             // 
             // label1
             // 
@@ -137,9 +138,9 @@ namespace PhilipsHueController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1893, 1209);
+            this.ClientSize = new System.Drawing.Size(2060, 1209);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtAdditionalInformation);
             this.Controls.Add(this.btnRename);
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
@@ -165,7 +166,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.ListBox lbLights;
         private System.Windows.Forms.Label lblLightListHeader;
         private System.Windows.Forms.Button btnRename;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtAdditionalInformation;
         private System.Windows.Forms.Label label1;
     }
 }

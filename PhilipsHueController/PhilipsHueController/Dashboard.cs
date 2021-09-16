@@ -18,6 +18,7 @@ namespace PhilipsHueController
             {
                 btnRename.Visible = false;
                 pnlContinueSetup.Visible = false;
+                txtAdditionalInformation.Text = "Select a light to show additional information...";
 
                 HueConnectionHelpers.LoadConfiguredBridge();
                 LoadLightListBox();
@@ -73,9 +74,17 @@ namespace PhilipsHueController
             LoadLightListBox();
         }
 
-        private void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)
+        private async void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            btnRename.Visible = lbLights.SelectedItem != null;
+            if (lbLights.SelectedItem != null)
+            {
+                btnRename.Visible = true;
+                txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+            }
+            else
+            {
+                btnRename.Visible = false;
+            }
         }
     }
 }
