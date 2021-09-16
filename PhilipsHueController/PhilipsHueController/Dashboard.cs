@@ -14,9 +14,12 @@ namespace PhilipsHueController
             var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegistered)
             {
+                btnRename.Visible = false;
                 pnlContinueSetup.Visible = false;
 
                 HueConnectionHelpers.LoadConfiguredBridge();
+                LoadLightListBox();
+
                 return;
             }
             else
@@ -25,9 +28,13 @@ namespace PhilipsHueController
             }
         }
 
-        private void btnCompleteSetup_Click(object sender, System.EventArgs e)
+        private async void LoadLightListBox()
         {
-            LaunchSetup(sender, e);
+            var lightList = await HueConnectionHelpers.GetAllLights();
+            foreach (var light in lightList)
+            {
+                lbLights.Items.Add(light.Name);
+            }
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)
@@ -42,6 +49,22 @@ namespace PhilipsHueController
             {
                 Dashboard_Load(sender, e);
             }
+        }
+
+        private void btnCompleteSetup_Click(object sender, System.EventArgs e)
+        {
+            LaunchSetup(sender, e);
+        }
+
+        private void btnRename_Click(object sender, System.EventArgs e)
+        {
+            var renameLightWindow = new RenameLightWindow();
+            renameLightWindow.ShowDialog();
+        }
+
+        private void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            btnRename.Visible = lbLights.SelectedItem != null;
         }
     }
 }

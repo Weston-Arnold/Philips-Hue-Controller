@@ -33,6 +33,9 @@ namespace PhilipsHueController
             this.pnlContinueSetup = new System.Windows.Forms.Panel();
             this.lblSetupRequiredTitle = new System.Windows.Forms.Label();
             this.lblContinueSetupPrompt = new System.Windows.Forms.Label();
+            this.lbLights = new System.Windows.Forms.ListBox();
+            this.lblLightListHeader = new System.Windows.Forms.Label();
+            this.btnRename = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +56,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(1899, 1219);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(51, 51);
             this.pnlContinueSetup.TabIndex = 1;
             // 
             // lblSetupRequiredTitle
@@ -78,11 +81,44 @@ namespace PhilipsHueController
     "mplete the setup process before continuing.";
             this.lblContinueSetupPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lbLights
+            // 
+            this.lbLights.FormattingEnabled = true;
+            this.lbLights.ItemHeight = 25;
+            this.lbLights.Location = new System.Drawing.Point(27, 116);
+            this.lbLights.Name = "lbLights";
+            this.lbLights.Size = new System.Drawing.Size(333, 979);
+            this.lbLights.TabIndex = 2;
+            this.lbLights.SelectedIndexChanged += new System.EventHandler(this.lbLights_SelectedIndexChanged);
+            // 
+            // lblLightListHeader
+            // 
+            this.lblLightListHeader.AutoSize = true;
+            this.lblLightListHeader.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightListHeader.Location = new System.Drawing.Point(27, 60);
+            this.lblLightListHeader.Name = "lblLightListHeader";
+            this.lblLightListHeader.Size = new System.Drawing.Size(240, 41);
+            this.lblLightListHeader.TabIndex = 3;
+            this.lblLightListHeader.Text = "Avbailable Lights";
+            // 
+            // btnRename
+            // 
+            this.btnRename.Location = new System.Drawing.Point(27, 1117);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(333, 65);
+            this.btnRename.TabIndex = 4;
+            this.btnRename.Text = "Rename Light";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1901, 1218);
+            this.ClientSize = new System.Drawing.Size(1893, 1209);
+            this.Controls.Add(this.btnRename);
+            this.Controls.Add(this.lblLightListHeader);
+            this.Controls.Add(this.lbLights);
             this.Controls.Add(this.pnlContinueSetup);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -91,6 +127,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.ResumeLayout(false);
             this.pnlContinueSetup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -100,5 +137,8 @@ namespace PhilipsHueController
         private System.Windows.Forms.Panel pnlContinueSetup;
         private System.Windows.Forms.Label lblContinueSetupPrompt;
         private System.Windows.Forms.Label lblSetupRequiredTitle;
+        private System.Windows.Forms.ListBox lbLights;
+        private System.Windows.Forms.Label lblLightListHeader;
+        private System.Windows.Forms.Button btnRename;
     }
 }

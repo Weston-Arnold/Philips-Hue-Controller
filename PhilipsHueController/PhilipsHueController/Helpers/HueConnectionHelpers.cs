@@ -9,15 +9,19 @@ namespace PhilipsHueController
 {
     public static class HueConnectionHelpers
     {
+        private static LocalHueClient LocalHueClient;
+
         public static async Task<bool> ConfigureBridge(string ipAddress)
         {
             try
             {
-                var localHueClient = new LocalHueClient(ipAddress);
-                var appKey = await localHueClient.RegisterAsync("PhilipsHueController", "MyPC");
+                LocalHueClient = new LocalHueClient(ipAddress);
+                var appKey = await LocalHueClient.RegisterAsync("PhilipsHueController", "MyPC");
 
-                localHueClient.Initialize(appKey);
+                LocalHueClient.Initialize(appKey);
+
                 ConfigHelpers.AddOrUpdateAppSetting("AppKey", appKey);
+                ConfigHelpers.AddOrUpdateAppSetting("BridgeIpAddress", ipAddress);
 
                 return true;
             }
@@ -29,10 +33,12 @@ namespace PhilipsHueController
 
         public static void LoadConfiguredBridge()
         {
-            var localHueClient = new LocalHueClient("192.168.1.64");
+            var bridgeIpAddress = ConfigHelpers.GetSettingByKey("BridgeIpAddress");
+            LocalHueClient = new LocalHueClient(bridgeIpAddress);
+
             var appKey = ConfigHelpers.GetSettingByKey("AppKey");
 
-            localHueClient.Initialize(appKey);
+            LocalHueClient.Initialize(appKey);
         }
 
         public static bool IsApplicationRegistered()
@@ -48,6 +54,11 @@ namespace PhilipsHueController
 
             await locator.LocateBridgesAsync(TimeSpan.FromSeconds(5));
             return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
+        }
+
+        public async static Task<IEnumerable<Light>> GetAllLights()
+        {
+            return await LocalHueClient.GetLightsAsync();
         }
     }
 }
