@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using PhilipsHueController.Helpers;
+using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
@@ -30,7 +31,9 @@ namespace PhilipsHueController
 
         private async void LoadLightListBox()
         {
-            var lightList = await HueConnectionHelpers.GetAllLights();
+            lbLights.Items.Clear();
+
+            var lightList = await HueLightHelpers.GetAllLights();
             foreach (var light in lightList)
             {
                 lbLights.Items.Add(light.Name);
@@ -42,8 +45,6 @@ namespace PhilipsHueController
             var setupWindow = new SetupWindow();
             setupWindow.ShowDialog();
 
-            //Allows us to know whether the window was closed prior to connection (e.g. manually closed by user)
-            //If so, reload the dashboard so we can render the Setup Button -- required before anything else on Dashboard can show
             var isApplicationRegisteredAfterWindowClose = HueConnectionHelpers.IsApplicationRegistered();
             if (isApplicationRegisteredAfterWindowClose)
             {
@@ -58,8 +59,10 @@ namespace PhilipsHueController
 
         private void btnRename_Click(object sender, System.EventArgs e)
         {
-            var renameLightWindow = new RenameLightWindow();
+            var renameLightWindow = new RenameLightWindow(lbLights.SelectedItem.ToString());
             renameLightWindow.ShowDialog();
+
+            LoadLightListBox();
         }
 
         private void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)

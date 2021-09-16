@@ -11,6 +11,16 @@ namespace PhilipsHueController
     {
         private static LocalHueClient LocalHueClient;
 
+        public static LocalHueClient GetLocalHueClient()
+        {
+            if(LocalHueClient == null)
+            {
+                LoadConfiguredBridge();
+            }
+
+            return LocalHueClient;
+        }
+
         public static async Task<bool> ConfigureBridge(string ipAddress)
         {
             try
@@ -49,16 +59,10 @@ namespace PhilipsHueController
 
         public static async Task<List<LocatedBridge>> GetNearbyBridges()
         {
-            //todo: multiple bridges found -- user selection?
             var locator = new HttpBridgeLocator();
 
             await locator.LocateBridgesAsync(TimeSpan.FromSeconds(5));
             return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
-        }
-
-        public async static Task<IEnumerable<Light>> GetAllLights()
-        {
-            return await LocalHueClient.GetLightsAsync();
         }
     }
 }
