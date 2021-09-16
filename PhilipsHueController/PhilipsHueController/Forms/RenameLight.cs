@@ -32,6 +32,7 @@ namespace PhilipsHueController
                 }
 
                 await hueClient.SetLightNameAsync(light.Id, txtRename.Text);
+
                 Close();
             }
         }

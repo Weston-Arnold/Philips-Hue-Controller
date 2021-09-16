@@ -1,16 +1,19 @@
 ﻿using PhilipsHueController.Extensions;
 using Q42.HueApi;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PhilipsHueController.Helpers
 {
     public static class HueLightHelpers
     {
-        public async static Task<IEnumerable<Light>> GetAllLights()
+        public async static Task<List<Light>> GetAllLights()
         {
             var localHueClient = HueConnectionHelpers.GetLocalHueClient();
-            return await localHueClient.GetLightsAsync();
+            var lights = await localHueClient.GetLightsAsync();
+
+            return lights.ToList();
         }
 
         public async static Task<Light> GetLightById(string id)
@@ -22,6 +25,7 @@ namespace PhilipsHueController.Helpers
         public async static Task<string> GetSelectedLightInformation(object selectedLight)
         {
             var id = selectedLight.GetObjectPropertyByName("Id");
+
             var light = await GetLightById(id);
             var lightGroups = await HueGroupHelpers.GetAllGroupNamesForLight(id);
             var lightGroupsFormattedString = string.Join(", ", lightGroups);
