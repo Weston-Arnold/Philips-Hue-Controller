@@ -25,6 +25,7 @@ namespace PhilipsHueController
                 return;
             }
 
+            HueConnectionHelpers.LoadConfiguredBridge();
             var bridge = await HueConnectionHelpers.GetConnectedBridge();
 
             btnRename.Enabled = false;
@@ -37,7 +38,6 @@ namespace PhilipsHueController
                 $"{bridge.Config.IpAddress} | " +
                 $"{bridge.Config.MacAddress}";
 
-            HueConnectionHelpers.LoadConfiguredBridge();
             await LoadLightListBox();
         }
 
