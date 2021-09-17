@@ -95,7 +95,7 @@ namespace PhilipsHueController
             this.lbLights.ScrollAlwaysVisible = true;
             this.lbLights.Size = new System.Drawing.Size(431, 304);
             this.lbLights.TabIndex = 2;
-            this.lbLights.SelectedIndexChanged += new System.EventHandler(this.lbLights_SelectedIndexChanged);
+            this.lbLights.Click += new System.EventHandler(this.lbLights_OnClick);
             // 
             // lblLightListHeader
             // 

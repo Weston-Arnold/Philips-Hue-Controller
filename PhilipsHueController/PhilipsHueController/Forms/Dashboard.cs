@@ -80,7 +80,8 @@ namespace PhilipsHueController
             lbLights.SelectedIndex = currentlySelectedLightIndex;
         }
 
-        private async void lbLights_SelectedIndexChanged(object sender, System.EventArgs e)
+        //We use OnClick instead of SelectedindexChanged in the event the user clicks twice -- we still want the light to blip
+        private async void lbLights_OnClick(object sender, System.EventArgs e)
         {
             if (lbLights.SelectedItem != null)
             {
