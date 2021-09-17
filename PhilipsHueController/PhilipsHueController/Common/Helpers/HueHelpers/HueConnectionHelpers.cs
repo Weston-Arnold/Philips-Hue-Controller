@@ -21,6 +21,17 @@ namespace PhilipsHueController
             return LocalHueClient;
         }
 
+        public static async Task<List<LocatedBridge>> GetNearbyBridges()
+        {
+            return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
+        }
+
+        public async static Task<string> GetConnectedBridgeFooterInformation()
+        {
+            var bridge = await GetLocalHueClient().GetBridgeAsync();
+            return $"Bridge Information - {bridge.Config.Name} | Id : {bridge.Config.BridgeId} | {bridge.Config.IpAddress} | {bridge.Config.MacAddress}";
+        }
+
         public static async Task<bool> ConfigureBridge(string ipAddress)
         {
             try
@@ -50,23 +61,10 @@ namespace PhilipsHueController
             LocalHueClient.Initialize(appKey);
         }
 
-        public async static Task<Bridge> GetConnectedBridge()
-        {
-            return await LocalHueClient.GetBridgeAsync();
-        }
-
         public static bool IsApplicationRegistered()
         {
             var appKey = ConfigHelpers.GetSettingByKey("AppKey");
             return appKey != null;
-        }
-
-        public static async Task<List<LocatedBridge>> GetNearbyBridges()
-        {
-            var locator = new HttpBridgeLocator();
-
-            await locator.LocateBridgesAsync(TimeSpan.FromSeconds(5));
-            return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
         }
     }
 }

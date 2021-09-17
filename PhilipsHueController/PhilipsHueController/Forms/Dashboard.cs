@@ -26,17 +26,11 @@ namespace PhilipsHueController
             }
 
             HueConnectionHelpers.LoadConfiguredBridge();
-            var bridge = await HueConnectionHelpers.GetConnectedBridge();
 
             btnRename.Enabled = false;
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light to show additional information...";
-
-            txtBridgeInfo.Text = $"Bridge Information - " +
-                $"{bridge.Config.Name} | " +
-                $"Id : {bridge.Config.BridgeId} | " +
-                $"{bridge.Config.IpAddress} | " +
-                $"{bridge.Config.MacAddress}";
+            txtBridgeInfo.Text = await HueConnectionHelpers.GetConnectedBridgeFooterInformation();
 
             await LoadLightListBox();
         }
