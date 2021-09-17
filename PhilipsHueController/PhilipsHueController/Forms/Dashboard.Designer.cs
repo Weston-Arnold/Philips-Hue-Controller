@@ -60,7 +60,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(931, 60);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(2060, 1212);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -153,6 +153,7 @@ namespace PhilipsHueController
             this.btnDisconnect.TabIndex = 8;
             this.btnDisconnect.Text = "Disconnect Application";
             this.btnDisconnect.UseVisualStyleBackColor = true;
+            this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
             // Dashboard
             // 
@@ -168,6 +169,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

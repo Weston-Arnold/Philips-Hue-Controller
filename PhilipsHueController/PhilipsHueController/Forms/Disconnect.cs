@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PhilipsHueController.Helpers;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -15,6 +8,19 @@ namespace PhilipsHueController
         public Disconnect()
         {
             InitializeComponent();
+        }
+
+        private void btnDisconnect_Click(object sender, System.EventArgs e)
+        {
+            ConfigHelpers.DeleteSettingByKey("AppKey");
+            ConfigHelpers.DeleteSettingByKey("BridgeIpAddress");
+
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, System.EventArgs e)
+        {
+            Close();
         }
     }
 }

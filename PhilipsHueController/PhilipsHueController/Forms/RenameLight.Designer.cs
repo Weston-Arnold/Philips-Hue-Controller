@@ -51,7 +51,7 @@ namespace PhilipsHueController
             this.btnSaveChange.UseVisualStyleBackColor = true;
             this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
             // 
-            // RenameLightWindow
+            // RenameLight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -59,7 +59,9 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "RenameLightWindow";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "RenameLight";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Rename Light";
             this.ResumeLayout(false);

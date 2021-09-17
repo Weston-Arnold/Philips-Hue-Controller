@@ -98,5 +98,17 @@ namespace PhilipsHueController
                 btnRename.Enabled = false;
             }
         }
+
+        private void btnDisconnect_Click(object sender, System.EventArgs e)
+        {
+            var disconnectWindow = new Disconnect();
+            disconnectWindow.ShowDialog();
+
+            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
+            if (string.IsNullOrEmpty(appKey))
+            {
+                pnlContinueSetup.Visible = true;
+            }
+        }
     }
 }

@@ -96,7 +96,7 @@ namespace PhilipsHueController
             this.lblSetupTitle.TabIndex = 10;
             this.lblSetupTitle.Text = "Connect to Hue Bridge";
             // 
-            // SetupWindow
+            // Setup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -108,7 +108,9 @@ namespace PhilipsHueController
             this.Controls.Add(this.lblSetupInstructions);
             this.Controls.Add(this.btnConnectBridge);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "SetupWindow";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Setup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Application Setup";
             this.Load += new System.EventHandler(this.SetupWindow_Load);
