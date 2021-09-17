@@ -22,6 +22,28 @@ namespace PhilipsHueController.Helpers
             return await localHueClient.GetLightAsync(id);
         }
 
+        public async static Task BlipSelectedLight(object selectedLight)
+        {
+            var id = selectedLight.GetObjectPropertyByName("Id");
+
+            var light = await GetLightById(id);
+            var currentBrightness = light.State.Brightness;
+
+            await SetSingleLightBrightness(id, 1);
+            await SetSingleLightBrightness(id, currentBrightness);
+        }
+
+        public async static Task SetSingleLightBrightness(string lightId, byte brightnessValue)
+        {
+            var brightnessCommand = new LightCommand
+            {
+                Brightness = brightnessValue
+            };
+
+            var client = HueConnectionHelpers.GetLocalHueClient();
+            await client.SendCommandAsync(brightnessCommand, new List<string> { lightId });
+        }
+
         public async static Task<string> GetSelectedLightInformation(object selectedLight)
         {
             var id = selectedLight.GetObjectPropertyByName("Id");

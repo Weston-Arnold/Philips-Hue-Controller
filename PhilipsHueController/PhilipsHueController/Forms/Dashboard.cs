@@ -92,6 +92,8 @@ namespace PhilipsHueController
             {
                 btnRename.Enabled = true;
                 txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+
+                await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);
             }
             else
             {
