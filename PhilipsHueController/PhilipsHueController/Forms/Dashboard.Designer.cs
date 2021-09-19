@@ -66,7 +66,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(635, 52);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(2061, 1215);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -229,12 +229,6 @@ namespace PhilipsHueController
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
-            this.Controls.Add(this.btnLightsOn);
-            this.Controls.Add(this.btnLightsOff);
-            this.Controls.Add(this.txtQuickOptionsTitle);
-            this.Controls.Add(this.btnEditRoom);
-            this.Controls.Add(this.lblLightRooms);
-            this.Controls.Add(this.lbLightRooms);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
@@ -243,6 +237,12 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnRenameLight);
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
+            this.Controls.Add(this.btnLightsOn);
+            this.Controls.Add(this.btnLightsOff);
+            this.Controls.Add(this.txtQuickOptionsTitle);
+            this.Controls.Add(this.btnEditRoom);
+            this.Controls.Add(this.lblLightRooms);
+            this.Controls.Add(this.lbLightRooms);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Dashboard";
