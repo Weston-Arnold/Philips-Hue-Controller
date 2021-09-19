@@ -28,8 +28,8 @@ namespace PhilipsHueController
 
             HueConnectionHelpers.LoadConfiguredBridge();
 
-            btnRename.Enabled = false;
-            btnRenameGroup.Enabled = false;
+            btnRenameLight.Enabled = false;
+            btnEditGroup.Enabled = false;
 
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light to show additional information...";
@@ -92,7 +92,7 @@ namespace PhilipsHueController
             LaunchSetup(sender, e);
         }
 
-        private async void btnRename_Click(object sender, System.EventArgs e)
+        private async void btnRenameLight_Click(object sender, System.EventArgs e)
         {
             var currentlySelectedLightIndex = lbLights.SelectedIndex;
             var renameLightWindow = new RenameLight(lbLights.SelectedItem);
@@ -103,10 +103,10 @@ namespace PhilipsHueController
             lbLights.SelectedIndex = currentlySelectedLightIndex;
         }
 
-        private async void btnRenameGroup_Click(object sender, System.EventArgs e)
+        private async void btnEditGroup_Click(object sender, System.EventArgs e)
         {
             var currentlySelectedGroupIndex = lbLightGroups.SelectedIndex;
-            var renameGroupWindow = new RenameGroup(lbLightGroups.SelectedItem);
+            var renameGroupWindow = new EditGroup(lbLightGroups.SelectedItem);
 
             renameGroupWindow.ShowDialog();
 
@@ -119,20 +119,20 @@ namespace PhilipsHueController
         {
             if (lbLights.SelectedItem != null)
             {
-                btnRename.Enabled = true;
+                btnRenameLight.Enabled = true;
                 txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
 
                 await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);
             }
             else
             {
-                btnRename.Enabled = false;
+                btnRenameLight.Enabled = false;
             }
         }
 
         private void lbLightGroups_OnClick(object sender, System.EventArgs e)
         {
-            btnRenameGroup.Enabled = lbLightGroups.SelectedItem != null;
+            btnEditGroup.Enabled = lbLightGroups.SelectedItem != null;
         }
 
         private void btnDisconnect_Click(object sender, System.EventArgs e)

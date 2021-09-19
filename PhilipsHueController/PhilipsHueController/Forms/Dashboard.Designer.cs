@@ -35,14 +35,14 @@ namespace PhilipsHueController
             this.lblContinueSetupPrompt = new System.Windows.Forms.Label();
             this.lbLights = new System.Windows.Forms.ListBox();
             this.lblLightListHeader = new System.Windows.Forms.Label();
-            this.btnRename = new System.Windows.Forms.Button();
+            this.btnRenameLight = new System.Windows.Forms.Button();
             this.txtAdditionalInformation = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.lbLightGroups = new System.Windows.Forms.ListBox();
             this.lblLightGroupsTitle = new System.Windows.Forms.Label();
-            this.btnRenameGroup = new System.Windows.Forms.Button();
+            this.btnEditGroup = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,15 +110,15 @@ namespace PhilipsHueController
             this.lblLightListHeader.TabIndex = 3;
             this.lblLightListHeader.Text = "Avbailable Lights";
             // 
-            // btnRename
+            // btnRenameLight
             // 
-            this.btnRename.Location = new System.Drawing.Point(27, 442);
-            this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(431, 65);
-            this.btnRename.TabIndex = 4;
-            this.btnRename.Text = "Rename Light";
-            this.btnRename.UseVisualStyleBackColor = true;
-            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+            this.btnRenameLight.Location = new System.Drawing.Point(27, 442);
+            this.btnRenameLight.Name = "btnRenameLight";
+            this.btnRenameLight.Size = new System.Drawing.Size(431, 65);
+            this.btnRenameLight.TabIndex = 4;
+            this.btnRenameLight.Text = "Rename Light";
+            this.btnRenameLight.UseVisualStyleBackColor = true;
+            this.btnRenameLight.Click += new System.EventHandler(this.btnRenameLight_Click);
             // 
             // txtAdditionalInformation
             // 
@@ -136,9 +136,9 @@ namespace PhilipsHueController
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(27, 533);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(317, 41);
+            this.label1.Size = new System.Drawing.Size(391, 41);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Additional Information";
+            this.label1.Text = "Additional Light Information";
             // 
             // txtBridgeInfo
             // 
@@ -179,22 +179,22 @@ namespace PhilipsHueController
             this.lblLightGroupsTitle.TabIndex = 10;
             this.lblLightGroupsTitle.Text = "Light Groups";
             // 
-            // btnRenameGroup
+            // btnEditGroup
             // 
-            this.btnRenameGroup.Location = new System.Drawing.Point(513, 442);
-            this.btnRenameGroup.Name = "btnRenameGroup";
-            this.btnRenameGroup.Size = new System.Drawing.Size(431, 65);
-            this.btnRenameGroup.TabIndex = 11;
-            this.btnRenameGroup.Text = "Rename Group";
-            this.btnRenameGroup.UseVisualStyleBackColor = true;
-            this.btnRenameGroup.Click += new System.EventHandler(this.btnRenameGroup_Click);
+            this.btnEditGroup.Location = new System.Drawing.Point(513, 442);
+            this.btnEditGroup.Name = "btnEditGroup";
+            this.btnEditGroup.Size = new System.Drawing.Size(431, 65);
+            this.btnEditGroup.TabIndex = 11;
+            this.btnEditGroup.Text = "Edit Group";
+            this.btnEditGroup.UseVisualStyleBackColor = true;
+            this.btnEditGroup.Click += new System.EventHandler(this.btnEditGroup_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
-            this.Controls.Add(this.btnRenameGroup);
+            this.Controls.Add(this.btnEditGroup);
             this.Controls.Add(this.lblLightGroupsTitle);
             this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.pnlContinueSetup);
@@ -202,7 +202,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.txtBridgeInfo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAdditionalInformation);
-            this.Controls.Add(this.btnRename);
+            this.Controls.Add(this.btnRenameLight);
             this.Controls.Add(this.lblLightListHeader);
             this.Controls.Add(this.lbLights);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -226,13 +226,13 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label lblSetupRequiredTitle;
         private System.Windows.Forms.ListBox lbLights;
         private System.Windows.Forms.Label lblLightListHeader;
-        private System.Windows.Forms.Button btnRename;
+        private System.Windows.Forms.Button btnRenameLight;
         private System.Windows.Forms.RichTextBox txtAdditionalInformation;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.ListBox lbLightGroups;
         private System.Windows.Forms.Label lblLightGroupsTitle;
-        private System.Windows.Forms.Button btnRenameGroup;
+        private System.Windows.Forms.Button btnEditGroup;
     }
 }

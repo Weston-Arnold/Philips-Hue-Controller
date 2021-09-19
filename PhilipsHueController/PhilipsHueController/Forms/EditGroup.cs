@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController.Forms
 {
-    public partial class RenameGroup : Form
+    public partial class EditGroup : Form
     {
         private readonly string GroupName = string.Empty;
         private readonly string GroupId = string.Empty;
 
-        public RenameGroup(object selectedGroup)
+        public EditGroup(object selectedGroup)
         {
             InitializeComponent();
 

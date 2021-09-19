@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController.Forms
 {
-    partial class RenameGroup
+    partial class EditGroup
     {
         /// <summary>
         /// Required designer variable.
