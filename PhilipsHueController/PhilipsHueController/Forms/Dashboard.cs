@@ -59,20 +59,20 @@ namespace PhilipsHueController
 
         private async Task LoadGroupListBox()
         {
-            lbLightGroups.Items.Clear();
+            lbLightRooms.Items.Clear();
 
             var groupList = await HueGroupHelpers.GetAllGroups(GroupType.Room);
 
             foreach (var group in groupList.OrderBy(x => x.Name))
             {
-                lbLightGroups.Items.Add(new
+                lbLightRooms.Items.Add(new
                 {
                     Id = group.Id,
                     GroupName = group.Name
                 });
             }
 
-            lbLightGroups.DisplayMember = "GroupName";
+            lbLightRooms.DisplayMember = "GroupName";
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)
@@ -93,26 +93,19 @@ namespace PhilipsHueController
             LaunchSetup(sender, e);
         }
 
-        private async void btnRenameLight_Click(object sender, System.EventArgs e)
+        private void btnRenameLight_Click(object sender, System.EventArgs e)
         {
-            var currentlySelectedLightIndex = lbLights.SelectedIndex;
-            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
-
-            renameLightWindow.ShowDialog();
-
-            await LoadLightListBox();
-            lbLights.SelectedIndex = currentlySelectedLightIndex;
+            OpenLightEditDialogue();
         }
 
-        private async void btnEditGroup_Click(object sender, System.EventArgs e)
+        private void btnEditGroup_Click(object sender, System.EventArgs e)
         {
-            var currentlySelectedGroupIndex = lbLightGroups.SelectedIndex;
-            var renameGroupWindow = new EditRoom(lbLightGroups.SelectedItem);
+            OpenRoomEditDialogue();
+        }
 
-            renameGroupWindow.ShowDialog();
-
-            await LoadGroupListBox();
-            lbLightGroups.SelectedIndex = currentlySelectedGroupIndex;
+        private void lbLightGroups_MouseDoubleClick(object sender, System.EventArgs e)
+        {
+            OpenRoomEditDialogue();
         }
 
         //We use OnClick instead of SelectedindexChanged in the event the user clicks twice -- we still want the light to blip
@@ -131,9 +124,14 @@ namespace PhilipsHueController
             }
         }
 
+        private void lbLights_MouseDoubleClick(object sender, System.EventArgs e)
+        {
+            OpenLightEditDialogue();
+        }
+
         private void lbLightGroups_OnClick(object sender, System.EventArgs e)
         {
-            btnEditRoom.Enabled = lbLightGroups.SelectedItem != null;
+            btnEditRoom.Enabled = lbLightRooms.SelectedItem != null;
         }
 
         private void btnDisconnect_Click(object sender, System.EventArgs e)
@@ -146,6 +144,28 @@ namespace PhilipsHueController
             {
                 pnlContinueSetup.Visible = true;
             }
+        }
+
+        private async void OpenLightEditDialogue()
+        {
+            var currentlySelectedLightIndex = lbLights.SelectedIndex;
+            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
+
+            renameLightWindow.ShowDialog();
+
+            await LoadLightListBox();
+            lbLights.SelectedIndex = currentlySelectedLightIndex;
+        }
+
+        private async void OpenRoomEditDialogue()
+        {
+            var currentlySelectedGroupIndex = lbLightRooms.SelectedIndex;
+            var renameGroupWindow = new EditRoom(lbLightRooms.SelectedItem);
+
+            renameGroupWindow.ShowDialog();
+
+            await LoadGroupListBox();
+            lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
         }
     }
 }

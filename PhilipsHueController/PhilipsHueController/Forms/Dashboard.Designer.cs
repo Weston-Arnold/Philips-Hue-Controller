@@ -40,7 +40,7 @@ namespace PhilipsHueController
             this.label1 = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
-            this.lbLightGroups = new System.Windows.Forms.ListBox();
+            this.lbLightRooms = new System.Windows.Forms.ListBox();
             this.lblLightRooms = new System.Windows.Forms.Label();
             this.btnEditRoom = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
@@ -99,6 +99,7 @@ namespace PhilipsHueController
             this.lbLights.Size = new System.Drawing.Size(431, 304);
             this.lbLights.TabIndex = 2;
             this.lbLights.Click += new System.EventHandler(this.lbLights_OnClick);
+            this.lbLights.DoubleClick += new System.EventHandler(this.lbLights_MouseDoubleClick);
             // 
             // lblLightListHeader
             // 
@@ -158,16 +159,17 @@ namespace PhilipsHueController
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
-            // lbLightGroups
+            // lbLightRooms
             // 
-            this.lbLightGroups.FormattingEnabled = true;
-            this.lbLightGroups.ItemHeight = 25;
-            this.lbLightGroups.Location = new System.Drawing.Point(513, 116);
-            this.lbLightGroups.Name = "lbLightGroups";
-            this.lbLightGroups.ScrollAlwaysVisible = true;
-            this.lbLightGroups.Size = new System.Drawing.Size(431, 304);
-            this.lbLightGroups.TabIndex = 9;
-            this.lbLightGroups.Click += new System.EventHandler(this.lbLightGroups_OnClick);
+            this.lbLightRooms.FormattingEnabled = true;
+            this.lbLightRooms.ItemHeight = 25;
+            this.lbLightRooms.Location = new System.Drawing.Point(513, 116);
+            this.lbLightRooms.Name = "lbLightRooms";
+            this.lbLightRooms.ScrollAlwaysVisible = true;
+            this.lbLightRooms.Size = new System.Drawing.Size(431, 304);
+            this.lbLightRooms.TabIndex = 9;
+            this.lbLightRooms.Click += new System.EventHandler(this.lbLightGroups_OnClick);
+            this.lbLightRooms.DoubleClick += new System.EventHandler(this.lbLightGroups_MouseDoubleClick);
             // 
             // lblLightRooms
             // 
@@ -196,7 +198,7 @@ namespace PhilipsHueController
             this.ClientSize = new System.Drawing.Size(2060, 1209);
             this.Controls.Add(this.btnEditRoom);
             this.Controls.Add(this.lblLightRooms);
-            this.Controls.Add(this.lbLightGroups);
+            this.Controls.Add(this.lbLightRooms);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
@@ -231,7 +233,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
-        private System.Windows.Forms.ListBox lbLightGroups;
+        private System.Windows.Forms.ListBox lbLightRooms;
         private System.Windows.Forms.Label lblLightRooms;
         private System.Windows.Forms.Button btnEditRoom;
     }
