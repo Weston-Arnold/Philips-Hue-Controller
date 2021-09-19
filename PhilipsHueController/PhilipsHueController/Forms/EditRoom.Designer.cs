@@ -76,9 +76,9 @@ namespace PhilipsHueController.Forms
             this.lblLightsInRoom.AutoSize = true;
             this.lblLightsInRoom.Location = new System.Drawing.Point(76, 147);
             this.lblLightsInRoom.Name = "lblLightsInRoom";
-            this.lblLightsInRoom.Size = new System.Drawing.Size(131, 25);
+            this.lblLightsInRoom.Size = new System.Drawing.Size(59, 25);
             this.lblLightsInRoom.TabIndex = 7;
-            this.lblLightsInRoom.Text = "Lights in Room";
+            this.lblLightsInRoom.Text = "Lights";
             // 
             // EditRoom
             // 
