@@ -36,19 +36,26 @@ namespace PhilipsHueController.Forms
             // txtErrorMessage
             // 
             this.txtErrorMessage.AutoSize = true;
-            this.txtErrorMessage.Location = new System.Drawing.Point(279, 44);
+            this.txtErrorMessage.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.txtErrorMessage.Location = new System.Drawing.Point(31, 21);
+            this.txtErrorMessage.MaximumSize = new System.Drawing.Size(300, 0);
+            this.txtErrorMessage.MinimumSize = new System.Drawing.Size(500, 0);
             this.txtErrorMessage.Name = "txtErrorMessage";
-            this.txtErrorMessage.Size = new System.Drawing.Size(0, 25);
+            this.txtErrorMessage.Size = new System.Drawing.Size(500, 30);
             this.txtErrorMessage.TabIndex = 0;
+            this.txtErrorMessage.Text = " ";
+            this.txtErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnCloseErrorMessage
             // 
-            this.btnCloseErrorMessage.Location = new System.Drawing.Point(136, 95);
+            this.btnCloseErrorMessage.Location = new System.Drawing.Point(173, 112);
             this.btnCloseErrorMessage.Name = "btnCloseErrorMessage";
-            this.btnCloseErrorMessage.Size = new System.Drawing.Size(289, 65);
+            this.btnCloseErrorMessage.Size = new System.Drawing.Size(219, 49);
             this.btnCloseErrorMessage.TabIndex = 1;
             this.btnCloseErrorMessage.Text = "Close";
             this.btnCloseErrorMessage.UseVisualStyleBackColor = true;
+            this.btnCloseErrorMessage.Click += new System.EventHandler(this.btnCloseErrorMessage_Click);
             // 
             // ErrorMessage
             // 
@@ -61,6 +68,7 @@ namespace PhilipsHueController.Forms
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ErrorMessage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Error";
             this.ResumeLayout(false);
             this.PerformLayout();

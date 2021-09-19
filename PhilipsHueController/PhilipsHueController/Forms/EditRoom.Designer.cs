@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController.Forms
 {
-    partial class EditGroup
+    partial class EditRoom
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,9 @@ namespace PhilipsHueController.Forms
         {
             this.btnSaveChange = new System.Windows.Forms.Button();
             this.txtRename = new System.Windows.Forms.TextBox();
-            this.lblGroupName = new System.Windows.Forms.Label();
+            this.lblRoomName = new System.Windows.Forms.Label();
             this.clbLights = new System.Windows.Forms.CheckedListBox();
-            this.lblLightsInGroup = new System.Windows.Forms.Label();
+            this.lblLightsInRoom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSaveChange
@@ -54,14 +54,14 @@ namespace PhilipsHueController.Forms
             this.txtRename.Size = new System.Drawing.Size(340, 31);
             this.txtRename.TabIndex = 2;
             // 
-            // lblGroupName
+            // lblRoomName
             // 
-            this.lblGroupName.AutoSize = true;
-            this.lblGroupName.Location = new System.Drawing.Point(76, 50);
-            this.lblGroupName.Name = "lblGroupName";
-            this.lblGroupName.Size = new System.Drawing.Size(114, 25);
-            this.lblGroupName.TabIndex = 4;
-            this.lblGroupName.Text = "Group Name";
+            this.lblRoomName.AutoSize = true;
+            this.lblRoomName.Location = new System.Drawing.Point(76, 50);
+            this.lblRoomName.Name = "lblRoomName";
+            this.lblRoomName.Size = new System.Drawing.Size(112, 25);
+            this.lblRoomName.TabIndex = 4;
+            this.lblRoomName.Text = "Room Name";
             // 
             // clbLights
             // 
@@ -71,31 +71,31 @@ namespace PhilipsHueController.Forms
             this.clbLights.Size = new System.Drawing.Size(340, 368);
             this.clbLights.TabIndex = 5;
             // 
-            // lblLightsInGroup
+            // lblLightsInRoom
             // 
-            this.lblLightsInGroup.AutoSize = true;
-            this.lblLightsInGroup.Location = new System.Drawing.Point(76, 147);
-            this.lblLightsInGroup.Name = "lblLightsInGroup";
-            this.lblLightsInGroup.Size = new System.Drawing.Size(133, 25);
-            this.lblLightsInGroup.TabIndex = 7;
-            this.lblLightsInGroup.Text = "Lights in Group";
+            this.lblLightsInRoom.AutoSize = true;
+            this.lblLightsInRoom.Location = new System.Drawing.Point(76, 147);
+            this.lblLightsInRoom.Name = "lblLightsInRoom";
+            this.lblLightsInRoom.Size = new System.Drawing.Size(131, 25);
+            this.lblLightsInRoom.TabIndex = 7;
+            this.lblLightsInRoom.Text = "Lights in Room";
             // 
-            // EditGroup
+            // EditRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 651);
-            this.Controls.Add(this.lblLightsInGroup);
+            this.Controls.Add(this.lblLightsInRoom);
             this.Controls.Add(this.clbLights);
-            this.Controls.Add(this.lblGroupName);
+            this.Controls.Add(this.lblRoomName);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EditGroup";
+            this.Name = "EditRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit Group";
+            this.Text = "Edit Room";
             this.Load += new System.EventHandler(this.EditGroup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -106,8 +106,8 @@ namespace PhilipsHueController.Forms
 
         private System.Windows.Forms.Button btnSaveChange;
         private System.Windows.Forms.TextBox txtRename;
-        private System.Windows.Forms.Label lblGroupName;
+        private System.Windows.Forms.Label lblRoomName;
         private System.Windows.Forms.CheckedListBox clbLights;
-        private System.Windows.Forms.Label lblLightsInGroup;
+        private System.Windows.Forms.Label lblLightsInRoom;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using PhilipsHueController.Forms;
 using PhilipsHueController.Helpers;
+using Q42.HueApi.Models.Groups;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace PhilipsHueController
             HueConnectionHelpers.LoadConfiguredBridge();
 
             btnRenameLight.Enabled = false;
-            btnEditGroup.Enabled = false;
+            btnEditRoom.Enabled = false;
 
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light to show additional information...";
@@ -60,7 +61,7 @@ namespace PhilipsHueController
         {
             lbLightGroups.Items.Clear();
 
-            var groupList = await HueGroupHelpers.GetAllGroups();
+            var groupList = await HueGroupHelpers.GetAllGroups(GroupType.Room);
 
             foreach (var group in groupList.OrderBy(x => x.Name))
             {
@@ -106,7 +107,7 @@ namespace PhilipsHueController
         private async void btnEditGroup_Click(object sender, System.EventArgs e)
         {
             var currentlySelectedGroupIndex = lbLightGroups.SelectedIndex;
-            var renameGroupWindow = new EditGroup(lbLightGroups.SelectedItem);
+            var renameGroupWindow = new EditRoom(lbLightGroups.SelectedItem);
 
             renameGroupWindow.ShowDialog();
 
@@ -132,7 +133,7 @@ namespace PhilipsHueController
 
         private void lbLightGroups_OnClick(object sender, System.EventArgs e)
         {
-            btnEditGroup.Enabled = lbLightGroups.SelectedItem != null;
+            btnEditRoom.Enabled = lbLightGroups.SelectedItem != null;
         }
 
         private void btnDisconnect_Click(object sender, System.EventArgs e)

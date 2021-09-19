@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController.Forms
 {
-    public partial class EditGroup : Form
+    public partial class EditRoom : Form
     {
         private readonly string GroupName = string.Empty;
         private readonly string GroupId = string.Empty;
 
-        public EditGroup(object selectedGroup)
+        public EditRoom(object selectedGroup)
         {
             InitializeComponent();
 
@@ -36,8 +36,11 @@ namespace PhilipsHueController.Forms
                 selectedLights.Add(selectedLight.GetObjectPropertyByName("Id"));
             }
 
-            await HueGroupHelpers.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
-            Close();
+            var successful = await HueGroupHelpers.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
+            if (successful)
+            {
+                Close();
+            }
         }
 
         private async Task LoadLightList()

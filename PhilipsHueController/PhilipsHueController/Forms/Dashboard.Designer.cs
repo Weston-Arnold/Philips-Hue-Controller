@@ -41,8 +41,8 @@ namespace PhilipsHueController
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.lbLightGroups = new System.Windows.Forms.ListBox();
-            this.lblLightGroupsTitle = new System.Windows.Forms.Label();
-            this.btnEditGroup = new System.Windows.Forms.Button();
+            this.lblLightRooms = new System.Windows.Forms.Label();
+            this.btnEditRoom = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -169,33 +169,33 @@ namespace PhilipsHueController
             this.lbLightGroups.TabIndex = 9;
             this.lbLightGroups.Click += new System.EventHandler(this.lbLightGroups_OnClick);
             // 
-            // lblLightGroupsTitle
+            // lblLightRooms
             // 
-            this.lblLightGroupsTitle.AutoSize = true;
-            this.lblLightGroupsTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLightGroupsTitle.Location = new System.Drawing.Point(513, 60);
-            this.lblLightGroupsTitle.Name = "lblLightGroupsTitle";
-            this.lblLightGroupsTitle.Size = new System.Drawing.Size(189, 41);
-            this.lblLightGroupsTitle.TabIndex = 10;
-            this.lblLightGroupsTitle.Text = "Light Groups";
+            this.lblLightRooms.AutoSize = true;
+            this.lblLightRooms.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightRooms.Location = new System.Drawing.Point(513, 60);
+            this.lblLightRooms.Name = "lblLightRooms";
+            this.lblLightRooms.Size = new System.Drawing.Size(110, 41);
+            this.lblLightRooms.TabIndex = 10;
+            this.lblLightRooms.Text = "Rooms";
             // 
-            // btnEditGroup
+            // btnEditRoom
             // 
-            this.btnEditGroup.Location = new System.Drawing.Point(513, 442);
-            this.btnEditGroup.Name = "btnEditGroup";
-            this.btnEditGroup.Size = new System.Drawing.Size(431, 65);
-            this.btnEditGroup.TabIndex = 11;
-            this.btnEditGroup.Text = "Edit Group";
-            this.btnEditGroup.UseVisualStyleBackColor = true;
-            this.btnEditGroup.Click += new System.EventHandler(this.btnEditGroup_Click);
+            this.btnEditRoom.Location = new System.Drawing.Point(513, 442);
+            this.btnEditRoom.Name = "btnEditRoom";
+            this.btnEditRoom.Size = new System.Drawing.Size(431, 65);
+            this.btnEditRoom.TabIndex = 11;
+            this.btnEditRoom.Text = "Edit Room";
+            this.btnEditRoom.UseVisualStyleBackColor = true;
+            this.btnEditRoom.Click += new System.EventHandler(this.btnEditGroup_Click);
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
-            this.Controls.Add(this.btnEditGroup);
-            this.Controls.Add(this.lblLightGroupsTitle);
+            this.Controls.Add(this.btnEditRoom);
+            this.Controls.Add(this.lblLightRooms);
             this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
@@ -232,7 +232,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.ListBox lbLightGroups;
-        private System.Windows.Forms.Label lblLightGroupsTitle;
-        private System.Windows.Forms.Button btnEditGroup;
+        private System.Windows.Forms.Label lblLightRooms;
+        private System.Windows.Forms.Button btnEditRoom;
     }
 }
