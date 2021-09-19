@@ -58,6 +58,16 @@ namespace PhilipsHueController.Helpers
             await client.SendCommandAsync(brightnessCommand, new List<string> { lightId });
         }
 
+        public async static Task SetLightOnOff(string lightId, bool on)
+        {
+            var powerCommand = on 
+                ? new LightCommand().TurnOn() 
+                : new LightCommand().TurnOff();
+
+            var client = HueConnectionHelpers.GetLocalHueClient();
+            await client.SendCommandAsync(powerCommand, new List<string> { lightId });
+        }
+
         public async static Task<string> GetSelectedLightInformation(object selectedLight)
         {
             var id = selectedLight.GetObjectPropertyByName("Id");

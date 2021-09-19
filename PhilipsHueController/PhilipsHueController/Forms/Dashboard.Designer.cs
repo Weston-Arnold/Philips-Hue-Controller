@@ -43,6 +43,9 @@ namespace PhilipsHueController
             this.lbLightRooms = new System.Windows.Forms.ListBox();
             this.lblLightRooms = new System.Windows.Forms.Label();
             this.btnEditRoom = new System.Windows.Forms.Button();
+            this.txtQuickOptionsTitle = new System.Windows.Forms.Label();
+            this.btnLightsOff = new System.Windows.Forms.Button();
+            this.btnLightsOn = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,11 +194,44 @@ namespace PhilipsHueController
             this.btnEditRoom.UseVisualStyleBackColor = true;
             this.btnEditRoom.Click += new System.EventHandler(this.btnEditGroup_Click);
             // 
+            // txtQuickOptionsTitle
+            // 
+            this.txtQuickOptionsTitle.AutoSize = true;
+            this.txtQuickOptionsTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtQuickOptionsTitle.Location = new System.Drawing.Point(438, 533);
+            this.txtQuickOptionsTitle.Name = "txtQuickOptionsTitle";
+            this.txtQuickOptionsTitle.Size = new System.Drawing.Size(208, 41);
+            this.txtQuickOptionsTitle.TabIndex = 12;
+            this.txtQuickOptionsTitle.Text = "Quick Options";
+            // 
+            // btnLightsOff
+            // 
+            this.btnLightsOff.Location = new System.Drawing.Point(438, 677);
+            this.btnLightsOff.Name = "btnLightsOff";
+            this.btnLightsOff.Size = new System.Drawing.Size(390, 65);
+            this.btnLightsOff.TabIndex = 13;
+            this.btnLightsOff.Text = "Turn Light(s) Off";
+            this.btnLightsOff.UseVisualStyleBackColor = true;
+            this.btnLightsOff.Click += new System.EventHandler(this.btnLightsOff_Click);
+            // 
+            // btnLightsOn
+            // 
+            this.btnLightsOn.Location = new System.Drawing.Point(438, 588);
+            this.btnLightsOn.Name = "btnLightsOn";
+            this.btnLightsOn.Size = new System.Drawing.Size(390, 65);
+            this.btnLightsOn.TabIndex = 14;
+            this.btnLightsOn.Text = "Turn Light(s) On";
+            this.btnLightsOn.UseVisualStyleBackColor = true;
+            this.btnLightsOn.Click += new System.EventHandler(this.btnLightsOn_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.btnLightsOn);
+            this.Controls.Add(this.btnLightsOff);
+            this.Controls.Add(this.txtQuickOptionsTitle);
             this.Controls.Add(this.btnEditRoom);
             this.Controls.Add(this.lblLightRooms);
             this.Controls.Add(this.lbLightRooms);
@@ -236,5 +272,8 @@ namespace PhilipsHueController
         private System.Windows.Forms.ListBox lbLightRooms;
         private System.Windows.Forms.Label lblLightRooms;
         private System.Windows.Forms.Button btnEditRoom;
+        private System.Windows.Forms.Label txtQuickOptionsTitle;
+        private System.Windows.Forms.Button btnLightsOff;
+        private System.Windows.Forms.Button btnLightsOn;
     }
 }

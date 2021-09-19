@@ -52,6 +52,16 @@ namespace PhilipsHueController.Helpers
                 .ToList();
         }
 
+        public async static Task SetGroupLightsOnOff(string groupId, bool on)
+        {
+            var powerCommand = on
+                ? new LightCommand().TurnOn()
+                : new LightCommand().TurnOff();
+
+            var client = HueConnectionHelpers.GetLocalHueClient();
+            await client.SendGroupCommandAsync(powerCommand, groupId);
+        }
+
         public async static Task<string> GetSelectedRoomInformation(object selectedRoom)
         {
             var id = selectedRoom.GetObjectPropertyByName("Id");

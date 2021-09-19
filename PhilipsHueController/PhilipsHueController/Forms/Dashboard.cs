@@ -1,4 +1,5 @@
-﻿using PhilipsHueController.Forms;
+﻿using PhilipsHueController.Extensions;
+using PhilipsHueController.Forms;
 using PhilipsHueController.Helpers;
 using Q42.HueApi.Models.Groups;
 using System.Linq;
@@ -185,6 +186,42 @@ namespace PhilipsHueController
             if (isApplicationRegisteredAfterWindowClose)
             {
                 Dashboard_Load(sender, e);
+            }
+        }
+
+        private async void btnLightsOn_Click(object sender, System.EventArgs e)
+        {
+            var currentlySelectedLight = lbLights.SelectedItem;
+            var currentlySelectedRoom = lbLightRooms.SelectedItem;
+
+            if(currentlySelectedLight != null)
+            {
+                await HueLightHelpers.SetLightOnOff(currentlySelectedLight.GetObjectPropertyByName("Id"), true);
+                return;
+            }
+
+            if (currentlySelectedRoom != null)
+            {
+                await HueGroupHelpers.SetGroupLightsOnOff(currentlySelectedRoom.GetObjectPropertyByName("Id"), true);
+                return;
+            }
+        }
+
+        private async void btnLightsOff_Click(object sender, System.EventArgs e)
+        {
+            var currentlySelectedLight = lbLights.SelectedItem;
+            var currentlySelectedRoom = lbLightRooms.SelectedItem;
+
+            if (currentlySelectedLight != null)
+            {
+                await HueLightHelpers.SetLightOnOff(currentlySelectedLight.GetObjectPropertyByName("Id"), false);
+                return;
+            }
+
+            if (currentlySelectedRoom != null)
+            {
+                await HueGroupHelpers.SetGroupLightsOnOff(currentlySelectedRoom.GetObjectPropertyByName("Id"), false);
+                return;
             }
         }
     }
