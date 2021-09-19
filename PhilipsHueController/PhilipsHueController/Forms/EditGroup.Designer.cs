@@ -31,11 +31,14 @@ namespace PhilipsHueController.Forms
         {
             this.btnSaveChange = new System.Windows.Forms.Button();
             this.txtRename = new System.Windows.Forms.TextBox();
+            this.lblGroupName = new System.Windows.Forms.Label();
+            this.clbLights = new System.Windows.Forms.CheckedListBox();
+            this.Load += new System.EventHandler(this.EditGroup_Load);
             this.SuspendLayout();
             // 
             // btnSaveChange
             // 
-            this.btnSaveChange.Location = new System.Drawing.Point(225, 99);
+            this.btnSaveChange.Location = new System.Drawing.Point(144, 558);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(195, 50);
             this.btnSaveChange.TabIndex = 3;
@@ -45,25 +48,44 @@ namespace PhilipsHueController.Forms
             // 
             // txtRename
             // 
-            this.txtRename.Location = new System.Drawing.Point(77, 46);
+            this.txtRename.Location = new System.Drawing.Point(76, 78);
             this.txtRename.MaxLength = 50;
             this.txtRename.Name = "txtRename";
-            this.txtRename.Size = new System.Drawing.Size(501, 31);
+            this.txtRename.Size = new System.Drawing.Size(340, 31);
             this.txtRename.TabIndex = 2;
             // 
-            // RenameGroup
+            // lblGroupName
+            // 
+            this.lblGroupName.AutoSize = true;
+            this.lblGroupName.Location = new System.Drawing.Point(76, 34);
+            this.lblGroupName.Name = "lblGroupName";
+            this.lblGroupName.Size = new System.Drawing.Size(114, 25);
+            this.lblGroupName.TabIndex = 4;
+            this.lblGroupName.Text = "Group Name";
+            // 
+            // clbLights
+            // 
+            this.clbLights.FormattingEnabled = true;
+            this.clbLights.Location = new System.Drawing.Point(76, 175);
+            this.clbLights.Name = "clbLights";
+            this.clbLights.Size = new System.Drawing.Size(340, 368);
+            this.clbLights.TabIndex = 5;
+            // 
+            // EditGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 198);
+            this.ClientSize = new System.Drawing.Size(497, 631);
+            this.Controls.Add(this.clbLights);
+            this.Controls.Add(this.lblGroupName);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RenameGroup";
+            this.Name = "EditGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RenameGroup";
+            this.Text = "Edit Group";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -73,5 +95,7 @@ namespace PhilipsHueController.Forms
 
         private System.Windows.Forms.Button btnSaveChange;
         private System.Windows.Forms.TextBox txtRename;
+        private System.Windows.Forms.Label lblGroupName;
+        private System.Windows.Forms.CheckedListBox clbLights;
     }
 }
