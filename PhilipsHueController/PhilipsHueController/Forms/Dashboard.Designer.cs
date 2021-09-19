@@ -42,6 +42,7 @@ namespace PhilipsHueController
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.lbLightGroups = new System.Windows.Forms.ListBox();
             this.lblLightGroupsTitle = new System.Windows.Forms.Label();
+            this.btnRenameGroup = new System.Windows.Forms.Button();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,6 +167,7 @@ namespace PhilipsHueController
             this.lbLightGroups.ScrollAlwaysVisible = true;
             this.lbLightGroups.Size = new System.Drawing.Size(431, 304);
             this.lbLightGroups.TabIndex = 9;
+            this.lbLightGroups.Click += new System.EventHandler(this.lbLightGroups_OnClick);
             // 
             // lblLightGroupsTitle
             // 
@@ -177,11 +179,22 @@ namespace PhilipsHueController
             this.lblLightGroupsTitle.TabIndex = 10;
             this.lblLightGroupsTitle.Text = "Light Groups";
             // 
+            // btnRenameGroup
+            // 
+            this.btnRenameGroup.Location = new System.Drawing.Point(513, 442);
+            this.btnRenameGroup.Name = "btnRenameGroup";
+            this.btnRenameGroup.Size = new System.Drawing.Size(431, 65);
+            this.btnRenameGroup.TabIndex = 11;
+            this.btnRenameGroup.Text = "Rename Group";
+            this.btnRenameGroup.UseVisualStyleBackColor = true;
+            this.btnRenameGroup.Click += new System.EventHandler(this.btnRenameGroup_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.btnRenameGroup);
             this.Controls.Add(this.lblLightGroupsTitle);
             this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.pnlContinueSetup);
@@ -220,5 +233,6 @@ namespace PhilipsHueController
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.ListBox lbLightGroups;
         private System.Windows.Forms.Label lblLightGroupsTitle;
+        private System.Windows.Forms.Button btnRenameGroup;
     }
 }

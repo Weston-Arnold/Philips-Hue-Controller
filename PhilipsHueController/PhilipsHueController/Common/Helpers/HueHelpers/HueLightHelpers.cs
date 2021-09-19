@@ -16,6 +16,12 @@ namespace PhilipsHueController.Helpers
             return lights.ToList();
         }
 
+        public async static Task<List<string>> GetAllLightsByGroupId(string id)
+        {
+            var lightsInGroup = await HueGroupHelpers.GetGroupById(id);
+            return lightsInGroup.Lights;
+        }
+
         public async static Task<Light> GetLightById(string id)
         {
             var localHueClient = HueConnectionHelpers.GetLocalHueClient();

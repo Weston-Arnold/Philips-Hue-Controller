@@ -1,4 +1,5 @@
-﻿using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Forms;
+using PhilipsHueController.Helpers;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -99,6 +100,16 @@ namespace PhilipsHueController
             lbLights.SelectedIndex = currentlySelectedLightIndex;
         }
 
+        private async void btnRenameGroup_Click(object sender, System.EventArgs e)
+        {
+            var currentlySelectedGroupIndex = lbLightGroups.SelectedIndex;
+            var renameGroupWindow = new RenameGroup(lbLightGroups.SelectedItem);
+            renameGroupWindow.ShowDialog();
+
+            await LoadGroupListBox();
+            lbLightGroups.SelectedIndex = currentlySelectedGroupIndex;
+        }
+
         //We use OnClick instead of SelectedindexChanged in the event the user clicks twice -- we still want the light to blip
         private async void lbLights_OnClick(object sender, System.EventArgs e)
         {
@@ -113,6 +124,11 @@ namespace PhilipsHueController
             {
                 btnRename.Enabled = false;
             }
+        }
+
+        private void lbLightGroups_OnClick(object sender, System.EventArgs e)
+        {
+            btnRenameGroup.Enabled = lbLightGroups.SelectedItem != null;
         }
 
         private void btnDisconnect_Click(object sender, System.EventArgs e)
