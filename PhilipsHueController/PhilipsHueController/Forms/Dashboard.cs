@@ -33,6 +33,7 @@ namespace PhilipsHueController
             txtBridgeInfo.Text = await HueConnectionHelpers.GetConnectedBridgeFooterInformation();
 
             await LoadLightListBox();
+            await LoadGroupListBox();
         }
 
         private async Task LoadLightListBox()
@@ -50,6 +51,24 @@ namespace PhilipsHueController
             }
 
             lbLights.DisplayMember = "LightName";
+        }
+
+        private async Task LoadGroupListBox()
+        {
+            lbLightGroups.Items.Clear();
+
+            var groupList = await HueGroupHelpers.GetAllGroups();
+
+            foreach (var group in groupList.OrderBy(x => x.Name))
+            {
+                lbLightGroups.Items.Add(new
+                {
+                    Id = group.Id,
+                    GroupName = group.Name
+                });
+            }
+
+            lbLightGroups.DisplayMember = "GroupName";
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)

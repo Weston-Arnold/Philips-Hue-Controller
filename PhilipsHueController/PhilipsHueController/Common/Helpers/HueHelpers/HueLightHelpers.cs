@@ -22,6 +22,14 @@ namespace PhilipsHueController.Helpers
             return await localHueClient.GetLightAsync(id);
         }
 
+        public async static Task RenameLightById(string id, string newName)
+        {
+            var light = await GetLightById(id);
+            var hueClient = HueConnectionHelpers.GetLocalHueClient();
+
+            await hueClient.SetLightNameAsync(light.Id, newName);
+        }
+
         public async static Task BlipSelectedLight(object selectedLight)
         {
             var id = selectedLight.GetObjectPropertyByName("Id");

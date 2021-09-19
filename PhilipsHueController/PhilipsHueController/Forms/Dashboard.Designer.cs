@@ -40,6 +40,8 @@ namespace PhilipsHueController
             this.label1 = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
+            this.lbLightGroups = new System.Windows.Forms.ListBox();
+            this.lblLightGroupsTitle = new System.Windows.Forms.Label();
             this.pnlContinueSetup.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(2060, 1212);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(635, 52);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -155,11 +157,33 @@ namespace PhilipsHueController
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
+            // lbLightGroups
+            // 
+            this.lbLightGroups.FormattingEnabled = true;
+            this.lbLightGroups.ItemHeight = 25;
+            this.lbLightGroups.Location = new System.Drawing.Point(513, 116);
+            this.lbLightGroups.Name = "lbLightGroups";
+            this.lbLightGroups.ScrollAlwaysVisible = true;
+            this.lbLightGroups.Size = new System.Drawing.Size(431, 304);
+            this.lbLightGroups.TabIndex = 9;
+            // 
+            // lblLightGroupsTitle
+            // 
+            this.lblLightGroupsTitle.AutoSize = true;
+            this.lblLightGroupsTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightGroupsTitle.Location = new System.Drawing.Point(513, 60);
+            this.lblLightGroupsTitle.Name = "lblLightGroupsTitle";
+            this.lblLightGroupsTitle.Size = new System.Drawing.Size(189, 41);
+            this.lblLightGroupsTitle.TabIndex = 10;
+            this.lblLightGroupsTitle.Text = "Light Groups";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2060, 1209);
+            this.Controls.Add(this.lblLightGroupsTitle);
+            this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
@@ -194,5 +218,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
+        private System.Windows.Forms.ListBox lbLightGroups;
+        private System.Windows.Forms.Label lblLightGroupsTitle;
     }
 }
