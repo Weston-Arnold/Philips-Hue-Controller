@@ -29,6 +29,8 @@ namespace PhilipsHueController
             HueConnectionHelpers.LoadConfiguredBridge();
 
             btnRename.Enabled = false;
+            btnRenameGroup.Enabled = false;
+
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light to show additional information...";
             txtBridgeInfo.Text = await HueConnectionHelpers.GetConnectedBridgeFooterInformation();
@@ -94,6 +96,7 @@ namespace PhilipsHueController
         {
             var currentlySelectedLightIndex = lbLights.SelectedIndex;
             var renameLightWindow = new RenameLight(lbLights.SelectedItem);
+
             renameLightWindow.ShowDialog();
 
             await LoadLightListBox();
@@ -104,6 +107,7 @@ namespace PhilipsHueController
         {
             var currentlySelectedGroupIndex = lbLightGroups.SelectedIndex;
             var renameGroupWindow = new RenameGroup(lbLightGroups.SelectedItem);
+
             renameGroupWindow.ShowDialog();
 
             await LoadGroupListBox();
