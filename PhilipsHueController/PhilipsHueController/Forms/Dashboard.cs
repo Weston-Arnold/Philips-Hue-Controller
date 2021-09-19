@@ -33,11 +33,106 @@ namespace PhilipsHueController
             btnEditRoom.Enabled = false;
 
             pnlContinueSetup.Visible = false;
-            txtAdditionalInformation.Text = "Select a light to show additional information...";
+            txtAdditionalInformation.Text = "Select a light or group to show additional information...";
             txtBridgeInfo.Text = await HueConnectionHelpers.GetConnectedBridgeFooterInformation();
 
             await LoadLightListBox();
             await LoadGroupListBox();
+        }
+
+        private void btnCompleteSetup_Click(object sender, System.EventArgs e)
+        {
+            LaunchSetup(sender, e);
+        }
+
+        private void btnRenameLight_Click(object sender, System.EventArgs e)
+        {
+            OpenLightEditDialogue();
+        }
+
+        private void btnEditGroup_Click(object sender, System.EventArgs e)
+        {
+            OpenRoomEditDialogue();
+        }
+
+        private void lbLights_MouseDoubleClick(object sender, System.EventArgs e)
+        {
+            OpenLightEditDialogue();
+        }
+
+        private void lbLightGroups_MouseDoubleClick(object sender, System.EventArgs e)
+        {
+            OpenRoomEditDialogue();
+        }
+
+        private async void lbLightGroups_OnClick(object sender, System.EventArgs e)
+        {
+            lbLights.SelectedItem = null;
+
+            if (lbLightRooms.SelectedItem != null)
+            {
+                btnEditRoom.Enabled = true;
+                txtAdditionalInformation.Text = await HueGroupHelpers.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
+            }
+            else
+            {
+                btnEditRoom.Enabled = false;
+            }
+        }
+
+        private async void lbLights_OnClick(object sender, System.EventArgs e)
+        {
+            lbLightRooms.SelectedItem = null;
+
+            if (lbLights.SelectedItem != null)
+            {
+                btnRenameLight.Enabled = true;
+                txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+
+                await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);
+            }
+            else
+            {
+                btnRenameLight.Enabled = false;
+            }
+        }
+
+        private void btnDisconnect_Click(object sender, System.EventArgs e)
+        {
+            var disconnectWindow = new Disconnect();
+            disconnectWindow.ShowDialog();
+
+            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
+            if (string.IsNullOrEmpty(appKey))
+            {
+                pnlContinueSetup.Visible = true;
+            }
+        }
+
+        private async void OpenLightEditDialogue()
+        {
+            var currentlySelectedLightIndex = lbLights.SelectedIndex;
+            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
+
+            renameLightWindow.ShowDialog();
+
+            txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+            await LoadLightListBox();
+
+            lbLights.SelectedIndex = currentlySelectedLightIndex;
+        }
+
+        private async void OpenRoomEditDialogue()
+        {
+            var currentlySelectedGroupIndex = lbLightRooms.SelectedIndex;
+            var renameGroupWindow = new EditRoom(lbLightRooms.SelectedItem);
+
+            renameGroupWindow.ShowDialog();
+
+            txtAdditionalInformation.Text = await HueGroupHelpers.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
+            await LoadGroupListBox();
+
+            lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
         }
 
         private async Task LoadLightListBox()
@@ -48,7 +143,8 @@ namespace PhilipsHueController
 
             foreach (var light in lightList.OrderBy(x => x.Name))
             {
-                lbLights.Items.Add(new { 
+                lbLights.Items.Add(new
+                {
                     Id = light.Id,
                     LightName = light.Name
                 });
@@ -86,86 +182,6 @@ namespace PhilipsHueController
             {
                 Dashboard_Load(sender, e);
             }
-        }
-
-        private void btnCompleteSetup_Click(object sender, System.EventArgs e)
-        {
-            LaunchSetup(sender, e);
-        }
-
-        private void btnRenameLight_Click(object sender, System.EventArgs e)
-        {
-            OpenLightEditDialogue();
-        }
-
-        private void btnEditGroup_Click(object sender, System.EventArgs e)
-        {
-            OpenRoomEditDialogue();
-        }
-
-        private void lbLightGroups_MouseDoubleClick(object sender, System.EventArgs e)
-        {
-            OpenRoomEditDialogue();
-        }
-
-        //We use OnClick instead of SelectedindexChanged in the event the user clicks twice -- we still want the light to blip
-        private async void lbLights_OnClick(object sender, System.EventArgs e)
-        {
-            if (lbLights.SelectedItem != null)
-            {
-                btnRenameLight.Enabled = true;
-                txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
-
-                await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);
-            }
-            else
-            {
-                btnRenameLight.Enabled = false;
-            }
-        }
-
-        private void lbLights_MouseDoubleClick(object sender, System.EventArgs e)
-        {
-            OpenLightEditDialogue();
-        }
-
-        private void lbLightGroups_OnClick(object sender, System.EventArgs e)
-        {
-            btnEditRoom.Enabled = lbLightRooms.SelectedItem != null;
-        }
-
-        private void btnDisconnect_Click(object sender, System.EventArgs e)
-        {
-            var disconnectWindow = new Disconnect();
-            disconnectWindow.ShowDialog();
-
-            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
-            if (string.IsNullOrEmpty(appKey))
-            {
-                pnlContinueSetup.Visible = true;
-            }
-        }
-
-        private async void OpenLightEditDialogue()
-        {
-            var currentlySelectedLightIndex = lbLights.SelectedIndex;
-            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
-
-            renameLightWindow.ShowDialog();
-
-            await LoadLightListBox();
-            lbLights.SelectedIndex = currentlySelectedLightIndex;
-        }
-
-        private async void OpenRoomEditDialogue()
-        {
-            var currentlySelectedGroupIndex = lbLightRooms.SelectedIndex;
-            var renameGroupWindow = new EditRoom(lbLightRooms.SelectedItem);
-
-            renameGroupWindow.ShowDialog();
-
-            await LoadGroupListBox();
-            lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using PhilipsHueController.Forms;
+﻿using PhilipsHueController.Extensions;
+using PhilipsHueController.Forms;
+using Q42.HueApi;
 using Q42.HueApi.Models.Groups;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +50,31 @@ namespace PhilipsHueController.Helpers
                 .Where(x => x.Lights.Contains(lightId))
                 .Select(x => x.Name)
                 .ToList();
+        }
+
+        public async static Task<string> GetSelectedRoomInformation(object selectedRoom)
+        {
+            var id = selectedRoom.GetObjectPropertyByName("Id");
+
+            var group = await GetGroupById(id);
+            var groupLightIds = await HueLightHelpers.GetAllLightsByGroupId(id);
+            var groupLights = new List<string>();
+
+            foreach(var lightId in groupLightIds)
+            {
+                var light = await HueLightHelpers.GetLightById(lightId);
+                groupLights.Add(light.Name);
+            }
+            
+            var groupLightsFormattedString = string.Join(", ", groupLights);
+
+            return
+                $"Group Id: {group.Id}\n" +
+                $"Group Name: {group.Name}\n" +
+                $"Type: {group.Type}\n" + 
+                $"Class: {group.Class}\n" +
+                $"Number of Lights: {group.Lights.Count}\n\n" +
+                $"Lights: {groupLightsFormattedString}\n";
         }
     }
 }

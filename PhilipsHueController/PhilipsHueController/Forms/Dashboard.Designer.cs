@@ -37,7 +37,7 @@ namespace PhilipsHueController
             this.lblLightListHeader = new System.Windows.Forms.Label();
             this.btnRenameLight = new System.Windows.Forms.Button();
             this.txtAdditionalInformation = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAdditionalLightInformation = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
             this.lbLightRooms = new System.Windows.Forms.ListBox();
@@ -96,7 +96,7 @@ namespace PhilipsHueController
             this.lbLights.Location = new System.Drawing.Point(27, 116);
             this.lbLights.Name = "lbLights";
             this.lbLights.ScrollAlwaysVisible = true;
-            this.lbLights.Size = new System.Drawing.Size(431, 304);
+            this.lbLights.Size = new System.Drawing.Size(391, 304);
             this.lbLights.TabIndex = 2;
             this.lbLights.Click += new System.EventHandler(this.lbLights_OnClick);
             this.lbLights.DoubleClick += new System.EventHandler(this.lbLights_MouseDoubleClick);
@@ -115,7 +115,7 @@ namespace PhilipsHueController
             // 
             this.btnRenameLight.Location = new System.Drawing.Point(27, 442);
             this.btnRenameLight.Name = "btnRenameLight";
-            this.btnRenameLight.Size = new System.Drawing.Size(431, 65);
+            this.btnRenameLight.Size = new System.Drawing.Size(391, 65);
             this.btnRenameLight.TabIndex = 4;
             this.btnRenameLight.Text = "Rename Light";
             this.btnRenameLight.UseVisualStyleBackColor = true;
@@ -127,19 +127,19 @@ namespace PhilipsHueController
             this.txtAdditionalInformation.Enabled = false;
             this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 588);
             this.txtAdditionalInformation.Name = "txtAdditionalInformation";
-            this.txtAdditionalInformation.Size = new System.Drawing.Size(431, 571);
+            this.txtAdditionalInformation.Size = new System.Drawing.Size(391, 571);
             this.txtAdditionalInformation.TabIndex = 5;
             this.txtAdditionalInformation.Text = "";
             // 
-            // label1
+            // lblAdditionalLightInformation
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(27, 533);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(391, 41);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Additional Light Information";
+            this.lblAdditionalLightInformation.AutoSize = true;
+            this.lblAdditionalLightInformation.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAdditionalLightInformation.Location = new System.Drawing.Point(27, 533);
+            this.lblAdditionalLightInformation.Name = "lblAdditionalLightInformation";
+            this.lblAdditionalLightInformation.Size = new System.Drawing.Size(317, 41);
+            this.lblAdditionalLightInformation.TabIndex = 6;
+            this.lblAdditionalLightInformation.Text = "Additional Information";
             // 
             // txtBridgeInfo
             // 
@@ -163,10 +163,10 @@ namespace PhilipsHueController
             // 
             this.lbLightRooms.FormattingEnabled = true;
             this.lbLightRooms.ItemHeight = 25;
-            this.lbLightRooms.Location = new System.Drawing.Point(513, 116);
+            this.lbLightRooms.Location = new System.Drawing.Point(438, 116);
             this.lbLightRooms.Name = "lbLightRooms";
             this.lbLightRooms.ScrollAlwaysVisible = true;
-            this.lbLightRooms.Size = new System.Drawing.Size(431, 304);
+            this.lbLightRooms.Size = new System.Drawing.Size(390, 304);
             this.lbLightRooms.TabIndex = 9;
             this.lbLightRooms.Click += new System.EventHandler(this.lbLightGroups_OnClick);
             this.lbLightRooms.DoubleClick += new System.EventHandler(this.lbLightGroups_MouseDoubleClick);
@@ -175,17 +175,17 @@ namespace PhilipsHueController
             // 
             this.lblLightRooms.AutoSize = true;
             this.lblLightRooms.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLightRooms.Location = new System.Drawing.Point(513, 60);
+            this.lblLightRooms.Location = new System.Drawing.Point(438, 60);
             this.lblLightRooms.Name = "lblLightRooms";
-            this.lblLightRooms.Size = new System.Drawing.Size(110, 41);
+            this.lblLightRooms.Size = new System.Drawing.Size(235, 41);
             this.lblLightRooms.TabIndex = 10;
-            this.lblLightRooms.Text = "Rooms";
+            this.lblLightRooms.Text = "Available Rooms";
             // 
             // btnEditRoom
             // 
-            this.btnEditRoom.Location = new System.Drawing.Point(513, 442);
+            this.btnEditRoom.Location = new System.Drawing.Point(438, 442);
             this.btnEditRoom.Name = "btnEditRoom";
-            this.btnEditRoom.Size = new System.Drawing.Size(431, 65);
+            this.btnEditRoom.Size = new System.Drawing.Size(390, 65);
             this.btnEditRoom.TabIndex = 11;
             this.btnEditRoom.Text = "Edit Room";
             this.btnEditRoom.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAdditionalLightInformation);
             this.Controls.Add(this.txtAdditionalInformation);
             this.Controls.Add(this.btnRenameLight);
             this.Controls.Add(this.lblLightListHeader);
@@ -230,7 +230,7 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label lblLightListHeader;
         private System.Windows.Forms.Button btnRenameLight;
         private System.Windows.Forms.RichTextBox txtAdditionalInformation;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAdditionalLightInformation;
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
         private System.Windows.Forms.ListBox lbLightRooms;

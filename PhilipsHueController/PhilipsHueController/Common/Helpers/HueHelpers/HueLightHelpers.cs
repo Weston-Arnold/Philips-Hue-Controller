@@ -70,8 +70,8 @@ namespace PhilipsHueController.Helpers
             var isReachable = light.State.IsReachable.HasValue && light.State.IsReachable.Value ? "Yes" : "No";
 
             return
-                $"Id: {light.Id}\n" +
-                $"Name: {light.Name}\n" +
+                $"Light Id: {light.Id}\n" +
+                $"Light Name: {light.Name}\n" +
                 $"Power: {lightPowerState}\n" +
                 $"Reachable: {isReachable}\n" +
                 $"Brightness: {light.State.Brightness}\n" +
