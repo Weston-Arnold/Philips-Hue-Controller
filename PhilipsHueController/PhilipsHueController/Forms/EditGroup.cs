@@ -51,6 +51,7 @@ namespace PhilipsHueController.Forms
                     LightName = light.Name
                 });
             }
+            clbLights.DisplayMember = "LightName";
 
             var groupLightIds = await HueLightHelpers.GetAllLightsByGroupId(GroupId);
             foreach(var lightId in groupLightIds)
@@ -65,8 +66,6 @@ namespace PhilipsHueController.Forms
 
                 clbLights.SetItemChecked(indexOfLight, true);
             }
-
-            clbLights.DisplayMember = "LightName";
         }
     }
 }

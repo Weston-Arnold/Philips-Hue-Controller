@@ -33,7 +33,7 @@ namespace PhilipsHueController.Forms
             this.txtRename = new System.Windows.Forms.TextBox();
             this.lblGroupName = new System.Windows.Forms.Label();
             this.clbLights = new System.Windows.Forms.CheckedListBox();
-            this.Load += new System.EventHandler(this.EditGroup_Load);
+            this.lblLightsInGroup = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSaveChange
@@ -57,7 +57,7 @@ namespace PhilipsHueController.Forms
             // lblGroupName
             // 
             this.lblGroupName.AutoSize = true;
-            this.lblGroupName.Location = new System.Drawing.Point(76, 34);
+            this.lblGroupName.Location = new System.Drawing.Point(76, 50);
             this.lblGroupName.Name = "lblGroupName";
             this.lblGroupName.Size = new System.Drawing.Size(114, 25);
             this.lblGroupName.TabIndex = 4;
@@ -71,11 +71,21 @@ namespace PhilipsHueController.Forms
             this.clbLights.Size = new System.Drawing.Size(340, 368);
             this.clbLights.TabIndex = 5;
             // 
+            // lblLightsInGroup
+            // 
+            this.lblLightsInGroup.AutoSize = true;
+            this.lblLightsInGroup.Location = new System.Drawing.Point(76, 147);
+            this.lblLightsInGroup.Name = "lblLightsInGroup";
+            this.lblLightsInGroup.Size = new System.Drawing.Size(133, 25);
+            this.lblLightsInGroup.TabIndex = 7;
+            this.lblLightsInGroup.Text = "Lights in Group";
+            // 
             // EditGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 631);
+            this.ClientSize = new System.Drawing.Size(500, 651);
+            this.Controls.Add(this.lblLightsInGroup);
             this.Controls.Add(this.clbLights);
             this.Controls.Add(this.lblGroupName);
             this.Controls.Add(this.btnSaveChange);
@@ -86,6 +96,7 @@ namespace PhilipsHueController.Forms
             this.Name = "EditGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit Group";
+            this.Load += new System.EventHandler(this.EditGroup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,5 +108,6 @@ namespace PhilipsHueController.Forms
         private System.Windows.Forms.TextBox txtRename;
         private System.Windows.Forms.Label lblGroupName;
         private System.Windows.Forms.CheckedListBox clbLights;
+        private System.Windows.Forms.Label lblLightsInGroup;
     }
 }
