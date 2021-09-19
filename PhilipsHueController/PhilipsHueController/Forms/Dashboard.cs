@@ -72,6 +72,8 @@ namespace PhilipsHueController
             if (lbLightRooms.SelectedItem != null)
             {
                 btnEditRoom.Enabled = true;
+                btnRenameLight.Enabled = false;
+
                 txtAdditionalInformation.Text = await HueGroupHelpers.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
             }
             else
@@ -87,6 +89,8 @@ namespace PhilipsHueController
             if (lbLights.SelectedItem != null)
             {
                 btnRenameLight.Enabled = true;
+                btnEditRoom.Enabled = false;
+
                 txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
 
                 await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);

@@ -107,9 +107,9 @@ namespace PhilipsHueController
             this.lblLightListHeader.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLightListHeader.Location = new System.Drawing.Point(27, 60);
             this.lblLightListHeader.Name = "lblLightListHeader";
-            this.lblLightListHeader.Size = new System.Drawing.Size(240, 41);
+            this.lblLightListHeader.Size = new System.Drawing.Size(147, 41);
             this.lblLightListHeader.TabIndex = 3;
-            this.lblLightListHeader.Text = "Avbailable Lights";
+            this.lblLightListHeader.Text = "My Lights";
             // 
             // btnRenameLight
             // 
@@ -177,9 +177,9 @@ namespace PhilipsHueController
             this.lblLightRooms.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLightRooms.Location = new System.Drawing.Point(438, 60);
             this.lblLightRooms.Name = "lblLightRooms";
-            this.lblLightRooms.Size = new System.Drawing.Size(235, 41);
+            this.lblLightRooms.Size = new System.Drawing.Size(160, 41);
             this.lblLightRooms.TabIndex = 10;
-            this.lblLightRooms.Text = "Available Rooms";
+            this.lblLightRooms.Text = "My Rooms";
             // 
             // btnEditRoom
             // 
