@@ -200,9 +200,9 @@ namespace PhilipsHueController
             this.txtQuickOptionsTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtQuickOptionsTitle.Location = new System.Drawing.Point(438, 533);
             this.txtQuickOptionsTitle.Name = "txtQuickOptionsTitle";
-            this.txtQuickOptionsTitle.Size = new System.Drawing.Size(208, 41);
+            this.txtQuickOptionsTitle.Size = new System.Drawing.Size(214, 41);
             this.txtQuickOptionsTitle.TabIndex = 12;
-            this.txtQuickOptionsTitle.Text = "Quick Options";
+            this.txtQuickOptionsTitle.Text = "Power Options";
             // 
             // btnLightsOff
             // 
