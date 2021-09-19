@@ -1,6 +1,7 @@
 ﻿using PhilipsHueController.Extensions;
 using PhilipsHueController.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,7 +30,13 @@ namespace PhilipsHueController.Forms
 
         private async void btnSaveChange_Click(object sender, EventArgs e)
         {
-            await HueGroupHelpers.RenameGroupById(GroupId, txtRename.Text);
+            var selectedLights = new List<string>();
+            foreach(var selectedLight in clbLights.CheckedItems)
+            {
+                selectedLights.Add(selectedLight.GetObjectPropertyByName("Id"));
+            }
+
+            await HueGroupHelpers.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
             Close();
         }
 
@@ -44,7 +51,6 @@ namespace PhilipsHueController.Forms
                     LightName = light.Name
                 });
             }
-            clbLights.DisplayMember = "LightName";
 
             var groupLightIds = await HueLightHelpers.GetAllLightsByGroupId(GroupId);
             foreach(var lightId in groupLightIds)
