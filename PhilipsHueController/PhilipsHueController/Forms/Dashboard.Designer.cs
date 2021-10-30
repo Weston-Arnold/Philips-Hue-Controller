@@ -48,10 +48,7 @@ namespace PhilipsHueController
             this.btnLightsOn = new System.Windows.Forms.Button();
             this.btnChangeColor = new System.Windows.Forms.Button();
             this.dlgChangeColor = new System.Windows.Forms.ColorDialog();
-            this.tbBrightness = new System.Windows.Forms.TrackBar();
-            this.lblBrightness = new System.Windows.Forms.Label();
             this.pnlContinueSetup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBrightness)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCompleteSetup
@@ -71,7 +68,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -3);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(172, 60);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(184, 60);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -239,23 +236,6 @@ namespace PhilipsHueController
             this.btnChangeColor.UseVisualStyleBackColor = true;
             this.btnChangeColor.Click += new System.EventHandler(this.btnChangeColor_Click);
             // 
-            // tbBrightness
-            // 
-            this.tbBrightness.Location = new System.Drawing.Point(438, 860);
-            this.tbBrightness.Name = "tbBrightness";
-            this.tbBrightness.Size = new System.Drawing.Size(390, 69);
-            this.tbBrightness.TabIndex = 16;
-            // 
-            // lblBrightness
-            // 
-            this.lblBrightness.AutoSize = true;
-            this.lblBrightness.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblBrightness.Location = new System.Drawing.Point(438, 796);
-            this.lblBrightness.Name = "lblBrightness";
-            this.lblBrightness.Size = new System.Drawing.Size(156, 41);
-            this.lblBrightness.TabIndex = 17;
-            this.lblBrightness.Text = "Brightness";
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -275,8 +255,6 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnEditRoom);
             this.Controls.Add(this.lblLightRooms);
             this.Controls.Add(this.lbLightRooms);
-            this.Controls.Add(this.lblBrightness);
-            this.Controls.Add(this.tbBrightness);
             this.Controls.Add(this.btnChangeColor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -286,7 +264,6 @@ namespace PhilipsHueController
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.pnlContinueSetup.ResumeLayout(false);
             this.pnlContinueSetup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbBrightness)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,7 +290,5 @@ namespace PhilipsHueController
         private System.Windows.Forms.Button btnLightsOn;
         private System.Windows.Forms.Button btnChangeColor;
         private System.Windows.Forms.ColorDialog dlgChangeColor;
-        private System.Windows.Forms.TrackBar tbBrightness;
-        private System.Windows.Forms.Label lblBrightness;
     }
 }
