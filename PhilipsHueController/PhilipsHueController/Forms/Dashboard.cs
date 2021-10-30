@@ -41,6 +41,55 @@ namespace PhilipsHueController
             await LoadGroupListBox();
         }
 
+        private async Task LoadLightListBox()
+        {
+            lbLights.Items.Clear();
+
+            var lightList = await HueLightManager.GetAllLights();
+
+            foreach (var light in lightList.OrderBy(x => x.Name))
+            {
+                lbLights.Items.Add(new
+                {
+                    Id = light.Id,
+                    LightName = light.Name
+                });
+            }
+
+            lbLights.DisplayMember = "LightName";
+        }
+
+        private async Task LoadGroupListBox()
+        {
+            lbLightRooms.Items.Clear();
+
+            var groupList = await HueGroupManager.GetAllGroups(GroupType.Room);
+
+            foreach (var group in groupList.OrderBy(x => x.Name))
+            {
+                lbLightRooms.Items.Add(new
+                {
+                    Id = group.Id,
+                    GroupName = group.Name
+                });
+            }
+
+            lbLightRooms.DisplayMember = "GroupName";
+        }
+
+        private void LaunchSetup(object sender, System.EventArgs e)
+        {
+            var setupWindow = new Setup();
+
+            setupWindow.ShowDialog();
+
+            var isApplicationRegisteredAfterWindowClose = HueConnectionManager.IsApplicationRegistered();
+            if (isApplicationRegisteredAfterWindowClose)
+            {
+                Dashboard_Load(sender, e);
+            }
+        }
+
         private void btnCompleteSetup_Click(object sender, System.EventArgs e)
         {
             LaunchSetup(sender, e);
@@ -54,6 +103,32 @@ namespace PhilipsHueController
         private void btnEditGroup_Click(object sender, System.EventArgs e)
         {
             OpenRoomEditDialogue();
+        }
+
+        private async void OpenLightEditDialogue()
+        {
+            var currentlySelectedLightIndex = lbLights.SelectedIndex;
+            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
+
+            renameLightWindow.ShowDialog();
+
+            txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
+            await LoadLightListBox();
+
+            lbLights.SelectedIndex = currentlySelectedLightIndex;
+        }
+
+        private async void OpenRoomEditDialogue()
+        {
+            var currentlySelectedGroupIndex = lbLightRooms.SelectedIndex;
+            var renameGroupWindow = new EditRoom(lbLightRooms.SelectedItem);
+
+            renameGroupWindow.ShowDialog();
+
+            txtAdditionalInformation.Text = await HueGroupManager.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
+            await LoadGroupListBox();
+
+            lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
         }
 
         private void lbLights_MouseDoubleClick(object sender, System.EventArgs e)
@@ -111,81 +186,6 @@ namespace PhilipsHueController
             if (string.IsNullOrEmpty(appKey))
             {
                 pnlContinueSetup.Visible = true;
-            }
-        }
-
-        private async void OpenLightEditDialogue()
-        {
-            var currentlySelectedLightIndex = lbLights.SelectedIndex;
-            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
-
-            renameLightWindow.ShowDialog();
-
-            txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
-            await LoadLightListBox();
-
-            lbLights.SelectedIndex = currentlySelectedLightIndex;
-        }
-
-        private async void OpenRoomEditDialogue()
-        {
-            var currentlySelectedGroupIndex = lbLightRooms.SelectedIndex;
-            var renameGroupWindow = new EditRoom(lbLightRooms.SelectedItem);
-
-            renameGroupWindow.ShowDialog();
-
-            txtAdditionalInformation.Text = await HueGroupManager.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
-            await LoadGroupListBox();
-
-            lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
-        }
-
-        private async Task LoadLightListBox()
-        {
-            lbLights.Items.Clear();
-
-            var lightList = await HueLightManager.GetAllLights();
-
-            foreach (var light in lightList.OrderBy(x => x.Name))
-            {
-                lbLights.Items.Add(new
-                {
-                    Id = light.Id,
-                    LightName = light.Name
-                });
-            }
-
-            lbLights.DisplayMember = "LightName";
-        }
-
-        private async Task LoadGroupListBox()
-        {
-            lbLightRooms.Items.Clear();
-
-            var groupList = await HueGroupManager.GetAllGroups(GroupType.Room);
-
-            foreach (var group in groupList.OrderBy(x => x.Name))
-            {
-                lbLightRooms.Items.Add(new
-                {
-                    Id = group.Id,
-                    GroupName = group.Name
-                });
-            }
-
-            lbLightRooms.DisplayMember = "GroupName";
-        }
-
-        private void LaunchSetup(object sender, System.EventArgs e)
-        {
-            var setupWindow = new Setup();
-
-            setupWindow.ShowDialog();
-
-            var isApplicationRegisteredAfterWindowClose = HueConnectionManager.IsApplicationRegistered();
-            if (isApplicationRegisteredAfterWindowClose)
-            {
-                Dashboard_Load(sender, e);
             }
         }
 
