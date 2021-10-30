@@ -12,8 +12,8 @@ namespace PhilipsHueController
 
         private void btnDisconnect_Click(object sender, System.EventArgs e)
         {
-            ConfigHelpers.DeleteSettingByKey("AppKey");
-            ConfigHelpers.DeleteSettingByKey("BridgeIpAddress");
+            ConfigurationHelpers.DeleteSettingByKey("AppKey");
+            ConfigurationHelpers.DeleteSettingByKey("BridgeIpAddress");
 
             Close();
         }

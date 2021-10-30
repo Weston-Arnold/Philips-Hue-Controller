@@ -13,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace PhilipsHueController.Helpers
 {
-    public static class HueGroupHelpers
+    public static class HueGroupManager
     {
         public async static Task<IEnumerable<Group>> GetAllGroups(GroupType? groupType = null)
         {
-            var localHueClient = HueConnectionHelpers.GetLocalHueClient();
+            var localHueClient = HueConnectionManager.GetLocalHueClient();
             var groups = await localHueClient.GetGroupsAsync();
 
             return groups.ToList().Where(x => groupType == null || x.Type == groupType);
@@ -25,14 +25,14 @@ namespace PhilipsHueController.Helpers
 
         public async static Task<Group> GetGroupById(string id)
         {
-            var localHueClient = HueConnectionHelpers.GetLocalHueClient();
+            var localHueClient = HueConnectionManager.GetLocalHueClient();
             return await localHueClient.GetGroupAsync(id);
         }
 
         public async static Task<bool> UpdateGroupById(string id, List<string> lightIds, string name)
         {
             var group = await GetGroupById(id);
-            var hueClient = HueConnectionHelpers.GetLocalHueClient();
+            var hueClient = HueConnectionManager.GetLocalHueClient();
 
             var result = await hueClient.UpdateGroupAsync(group.Id, lightIds, name);
             var error = result.FirstOrDefault(x => x.Error != null)?.Error;
@@ -63,7 +63,7 @@ namespace PhilipsHueController.Helpers
                 ? new LightCommand().TurnOn()
                 : new LightCommand().TurnOff();
 
-            var client = HueConnectionHelpers.GetLocalHueClient();
+            var client = HueConnectionManager.GetLocalHueClient();
             await client.SendGroupCommandAsync(powerCommand, groupId);
         }
 
@@ -74,7 +74,7 @@ namespace PhilipsHueController.Helpers
 
             setLightCommand.SetColor(new RGBColor(hexColor));
 
-            var client = HueConnectionHelpers.GetLocalHueClient();
+            var client = HueConnectionManager.GetLocalHueClient();
             await client.SendGroupCommandAsync(setLightCommand, groupId);
         }
 
@@ -83,12 +83,12 @@ namespace PhilipsHueController.Helpers
             var id = selectedRoom.GetObjectPropertyByName("Id");
 
             var group = await GetGroupById(id);
-            var groupLightIds = await HueLightHelpers.GetAllLightsByGroupId(id);
+            var groupLightIds = await HueLightManager.GetAllLightsByGroupId(id);
             var groupLights = new List<string>();
 
             foreach(var lightId in groupLightIds)
             {
-                var light = await HueLightHelpers.GetLightById(lightId);
+                var light = await HueLightManager.GetLightById(lightId);
                 groupLights.Add(light.Name);
             }
             

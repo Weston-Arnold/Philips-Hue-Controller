@@ -2,7 +2,7 @@
 
 namespace PhilipsHueController.Helpers
 {
-    public class ConfigHelpers
+    public class ConfigurationHelpers
     {
         public static string GetSettingByKey(string key)
         {

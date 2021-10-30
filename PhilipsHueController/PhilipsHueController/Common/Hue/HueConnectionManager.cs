@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PhilipsHueController
 {
-    public static class HueConnectionHelpers
+    public static class HueConnectionManager
     {
         private static LocalHueClient LocalHueClient;
 
@@ -41,8 +41,8 @@ namespace PhilipsHueController
 
                 LocalHueClient.Initialize(appKey);
 
-                ConfigHelpers.AddOrUpdateAppSetting("AppKey", appKey);
-                ConfigHelpers.AddOrUpdateAppSetting("BridgeIpAddress", ipAddress);
+                ConfigurationHelpers.AddOrUpdateAppSetting("AppKey", appKey);
+                ConfigurationHelpers.AddOrUpdateAppSetting("BridgeIpAddress", ipAddress);
 
                 return true;
             }
@@ -54,8 +54,8 @@ namespace PhilipsHueController
 
         public static void LoadConfiguredBridge()
         {
-            var bridgeIpAddress = ConfigHelpers.GetSettingByKey("BridgeIpAddress");
-            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
+            var bridgeIpAddress = ConfigurationHelpers.GetSettingByKey("BridgeIpAddress");
+            var appKey = ConfigurationHelpers.GetSettingByKey("AppKey");
 
             LocalHueClient = new LocalHueClient(bridgeIpAddress);
             LocalHueClient.Initialize(appKey);
@@ -63,7 +63,7 @@ namespace PhilipsHueController
 
         public static bool IsApplicationRegistered()
         {
-            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
+            var appKey = ConfigurationHelpers.GetSettingByKey("AppKey");
             return appKey != null;
         }
     }

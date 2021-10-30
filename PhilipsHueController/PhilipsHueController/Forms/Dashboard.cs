@@ -19,7 +19,7 @@ namespace PhilipsHueController
         {
             pnlContinueSetup.Visible = false;
 
-            var isApplicationRegistered = HueConnectionHelpers.IsApplicationRegistered();
+            var isApplicationRegistered = HueConnectionManager.IsApplicationRegistered();
             if (!isApplicationRegistered)
             {
                 pnlContinueSetup.Visible = true;
@@ -28,14 +28,14 @@ namespace PhilipsHueController
                 return;
             }
 
-            HueConnectionHelpers.LoadConfiguredBridge();
+            HueConnectionManager.LoadConfiguredBridge();
 
             btnRenameLight.Enabled = false;
             btnEditRoom.Enabled = false;
 
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light or group to show additional information...";
-            txtBridgeInfo.Text = await HueConnectionHelpers.GetConnectedBridgeFooterInformation();
+            txtBridgeInfo.Text = await HueConnectionManager.GetConnectedBridgeFooterInformation();
 
             await LoadLightListBox();
             await LoadGroupListBox();
@@ -75,7 +75,7 @@ namespace PhilipsHueController
                 btnEditRoom.Enabled = true;
                 btnRenameLight.Enabled = false;
 
-                txtAdditionalInformation.Text = await HueGroupHelpers.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
+                txtAdditionalInformation.Text = await HueGroupManager.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
             }
             else
             {
@@ -92,9 +92,9 @@ namespace PhilipsHueController
                 btnRenameLight.Enabled = true;
                 btnEditRoom.Enabled = false;
 
-                txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+                txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
 
-                await HueLightHelpers.BlipSelectedLight(lbLights.SelectedItem);
+                await HueLightManager.BlipSelectedLight(lbLights.SelectedItem);
             }
             else
             {
@@ -107,7 +107,7 @@ namespace PhilipsHueController
             var disconnectWindow = new Disconnect();
             disconnectWindow.ShowDialog();
 
-            var appKey = ConfigHelpers.GetSettingByKey("AppKey");
+            var appKey = ConfigurationHelpers.GetSettingByKey("AppKey");
             if (string.IsNullOrEmpty(appKey))
             {
                 pnlContinueSetup.Visible = true;
@@ -121,7 +121,7 @@ namespace PhilipsHueController
 
             renameLightWindow.ShowDialog();
 
-            txtAdditionalInformation.Text = await HueLightHelpers.GetSelectedLightInformation(lbLights.SelectedItem);
+            txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
             await LoadLightListBox();
 
             lbLights.SelectedIndex = currentlySelectedLightIndex;
@@ -134,7 +134,7 @@ namespace PhilipsHueController
 
             renameGroupWindow.ShowDialog();
 
-            txtAdditionalInformation.Text = await HueGroupHelpers.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
+            txtAdditionalInformation.Text = await HueGroupManager.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
             await LoadGroupListBox();
 
             lbLightRooms.SelectedIndex = currentlySelectedGroupIndex;
@@ -144,7 +144,7 @@ namespace PhilipsHueController
         {
             lbLights.Items.Clear();
 
-            var lightList = await HueLightHelpers.GetAllLights();
+            var lightList = await HueLightManager.GetAllLights();
 
             foreach (var light in lightList.OrderBy(x => x.Name))
             {
@@ -162,7 +162,7 @@ namespace PhilipsHueController
         {
             lbLightRooms.Items.Clear();
 
-            var groupList = await HueGroupHelpers.GetAllGroups(GroupType.Room);
+            var groupList = await HueGroupManager.GetAllGroups(GroupType.Room);
 
             foreach (var group in groupList.OrderBy(x => x.Name))
             {
@@ -182,7 +182,7 @@ namespace PhilipsHueController
 
             setupWindow.ShowDialog();
 
-            var isApplicationRegisteredAfterWindowClose = HueConnectionHelpers.IsApplicationRegistered();
+            var isApplicationRegisteredAfterWindowClose = HueConnectionManager.IsApplicationRegistered();
             if (isApplicationRegisteredAfterWindowClose)
             {
                 Dashboard_Load(sender, e);
@@ -191,7 +191,7 @@ namespace PhilipsHueController
 
         private async void btnLightsOn_Click(object sender, System.EventArgs e)
         {
-            await ToggleButtonPower(lbLights.SelectedItem, lbLightRooms.SelectedItem, false);
+            await ToggleButtonPower(lbLights.SelectedItem, lbLightRooms.SelectedItem, true);
         }
 
         private async void btnLightsOff_Click(object sender, System.EventArgs e)
@@ -203,13 +203,13 @@ namespace PhilipsHueController
         {
             if (selectedLightId != null)
             {
-                await HueLightHelpers.SetLightOnOff(selectedLightId.GetObjectPropertyByName("Id"), turningOn);
+                await HueLightManager.SetLightOnOff(selectedLightId.GetObjectPropertyByName("Id"), turningOn);
                 return;
             }
 
             if (groupId != null)
             {
-                await HueGroupHelpers.SetGroupLightsOnOff(groupId.GetObjectPropertyByName("Id"), turningOn);
+                await HueGroupManager.SetGroupLightsOnOff(groupId.GetObjectPropertyByName("Id"), turningOn);
                 return;
             }
         }
@@ -224,13 +224,13 @@ namespace PhilipsHueController
 
             if (currentlySelectedLight != null)
             {
-                await HueLightHelpers.SetLightColor(selectedColor, currentlySelectedLight.GetObjectPropertyByName("Id"));
+                await HueLightManager.SetLightColor(selectedColor, currentlySelectedLight.GetObjectPropertyByName("Id"));
                 return;
             }
 
             if (currentlySelectedRoom != null)
             {
-                await HueGroupHelpers.SetGroupLightColor(selectedColor, currentlySelectedRoom.GetObjectPropertyByName("Id"));
+                await HueGroupManager.SetGroupLightColor(selectedColor, currentlySelectedRoom.GetObjectPropertyByName("Id"));
                 return;
             }
         }
