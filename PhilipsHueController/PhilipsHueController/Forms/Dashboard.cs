@@ -191,36 +191,25 @@ namespace PhilipsHueController
 
         private async void btnLightsOn_Click(object sender, System.EventArgs e)
         {
-            var currentlySelectedLight = lbLights.SelectedItem;
-            var currentlySelectedRoom = lbLightRooms.SelectedItem;
-
-            if(currentlySelectedLight != null)
-            {
-                await HueLightHelpers.SetLightOnOff(currentlySelectedLight.GetObjectPropertyByName("Id"), true);
-                return;
-            }
-
-            if (currentlySelectedRoom != null)
-            {
-                await HueGroupHelpers.SetGroupLightsOnOff(currentlySelectedRoom.GetObjectPropertyByName("Id"), true);
-                return;
-            }
+            await ToggleButtonPower(lbLights.SelectedItem, lbLightRooms.SelectedItem, false);
         }
 
         private async void btnLightsOff_Click(object sender, System.EventArgs e)
         {
-            var currentlySelectedLight = lbLights.SelectedItem;
-            var currentlySelectedRoom = lbLightRooms.SelectedItem;
+            await ToggleButtonPower(lbLights.SelectedItem, lbLightRooms.SelectedItem, false);
+        }
 
-            if (currentlySelectedLight != null)
+        public async static Task ToggleButtonPower(object selectedLightId, object groupId, bool turningOn)
+        {
+            if (selectedLightId != null)
             {
-                await HueLightHelpers.SetLightOnOff(currentlySelectedLight.GetObjectPropertyByName("Id"), false);
+                await HueLightHelpers.SetLightOnOff(selectedLightId.GetObjectPropertyByName("Id"), turningOn);
                 return;
             }
 
-            if (currentlySelectedRoom != null)
+            if (groupId != null)
             {
-                await HueGroupHelpers.SetGroupLightsOnOff(currentlySelectedRoom.GetObjectPropertyByName("Id"), false);
+                await HueGroupHelpers.SetGroupLightsOnOff(groupId.GetObjectPropertyByName("Id"), turningOn);
                 return;
             }
         }

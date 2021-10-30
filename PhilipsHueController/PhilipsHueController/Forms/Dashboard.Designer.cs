@@ -208,9 +208,9 @@ namespace PhilipsHueController
             // 
             // btnLightsOff
             // 
-            this.btnLightsOff.Location = new System.Drawing.Point(438, 677);
+            this.btnLightsOff.Location = new System.Drawing.Point(637, 588);
             this.btnLightsOff.Name = "btnLightsOff";
-            this.btnLightsOff.Size = new System.Drawing.Size(390, 65);
+            this.btnLightsOff.Size = new System.Drawing.Size(191, 65);
             this.btnLightsOff.TabIndex = 13;
             this.btnLightsOff.Text = "Turn Light(s) Off";
             this.btnLightsOff.UseVisualStyleBackColor = true;
@@ -220,7 +220,7 @@ namespace PhilipsHueController
             // 
             this.btnLightsOn.Location = new System.Drawing.Point(438, 588);
             this.btnLightsOn.Name = "btnLightsOn";
-            this.btnLightsOn.Size = new System.Drawing.Size(390, 65);
+            this.btnLightsOn.Size = new System.Drawing.Size(193, 65);
             this.btnLightsOn.TabIndex = 14;
             this.btnLightsOn.Text = "Turn Light(s) On";
             this.btnLightsOn.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@ namespace PhilipsHueController
             // 
             // btnChangeColor
             // 
-            this.btnChangeColor.Location = new System.Drawing.Point(438, 812);
+            this.btnChangeColor.Location = new System.Drawing.Point(438, 659);
             this.btnChangeColor.Name = "btnChangeColor";
             this.btnChangeColor.Size = new System.Drawing.Size(390, 65);
             this.btnChangeColor.TabIndex = 15;
