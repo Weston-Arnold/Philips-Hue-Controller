@@ -224,5 +224,26 @@ namespace PhilipsHueController
                 return;
             }
         }
+
+        private async void btnChangeColor_Click(object sender, System.EventArgs e)
+        {
+            var currentlySelectedLight = lbLights.SelectedItem;
+            var currentlySelectedRoom = lbLightRooms.SelectedItem;
+
+            dlgChangeColor.ShowDialog();
+            var selectedColor = dlgChangeColor.Color;
+
+            if (currentlySelectedLight != null)
+            {
+                await HueLightHelpers.SetLightColor(selectedColor, currentlySelectedLight.GetObjectPropertyByName("Id"));
+                return;
+            }
+
+            if (currentlySelectedRoom != null)
+            {
+                await HueGroupHelpers.SetGroupLightColor(selectedColor, currentlySelectedRoom.GetObjectPropertyByName("Id"));
+                return;
+            }
+        }
     }
 }

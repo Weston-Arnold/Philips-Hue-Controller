@@ -1,6 +1,11 @@
-﻿using PhilipsHueController.Extensions;
+﻿using PhilipsHueController.Common.Helpers;
+using PhilipsHueController.Extensions;
 using Q42.HueApi;
+using Q42.HueApi.ColorConverters;
+using Q42.HueApi.ColorConverters.Gamut;
+using Q42.HueApi.ColorConverters.HSB;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -66,6 +71,17 @@ namespace PhilipsHueController.Helpers
 
             var client = HueConnectionHelpers.GetLocalHueClient();
             await client.SendCommandAsync(powerCommand, new List<string> { lightId });
+        }
+
+        public async static Task SetLightColor(Color color, string lightId)
+        {
+            var setLightCommand = new LightCommand();
+            var hexColor = ColorHelpers.ConvertColorToHex(color);
+
+            setLightCommand.SetColor(new RGBColor(hexColor));
+
+            var client = HueConnectionHelpers.GetLocalHueClient();
+            await client.SendCommandAsync(setLightCommand, new List<string> { lightId });
         }
 
         public async static Task<string> GetSelectedLightInformation(object selectedLight)

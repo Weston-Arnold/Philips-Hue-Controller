@@ -1,8 +1,13 @@
-﻿using PhilipsHueController.Extensions;
+﻿using PhilipsHueController.Common.Helpers;
+using PhilipsHueController.Extensions;
 using PhilipsHueController.Forms;
 using Q42.HueApi;
+using Q42.HueApi.ColorConverters;
+using Q42.HueApi.ColorConverters.Gamut;
+using Q42.HueApi.ColorConverters.HSB;
 using Q42.HueApi.Models.Groups;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -60,6 +65,17 @@ namespace PhilipsHueController.Helpers
 
             var client = HueConnectionHelpers.GetLocalHueClient();
             await client.SendGroupCommandAsync(powerCommand, groupId);
+        }
+
+        public async static Task SetGroupLightColor(Color color, string groupId)
+        {
+            var setLightCommand = new LightCommand();
+            var hexColor = ColorHelpers.ConvertColorToHex(color);
+
+            setLightCommand.SetColor(new RGBColor(hexColor));
+
+            var client = HueConnectionHelpers.GetLocalHueClient();
+            await client.SendGroupCommandAsync(setLightCommand, groupId);
         }
 
         public async static Task<string> GetSelectedRoomInformation(object selectedRoom)
