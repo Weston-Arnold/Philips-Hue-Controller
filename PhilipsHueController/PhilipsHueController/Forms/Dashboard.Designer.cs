@@ -252,10 +252,12 @@ namespace PhilipsHueController
             // tbBrightness
             // 
             this.tbBrightness.Location = new System.Drawing.Point(438, 811);
-            this.tbBrightness.Maximum = 50;
+            this.tbBrightness.Maximum = 9;
+            this.tbBrightness.Minimum = 1;
             this.tbBrightness.Name = "tbBrightness";
             this.tbBrightness.Size = new System.Drawing.Size(390, 69);
             this.tbBrightness.TabIndex = 18;
+            this.tbBrightness.Value = 1;
             this.tbBrightness.Scroll += new System.EventHandler(this.tbBrightness_Scroll);
             // 
             // Dashboard

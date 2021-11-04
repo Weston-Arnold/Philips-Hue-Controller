@@ -174,6 +174,7 @@ namespace PhilipsHueController
                 ToggleLightActionControls(true);
 
                 txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
+                tbBrightness.Value = (int)(await HueLightManager.GetLightBrightness(lbLights.SelectedItem) / 25.6);
 
                 await HueLightManager.BlipSelectedLight(lbLights.SelectedItem);
             }
@@ -246,7 +247,7 @@ namespace PhilipsHueController
             var currentlySelectedLight = lbLights.SelectedItem;
             var currentlySelectedGroup = lbLightRooms.SelectedItem;
 
-            var selectedBrightness = tbBrightness.Value * 5;
+            var selectedBrightness = tbBrightness.Value * 25.6;
             if(currentlySelectedLight != null)
             {
                 await HueLightManager.SetSingleLightBrightness(currentlySelectedLight.GetObjectPropertyByName("Id"), (byte)selectedBrightness);
