@@ -37,6 +37,8 @@ namespace PhilipsHueController
             txtAdditionalInformation.Text = "Select a light or group to show additional information...";
             txtBridgeInfo.Text = await HueConnectionManager.GetConnectedBridgeFooterInformation();
 
+            ToggleLightActionControls(false);
+
             await LoadLightListBox();
             await LoadGroupListBox();
         }
@@ -150,6 +152,8 @@ namespace PhilipsHueController
                 btnEditRoom.Enabled = true;
                 btnRenameLight.Enabled = false;
 
+                ToggleLightActionControls(true);
+
                 txtAdditionalInformation.Text = await HueGroupManager.GetSelectedRoomInformation(lbLightRooms.SelectedItem);
             }
             else
@@ -166,6 +170,8 @@ namespace PhilipsHueController
             {
                 btnRenameLight.Enabled = true;
                 btnEditRoom.Enabled = false;
+
+                ToggleLightActionControls(true);
 
                 txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lbLights.SelectedItem);
 
@@ -217,7 +223,7 @@ namespace PhilipsHueController
         private async void btnChangeColor_Click(object sender, System.EventArgs e)
         {
             var currentlySelectedLight = lbLights.SelectedItem;
-            var currentlySelectedRoom = lbLightRooms.SelectedItem;
+            var currentlySelectedGroup = lbLightRooms.SelectedItem;
 
             dlgChangeColor.ShowDialog();
             var selectedColor = dlgChangeColor.Color;
@@ -228,11 +234,39 @@ namespace PhilipsHueController
                 return;
             }
 
-            if (currentlySelectedRoom != null)
+            if (currentlySelectedGroup != null)
             {
-                await HueGroupManager.SetGroupLightColor(selectedColor, currentlySelectedRoom.GetObjectPropertyByName("Id"));
+                await HueGroupManager.SetGroupLightColor(selectedColor, currentlySelectedGroup.GetObjectPropertyByName("Id"));
                 return;
             }
+        }
+
+        private async void tbBrightness_Scroll(object sender, System.EventArgs e)
+        {
+            var currentlySelectedLight = lbLights.SelectedItem;
+            var currentlySelectedGroup = lbLightRooms.SelectedItem;
+
+            var selectedBrightness = tbBrightness.Value * 5;
+            if(currentlySelectedLight != null)
+            {
+                await HueLightManager.SetSingleLightBrightness(currentlySelectedLight.GetObjectPropertyByName("Id"), (byte)selectedBrightness);
+                return;
+            }
+
+            if (currentlySelectedGroup != null)
+            {
+                await HueGroupManager.SetGroupLightBrightness(currentlySelectedGroup.GetObjectPropertyByName("Id"), (byte)selectedBrightness);
+                return;
+            }
+        }
+
+        private void ToggleLightActionControls(bool toggleOn)
+        {
+            btnChangeColor.Enabled = toggleOn;
+            btnLightsOn.Enabled = toggleOn;
+            btnLightsOff.Enabled = toggleOn;
+
+            tbBrightness.Enabled = toggleOn;
         }
     }
 }
