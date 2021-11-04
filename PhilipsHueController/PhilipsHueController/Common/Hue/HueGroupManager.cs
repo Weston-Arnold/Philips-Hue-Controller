@@ -89,9 +89,9 @@ namespace PhilipsHueController.Helpers
             await client.SendGroupCommandAsync(brightnessCommand, groupId);
         }
 
-        public async static Task<string> GetSelectedRoomInformation(object selectedRoom)
+        public async static Task<string> GetSelectedGroupInformation(object selectedGroup)
         {
-            var id = selectedRoom.GetObjectPropertyByName("Id");
+            var id = selectedGroup.GetObjectPropertyByName("Id");
 
             var group = await GetGroupById(id);
             var groupLightIds = await HueLightManager.GetAllLightsByGroupId(id);

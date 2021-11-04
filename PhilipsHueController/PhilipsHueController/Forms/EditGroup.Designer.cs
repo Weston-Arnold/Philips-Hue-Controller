@@ -1,7 +1,7 @@
 ﻿
 namespace PhilipsHueController.Forms
 {
-    partial class EditRoom
+    partial class EditGroup
     {
         /// <summary>
         /// Required designer variable.
@@ -42,7 +42,7 @@ namespace PhilipsHueController.Forms
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(195, 50);
             this.btnSaveChange.TabIndex = 3;
-            this.btnSaveChange.Text = "Save Change";
+            this.btnSaveChange.Text = "Save Changes";
             this.btnSaveChange.UseVisualStyleBackColor = true;
             this.btnSaveChange.Click += new System.EventHandler(this.btnSaveChange_Click);
             // 
@@ -59,9 +59,9 @@ namespace PhilipsHueController.Forms
             this.lblRoomName.AutoSize = true;
             this.lblRoomName.Location = new System.Drawing.Point(76, 50);
             this.lblRoomName.Name = "lblRoomName";
-            this.lblRoomName.Size = new System.Drawing.Size(112, 25);
+            this.lblRoomName.Size = new System.Drawing.Size(114, 25);
             this.lblRoomName.TabIndex = 4;
-            this.lblRoomName.Text = "Room Name";
+            this.lblRoomName.Text = "Group Name";
             // 
             // clbLights
             // 
@@ -80,7 +80,7 @@ namespace PhilipsHueController.Forms
             this.lblLightsInRoom.TabIndex = 7;
             this.lblLightsInRoom.Text = "Lights";
             // 
-            // EditRoom
+            // EditGroup
             // 
             this.AcceptButton = this.btnSaveChange;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -94,9 +94,9 @@ namespace PhilipsHueController.Forms
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EditRoom";
+            this.Name = "EditGroup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit Room";
+            this.Text = "Edit Group";
             this.Load += new System.EventHandler(this.EditGroup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

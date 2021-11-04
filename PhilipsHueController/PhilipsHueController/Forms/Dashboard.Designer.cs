@@ -40,9 +40,9 @@ namespace PhilipsHueController
             this.lblAdditionalLightInformation = new System.Windows.Forms.Label();
             this.txtBridgeInfo = new System.Windows.Forms.Label();
             this.btnDisconnect = new System.Windows.Forms.Button();
-            this.lbLightRooms = new System.Windows.Forms.ListBox();
+            this.lbLightGroups = new System.Windows.Forms.ListBox();
             this.lblLightRooms = new System.Windows.Forms.Label();
-            this.btnEditRoom = new System.Windows.Forms.Button();
+            this.btnEditGroup = new System.Windows.Forms.Button();
             this.txtQuickOptionsTitle = new System.Windows.Forms.Label();
             this.btnLightsOff = new System.Windows.Forms.Button();
             this.btnLightsOn = new System.Windows.Forms.Button();
@@ -163,21 +163,21 @@ namespace PhilipsHueController
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(414, 61);
             this.btnDisconnect.TabIndex = 8;
-            this.btnDisconnect.Text = "Disconnect Application";
+            this.btnDisconnect.Text = "Disconnect Hue Bridge";
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
-            // lbLightRooms
+            // lbLightGroups
             // 
-            this.lbLightRooms.FormattingEnabled = true;
-            this.lbLightRooms.ItemHeight = 25;
-            this.lbLightRooms.Location = new System.Drawing.Point(438, 73);
-            this.lbLightRooms.Name = "lbLightRooms";
-            this.lbLightRooms.ScrollAlwaysVisible = true;
-            this.lbLightRooms.Size = new System.Drawing.Size(390, 304);
-            this.lbLightRooms.TabIndex = 9;
-            this.lbLightRooms.Click += new System.EventHandler(this.lbLightGroups_OnClick);
-            this.lbLightRooms.DoubleClick += new System.EventHandler(this.lbLightGroups_MouseDoubleClick);
+            this.lbLightGroups.FormattingEnabled = true;
+            this.lbLightGroups.ItemHeight = 25;
+            this.lbLightGroups.Location = new System.Drawing.Point(438, 73);
+            this.lbLightGroups.Name = "lbLightGroups";
+            this.lbLightGroups.ScrollAlwaysVisible = true;
+            this.lbLightGroups.Size = new System.Drawing.Size(390, 304);
+            this.lbLightGroups.TabIndex = 9;
+            this.lbLightGroups.Click += new System.EventHandler(this.lbLightGroups_OnClick);
+            this.lbLightGroups.DoubleClick += new System.EventHandler(this.lbLightGroups_MouseDoubleClick);
             // 
             // lblLightRooms
             // 
@@ -185,19 +185,19 @@ namespace PhilipsHueController
             this.lblLightRooms.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLightRooms.Location = new System.Drawing.Point(438, 17);
             this.lblLightRooms.Name = "lblLightRooms";
-            this.lblLightRooms.Size = new System.Drawing.Size(160, 41);
+            this.lblLightRooms.Size = new System.Drawing.Size(239, 41);
             this.lblLightRooms.TabIndex = 10;
-            this.lblLightRooms.Text = "My Rooms";
+            this.lblLightRooms.Text = "My Light Groups";
             // 
-            // btnEditRoom
+            // btnEditGroup
             // 
-            this.btnEditRoom.Location = new System.Drawing.Point(438, 399);
-            this.btnEditRoom.Name = "btnEditRoom";
-            this.btnEditRoom.Size = new System.Drawing.Size(390, 65);
-            this.btnEditRoom.TabIndex = 11;
-            this.btnEditRoom.Text = "Edit Room Name / Lights";
-            this.btnEditRoom.UseVisualStyleBackColor = true;
-            this.btnEditRoom.Click += new System.EventHandler(this.btnEditGroup_Click);
+            this.btnEditGroup.Location = new System.Drawing.Point(438, 399);
+            this.btnEditGroup.Name = "btnEditGroup";
+            this.btnEditGroup.Size = new System.Drawing.Size(390, 65);
+            this.btnEditGroup.TabIndex = 11;
+            this.btnEditGroup.Text = "Edit Group Name / Lights";
+            this.btnEditGroup.UseVisualStyleBackColor = true;
+            this.btnEditGroup.Click += new System.EventHandler(this.btnEditGroup_Click);
             // 
             // txtQuickOptionsTitle
             // 
@@ -252,7 +252,6 @@ namespace PhilipsHueController
             // tbBrightness
             // 
             this.tbBrightness.Location = new System.Drawing.Point(438, 811);
-            this.tbBrightness.Maximum = 9;
             this.tbBrightness.Minimum = 1;
             this.tbBrightness.Name = "tbBrightness";
             this.tbBrightness.Size = new System.Drawing.Size(390, 69);
@@ -278,9 +277,9 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnLightsOn);
             this.Controls.Add(this.btnLightsOff);
             this.Controls.Add(this.txtQuickOptionsTitle);
-            this.Controls.Add(this.btnEditRoom);
+            this.Controls.Add(this.btnEditGroup);
             this.Controls.Add(this.lblLightRooms);
-            this.Controls.Add(this.lbLightRooms);
+            this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.btnChangeColor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -309,9 +308,9 @@ namespace PhilipsHueController
         private System.Windows.Forms.Label lblAdditionalLightInformation;
         private System.Windows.Forms.Label txtBridgeInfo;
         private System.Windows.Forms.Button btnDisconnect;
-        private System.Windows.Forms.ListBox lbLightRooms;
+        private System.Windows.Forms.ListBox lbLightGroups;
         private System.Windows.Forms.Label lblLightRooms;
-        private System.Windows.Forms.Button btnEditRoom;
+        private System.Windows.Forms.Button btnEditGroup;
         private System.Windows.Forms.Label txtQuickOptionsTitle;
         private System.Windows.Forms.Button btnLightsOff;
         private System.Windows.Forms.Button btnLightsOn;
