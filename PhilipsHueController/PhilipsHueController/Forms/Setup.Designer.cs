@@ -61,9 +61,9 @@ namespace PhilipsHueController
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSearch.Location = new System.Drawing.Point(132, 552);
+            this.btnSearch.Location = new System.Drawing.Point(105, 552);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(477, 65);
+            this.btnSearch.Size = new System.Drawing.Size(530, 65);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -86,9 +86,9 @@ namespace PhilipsHueController
             this.btnConnectBridge.BackColor = System.Drawing.Color.White;
             this.btnConnectBridge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConnectBridge.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConnectBridge.Location = new System.Drawing.Point(132, 623);
+            this.btnConnectBridge.Location = new System.Drawing.Point(105, 623);
             this.btnConnectBridge.Name = "btnConnectBridge";
-            this.btnConnectBridge.Size = new System.Drawing.Size(477, 64);
+            this.btnConnectBridge.Size = new System.Drawing.Size(530, 64);
             this.btnConnectBridge.TabIndex = 5;
             this.btnConnectBridge.Text = "Connect Hue Bridge";
             this.btnConnectBridge.UseVisualStyleBackColor = false;
