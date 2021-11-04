@@ -46,6 +46,7 @@ namespace PhilipsHueController
             // 
             // lbBridgeList
             // 
+            this.lbBridgeList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbBridgeList.FormattingEnabled = true;
             this.lbBridgeList.ItemHeight = 25;
             this.lbBridgeList.Location = new System.Drawing.Point(132, 223);
@@ -56,6 +57,7 @@ namespace PhilipsHueController
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Location = new System.Drawing.Point(132, 534);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(477, 65);
@@ -78,6 +80,7 @@ namespace PhilipsHueController
             // btnConnectBridge
             // 
             this.btnConnectBridge.BackColor = System.Drawing.Color.White;
+            this.btnConnectBridge.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConnectBridge.Location = new System.Drawing.Point(132, 623);
             this.btnConnectBridge.Name = "btnConnectBridge";
             this.btnConnectBridge.Size = new System.Drawing.Size(477, 64);

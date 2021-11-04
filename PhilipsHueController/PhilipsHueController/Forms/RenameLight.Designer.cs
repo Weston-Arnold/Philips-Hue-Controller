@@ -43,6 +43,7 @@ namespace PhilipsHueController
             // 
             // btnSaveChange
             // 
+            this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveChange.Location = new System.Drawing.Point(228, 100);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(195, 50);

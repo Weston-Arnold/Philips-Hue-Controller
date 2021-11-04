@@ -38,6 +38,7 @@ namespace PhilipsHueController.Forms
             // 
             // btnSaveChange
             // 
+            this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveChange.Location = new System.Drawing.Point(144, 558);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(195, 50);
@@ -65,6 +66,8 @@ namespace PhilipsHueController.Forms
             // 
             // clbLights
             // 
+            this.clbLights.CheckOnClick = true;
+            this.clbLights.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clbLights.FormattingEnabled = true;
             this.clbLights.Location = new System.Drawing.Point(76, 175);
             this.clbLights.Name = "clbLights";

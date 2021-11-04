@@ -99,6 +99,7 @@ namespace PhilipsHueController
             // 
             // lbLights
             // 
+            this.lbLights.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbLights.FormattingEnabled = true;
             this.lbLights.ItemHeight = 25;
             this.lbLights.Location = new System.Drawing.Point(27, 73);
@@ -121,6 +122,7 @@ namespace PhilipsHueController
             // 
             // btnRenameLight
             // 
+            this.btnRenameLight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRenameLight.Location = new System.Drawing.Point(27, 399);
             this.btnRenameLight.Name = "btnRenameLight";
             this.btnRenameLight.Size = new System.Drawing.Size(391, 65);
@@ -131,11 +133,13 @@ namespace PhilipsHueController
             // 
             // txtAdditionalInformation
             // 
+            this.txtAdditionalInformation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtAdditionalInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAdditionalInformation.Enabled = false;
+            this.txtAdditionalInformation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 545);
             this.txtAdditionalInformation.Name = "txtAdditionalInformation";
-            this.txtAdditionalInformation.Size = new System.Drawing.Size(391, 571);
+            this.txtAdditionalInformation.Size = new System.Drawing.Size(391, 504);
             this.txtAdditionalInformation.TabIndex = 5;
             this.txtAdditionalInformation.Text = "";
             // 
@@ -159,6 +163,7 @@ namespace PhilipsHueController
             // 
             // btnDisconnect
             // 
+            this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisconnect.Location = new System.Drawing.Point(438, 1056);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(414, 61);
@@ -169,6 +174,7 @@ namespace PhilipsHueController
             // 
             // lbLightGroups
             // 
+            this.lbLightGroups.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbLightGroups.FormattingEnabled = true;
             this.lbLightGroups.ItemHeight = 25;
             this.lbLightGroups.Location = new System.Drawing.Point(438, 73);
@@ -191,6 +197,7 @@ namespace PhilipsHueController
             // 
             // btnEditGroup
             // 
+            this.btnEditGroup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditGroup.Location = new System.Drawing.Point(438, 399);
             this.btnEditGroup.Name = "btnEditGroup";
             this.btnEditGroup.Size = new System.Drawing.Size(390, 65);
@@ -211,6 +218,7 @@ namespace PhilipsHueController
             // 
             // btnLightsOff
             // 
+            this.btnLightsOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLightsOff.Location = new System.Drawing.Point(647, 545);
             this.btnLightsOff.Name = "btnLightsOff";
             this.btnLightsOff.Size = new System.Drawing.Size(181, 65);
@@ -221,6 +229,7 @@ namespace PhilipsHueController
             // 
             // btnLightsOn
             // 
+            this.btnLightsOn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLightsOn.Location = new System.Drawing.Point(438, 545);
             this.btnLightsOn.Name = "btnLightsOn";
             this.btnLightsOn.Size = new System.Drawing.Size(182, 65);
@@ -231,6 +240,7 @@ namespace PhilipsHueController
             // 
             // btnChangeColor
             // 
+            this.btnChangeColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnChangeColor.Location = new System.Drawing.Point(438, 625);
             this.btnChangeColor.Name = "btnChangeColor";
             this.btnChangeColor.Size = new System.Drawing.Size(390, 65);
@@ -251,6 +261,8 @@ namespace PhilipsHueController
             // 
             // tbBrightness
             // 
+            this.tbBrightness.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tbBrightness.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tbBrightness.Location = new System.Drawing.Point(438, 811);
             this.tbBrightness.Minimum = 1;
             this.tbBrightness.Name = "tbBrightness";
@@ -263,6 +275,7 @@ namespace PhilipsHueController
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(864, 1126);
             this.Controls.Add(this.tbBrightness);
             this.Controls.Add(this.label2);

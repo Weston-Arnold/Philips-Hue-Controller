@@ -48,6 +48,7 @@ namespace PhilipsHueController
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Location = new System.Drawing.Point(356, 111);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(221, 56);
@@ -58,6 +59,7 @@ namespace PhilipsHueController
             // 
             // btnDisconnect
             // 
+            this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisconnect.Location = new System.Drawing.Point(106, 111);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(221, 56);

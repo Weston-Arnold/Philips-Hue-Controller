@@ -49,6 +49,7 @@ namespace PhilipsHueController.Forms
             // 
             // btnCloseErrorMessage
             // 
+            this.btnCloseErrorMessage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCloseErrorMessage.Location = new System.Drawing.Point(173, 112);
             this.btnCloseErrorMessage.Name = "btnCloseErrorMessage";
             this.btnCloseErrorMessage.Size = new System.Drawing.Size(219, 49);
