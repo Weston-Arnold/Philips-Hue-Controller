@@ -273,5 +273,25 @@ namespace PhilipsHueController
 
             tbBrightness.Enabled = toggleOn;
         }
+
+        private void lblLightRooms_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void lblContinueSetupPrompt_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void lblLightListHeader_Click(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private void lblAdditionalLightInformation_Click(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

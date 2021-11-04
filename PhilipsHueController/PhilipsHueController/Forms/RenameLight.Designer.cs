@@ -35,15 +35,17 @@ namespace PhilipsHueController
             // 
             // txtRename
             // 
+            this.txtRename.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtRename.Location = new System.Drawing.Point(80, 47);
             this.txtRename.MaxLength = 50;
             this.txtRename.Name = "txtRename";
-            this.txtRename.Size = new System.Drawing.Size(501, 31);
+            this.txtRename.Size = new System.Drawing.Size(501, 28);
             this.txtRename.TabIndex = 0;
             // 
             // btnSaveChange
             // 
             this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveChange.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSaveChange.Location = new System.Drawing.Point(228, 100);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(195, 50);

@@ -36,13 +36,13 @@ namespace PhilipsHueController.Forms
             // txtErrorMessage
             // 
             this.txtErrorMessage.AutoSize = true;
-            this.txtErrorMessage.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtErrorMessage.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtErrorMessage.ForeColor = System.Drawing.Color.Red;
             this.txtErrorMessage.Location = new System.Drawing.Point(31, 21);
             this.txtErrorMessage.MaximumSize = new System.Drawing.Size(300, 0);
             this.txtErrorMessage.MinimumSize = new System.Drawing.Size(500, 0);
             this.txtErrorMessage.Name = "txtErrorMessage";
-            this.txtErrorMessage.Size = new System.Drawing.Size(500, 30);
+            this.txtErrorMessage.Size = new System.Drawing.Size(500, 24);
             this.txtErrorMessage.TabIndex = 0;
             this.txtErrorMessage.Text = " ";
             this.txtErrorMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -50,6 +50,7 @@ namespace PhilipsHueController.Forms
             // btnCloseErrorMessage
             // 
             this.btnCloseErrorMessage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseErrorMessage.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCloseErrorMessage.Location = new System.Drawing.Point(173, 112);
             this.btnCloseErrorMessage.Name = "btnCloseErrorMessage";
             this.btnCloseErrorMessage.Size = new System.Drawing.Size(219, 49);

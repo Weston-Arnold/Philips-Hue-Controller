@@ -34,11 +34,12 @@ namespace PhilipsHueController
             // lblConnectionError
             // 
             this.lblConnectionError.AutoSize = true;
+            this.lblConnectionError.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblConnectionError.ForeColor = System.Drawing.Color.Red;
             this.lblConnectionError.Location = new System.Drawing.Point(12, 704);
             this.lblConnectionError.MaximumSize = new System.Drawing.Size(750, 0);
             this.lblConnectionError.Name = "lblConnectionError";
-            this.lblConnectionError.Size = new System.Drawing.Size(732, 50);
+            this.lblConnectionError.Size = new System.Drawing.Size(736, 72);
             this.lblConnectionError.TabIndex = 9;
             this.lblConnectionError.Text = "Could not connect to selected bridge. Ensure that you are pressing the button on " +
     "your Hue Bridge within 30 seconds prior to clicking the connect button.";
@@ -47,18 +48,20 @@ namespace PhilipsHueController
             // lbBridgeList
             // 
             this.lbBridgeList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbBridgeList.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbBridgeList.FormattingEnabled = true;
-            this.lbBridgeList.ItemHeight = 25;
-            this.lbBridgeList.Location = new System.Drawing.Point(132, 223);
+            this.lbBridgeList.ItemHeight = 24;
+            this.lbBridgeList.Location = new System.Drawing.Point(105, 260);
             this.lbBridgeList.Name = "lbBridgeList";
-            this.lbBridgeList.Size = new System.Drawing.Size(477, 279);
+            this.lbBridgeList.Size = new System.Drawing.Size(530, 268);
             this.lbBridgeList.TabIndex = 8;
             this.lbBridgeList.SelectedIndexChanged += new System.EventHandler(this.lbBridgeList_SelectedIndexChanged);
             // 
             // btnSearch
             // 
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Location = new System.Drawing.Point(132, 534);
+            this.btnSearch.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Location = new System.Drawing.Point(132, 552);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(477, 65);
             this.btnSearch.TabIndex = 7;
@@ -69,10 +72,11 @@ namespace PhilipsHueController
             // lblSetupInstructions
             // 
             this.lblSetupInstructions.AutoSize = true;
+            this.lblSetupInstructions.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSetupInstructions.Location = new System.Drawing.Point(132, 110);
             this.lblSetupInstructions.MaximumSize = new System.Drawing.Size(500, 0);
             this.lblSetupInstructions.Name = "lblSetupInstructions";
-            this.lblSetupInstructions.Size = new System.Drawing.Size(477, 100);
+            this.lblSetupInstructions.Size = new System.Drawing.Size(483, 144);
             this.lblSetupInstructions.TabIndex = 6;
             this.lblSetupInstructions.Text = resources.GetString("lblSetupInstructions.Text");
             this.lblSetupInstructions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -81,6 +85,7 @@ namespace PhilipsHueController
             // 
             this.btnConnectBridge.BackColor = System.Drawing.Color.White;
             this.btnConnectBridge.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConnectBridge.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConnectBridge.Location = new System.Drawing.Point(132, 623);
             this.btnConnectBridge.Name = "btnConnectBridge";
             this.btnConnectBridge.Size = new System.Drawing.Size(477, 64);
@@ -92,10 +97,10 @@ namespace PhilipsHueController
             // lblSetupTitle
             // 
             this.lblSetupTitle.AutoSize = true;
-            this.lblSetupTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSetupTitle.Location = new System.Drawing.Point(76, 22);
+            this.lblSetupTitle.Font = new System.Drawing.Font("Cascadia Code", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSetupTitle.Location = new System.Drawing.Point(23, 23);
             this.lblSetupTitle.Name = "lblSetupTitle";
-            this.lblSetupTitle.Size = new System.Drawing.Size(596, 74);
+            this.lblSetupTitle.Size = new System.Drawing.Size(725, 74);
             this.lblSetupTitle.TabIndex = 10;
             this.lblSetupTitle.Text = "Connect to Hue Bridge";
             // 

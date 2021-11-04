@@ -56,6 +56,8 @@ namespace PhilipsHueController
             // 
             // btnCompleteSetup
             // 
+            this.btnCompleteSetup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompleteSetup.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCompleteSetup.Location = new System.Drawing.Point(252, 616);
             this.btnCompleteSetup.Name = "btnCompleteSetup";
             this.btnCompleteSetup.Size = new System.Drawing.Size(344, 73);
@@ -71,41 +73,44 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Controls.Add(this.btnCompleteSetup);
             this.pnlContinueSetup.Location = new System.Drawing.Point(2, -1);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(264, 24);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(873, 1138);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
             // lblSetupRequiredTitle
             // 
             this.lblSetupRequiredTitle.AutoSize = true;
-            this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(221, 332);
+            this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Cascadia Code", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(191, 333);
             this.lblSetupRequiredTitle.Name = "lblSetupRequiredTitle";
-            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(410, 74);
+            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(494, 74);
             this.lblSetupRequiredTitle.TabIndex = 2;
             this.lblSetupRequiredTitle.Text = "Setup Required";
             // 
             // lblContinueSetupPrompt
             // 
             this.lblContinueSetupPrompt.AutoSize = true;
+            this.lblContinueSetupPrompt.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblContinueSetupPrompt.Location = new System.Drawing.Point(57, 486);
             this.lblContinueSetupPrompt.MaximumSize = new System.Drawing.Size(750, 0);
             this.lblContinueSetupPrompt.Name = "lblContinueSetupPrompt";
-            this.lblContinueSetupPrompt.Size = new System.Drawing.Size(724, 50);
+            this.lblContinueSetupPrompt.Size = new System.Drawing.Size(725, 48);
             this.lblContinueSetupPrompt.TabIndex = 1;
             this.lblContinueSetupPrompt.Text = "Connection to a Philips Hue Bridge is required to use this application. Please Co" +
     "mplete the setup process before continuing.";
             this.lblContinueSetupPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblContinueSetupPrompt.Click += new System.EventHandler(this.lblContinueSetupPrompt_Click);
             // 
             // lbLights
             // 
             this.lbLights.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbLights.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbLights.FormattingEnabled = true;
-            this.lbLights.ItemHeight = 25;
+            this.lbLights.ItemHeight = 24;
             this.lbLights.Location = new System.Drawing.Point(27, 73);
             this.lbLights.Name = "lbLights";
             this.lbLights.ScrollAlwaysVisible = true;
-            this.lbLights.Size = new System.Drawing.Size(391, 304);
+            this.lbLights.Size = new System.Drawing.Size(391, 292);
             this.lbLights.TabIndex = 2;
             this.lbLights.Click += new System.EventHandler(this.lbLights_OnClick);
             this.lbLights.DoubleClick += new System.EventHandler(this.lbLights_MouseDoubleClick);
@@ -113,16 +118,18 @@ namespace PhilipsHueController
             // lblLightListHeader
             // 
             this.lblLightListHeader.AutoSize = true;
-            this.lblLightListHeader.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightListHeader.Font = new System.Drawing.Font("Cascadia Code", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLightListHeader.Location = new System.Drawing.Point(27, 17);
             this.lblLightListHeader.Name = "lblLightListHeader";
-            this.lblLightListHeader.Size = new System.Drawing.Size(147, 41);
+            this.lblLightListHeader.Size = new System.Drawing.Size(179, 40);
             this.lblLightListHeader.TabIndex = 3;
             this.lblLightListHeader.Text = "My Lights";
+            this.lblLightListHeader.Click += new System.EventHandler(this.lblLightListHeader_Click);
             // 
             // btnRenameLight
             // 
             this.btnRenameLight.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRenameLight.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRenameLight.Location = new System.Drawing.Point(27, 399);
             this.btnRenameLight.Name = "btnRenameLight";
             this.btnRenameLight.Size = new System.Drawing.Size(391, 65);
@@ -135,10 +142,13 @@ namespace PhilipsHueController
             // 
             this.txtAdditionalInformation.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtAdditionalInformation.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtAdditionalInformation.CausesValidation = false;
             this.txtAdditionalInformation.Enabled = false;
+            this.txtAdditionalInformation.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAdditionalInformation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAdditionalInformation.Location = new System.Drawing.Point(27, 545);
             this.txtAdditionalInformation.Name = "txtAdditionalInformation";
+            this.txtAdditionalInformation.ReadOnly = true;
             this.txtAdditionalInformation.Size = new System.Drawing.Size(391, 504);
             this.txtAdditionalInformation.TabIndex = 5;
             this.txtAdditionalInformation.Text = "";
@@ -146,12 +156,13 @@ namespace PhilipsHueController
             // lblAdditionalLightInformation
             // 
             this.lblAdditionalLightInformation.AutoSize = true;
-            this.lblAdditionalLightInformation.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAdditionalLightInformation.Font = new System.Drawing.Font("Cascadia Code", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAdditionalLightInformation.Location = new System.Drawing.Point(27, 490);
             this.lblAdditionalLightInformation.Name = "lblAdditionalLightInformation";
-            this.lblAdditionalLightInformation.Size = new System.Drawing.Size(317, 41);
+            this.lblAdditionalLightInformation.Size = new System.Drawing.Size(287, 40);
             this.lblAdditionalLightInformation.TabIndex = 6;
-            this.lblAdditionalLightInformation.Text = "Additional Information";
+            this.lblAdditionalLightInformation.Text = "Additional Info";
+            this.lblAdditionalLightInformation.Click += new System.EventHandler(this.lblAdditionalLightInformation_Click);
             // 
             // txtBridgeInfo
             // 
@@ -164,6 +175,7 @@ namespace PhilipsHueController
             // btnDisconnect
             // 
             this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDisconnect.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDisconnect.Location = new System.Drawing.Point(438, 1056);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(414, 61);
@@ -175,12 +187,13 @@ namespace PhilipsHueController
             // lbLightGroups
             // 
             this.lbLightGroups.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbLightGroups.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbLightGroups.FormattingEnabled = true;
-            this.lbLightGroups.ItemHeight = 25;
+            this.lbLightGroups.ItemHeight = 24;
             this.lbLightGroups.Location = new System.Drawing.Point(438, 73);
             this.lbLightGroups.Name = "lbLightGroups";
             this.lbLightGroups.ScrollAlwaysVisible = true;
-            this.lbLightGroups.Size = new System.Drawing.Size(390, 304);
+            this.lbLightGroups.Size = new System.Drawing.Size(390, 292);
             this.lbLightGroups.TabIndex = 9;
             this.lbLightGroups.Click += new System.EventHandler(this.lbLightGroups_OnClick);
             this.lbLightGroups.DoubleClick += new System.EventHandler(this.lbLightGroups_MouseDoubleClick);
@@ -188,16 +201,18 @@ namespace PhilipsHueController
             // lblLightRooms
             // 
             this.lblLightRooms.AutoSize = true;
-            this.lblLightRooms.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightRooms.Font = new System.Drawing.Font("Cascadia Code", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblLightRooms.Location = new System.Drawing.Point(438, 17);
             this.lblLightRooms.Name = "lblLightRooms";
-            this.lblLightRooms.Size = new System.Drawing.Size(239, 41);
+            this.lblLightRooms.Size = new System.Drawing.Size(287, 40);
             this.lblLightRooms.TabIndex = 10;
             this.lblLightRooms.Text = "My Light Groups";
+            this.lblLightRooms.Click += new System.EventHandler(this.lblLightRooms_Click);
             // 
             // btnEditGroup
             // 
             this.btnEditGroup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditGroup.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEditGroup.Location = new System.Drawing.Point(438, 399);
             this.btnEditGroup.Name = "btnEditGroup";
             this.btnEditGroup.Size = new System.Drawing.Size(390, 65);
@@ -209,19 +224,20 @@ namespace PhilipsHueController
             // txtQuickOptionsTitle
             // 
             this.txtQuickOptionsTitle.AutoSize = true;
-            this.txtQuickOptionsTitle.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtQuickOptionsTitle.Font = new System.Drawing.Font("Cascadia Code", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtQuickOptionsTitle.Location = new System.Drawing.Point(438, 490);
             this.txtQuickOptionsTitle.Name = "txtQuickOptionsTitle";
-            this.txtQuickOptionsTitle.Size = new System.Drawing.Size(116, 41);
+            this.txtQuickOptionsTitle.Size = new System.Drawing.Size(143, 40);
             this.txtQuickOptionsTitle.TabIndex = 12;
             this.txtQuickOptionsTitle.Text = "Actions";
             // 
             // btnLightsOff
             // 
             this.btnLightsOff.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLightsOff.Location = new System.Drawing.Point(647, 545);
+            this.btnLightsOff.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLightsOff.Location = new System.Drawing.Point(639, 545);
             this.btnLightsOff.Name = "btnLightsOff";
-            this.btnLightsOff.Size = new System.Drawing.Size(181, 65);
+            this.btnLightsOff.Size = new System.Drawing.Size(205, 65);
             this.btnLightsOff.TabIndex = 13;
             this.btnLightsOff.Text = "Turn Light(s) Off";
             this.btnLightsOff.UseVisualStyleBackColor = true;
@@ -230,9 +246,10 @@ namespace PhilipsHueController
             // btnLightsOn
             // 
             this.btnLightsOn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLightsOn.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLightsOn.Location = new System.Drawing.Point(438, 545);
             this.btnLightsOn.Name = "btnLightsOn";
-            this.btnLightsOn.Size = new System.Drawing.Size(182, 65);
+            this.btnLightsOn.Size = new System.Drawing.Size(195, 65);
             this.btnLightsOn.TabIndex = 14;
             this.btnLightsOn.Text = "Turn Light(s) On";
             this.btnLightsOn.UseVisualStyleBackColor = true;
@@ -241,9 +258,10 @@ namespace PhilipsHueController
             // btnChangeColor
             // 
             this.btnChangeColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChangeColor.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnChangeColor.Location = new System.Drawing.Point(438, 625);
             this.btnChangeColor.Name = "btnChangeColor";
-            this.btnChangeColor.Size = new System.Drawing.Size(390, 65);
+            this.btnChangeColor.Size = new System.Drawing.Size(406, 65);
             this.btnChangeColor.TabIndex = 15;
             this.btnChangeColor.Text = "Change Color";
             this.btnChangeColor.UseVisualStyleBackColor = true;
@@ -252,10 +270,10 @@ namespace PhilipsHueController
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Cascadia Code", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(438, 729);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 41);
+            this.label2.Size = new System.Drawing.Size(197, 40);
             this.label2.TabIndex = 17;
             this.label2.Text = "Brightness";
             // 
@@ -277,8 +295,6 @@ namespace PhilipsHueController
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(864, 1126);
-            this.Controls.Add(this.tbBrightness);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.pnlContinueSetup);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.txtBridgeInfo);
@@ -294,6 +310,8 @@ namespace PhilipsHueController
             this.Controls.Add(this.lblLightRooms);
             this.Controls.Add(this.lbLightGroups);
             this.Controls.Add(this.btnChangeColor);
+            this.Controls.Add(this.tbBrightness);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Dashboard";
