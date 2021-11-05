@@ -99,7 +99,6 @@ namespace PhilipsHueController
             this.lblContinueSetupPrompt.Text = "Connection to a Philips Hue Bridge is required to use this application. Please Co" +
     "mplete the setup process before continuing.";
             this.lblContinueSetupPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblContinueSetupPrompt.Click += new System.EventHandler(this.lblContinueSetupPrompt_Click);
             // 
             // lbLights
             // 
@@ -124,7 +123,6 @@ namespace PhilipsHueController
             this.lblLightListHeader.Size = new System.Drawing.Size(179, 40);
             this.lblLightListHeader.TabIndex = 3;
             this.lblLightListHeader.Text = "My Lights";
-            this.lblLightListHeader.Click += new System.EventHandler(this.lblLightListHeader_Click);
             // 
             // btnRenameLight
             // 
@@ -162,7 +160,6 @@ namespace PhilipsHueController
             this.lblAdditionalLightInformation.Size = new System.Drawing.Size(287, 40);
             this.lblAdditionalLightInformation.TabIndex = 6;
             this.lblAdditionalLightInformation.Text = "Additional Info";
-            this.lblAdditionalLightInformation.Click += new System.EventHandler(this.lblAdditionalLightInformation_Click);
             // 
             // txtBridgeInfo
             // 
@@ -207,7 +204,6 @@ namespace PhilipsHueController
             this.lblLightRooms.Size = new System.Drawing.Size(287, 40);
             this.lblLightRooms.TabIndex = 10;
             this.lblLightRooms.Text = "My Light Groups";
-            this.lblLightRooms.Click += new System.EventHandler(this.lblLightRooms_Click);
             // 
             // btnEditGroup
             // 

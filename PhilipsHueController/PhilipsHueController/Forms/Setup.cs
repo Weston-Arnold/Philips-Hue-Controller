@@ -22,7 +22,7 @@ namespace PhilipsHueController
             btnSearch.Text = "Searching...";
             btnConnectBridge.Visible = false;
 
-            var bridges = await HueConnectionManager.GetNearbyBridges();
+            var bridges = await HueConnectionManager.GetLocalNetworkBridges();
 
             lbBridgeList.Items.Clear();
             var count = 0;
@@ -32,8 +32,8 @@ namespace PhilipsHueController
                 count++;
                 lbBridgeList.Items.Add(new
                 {
-                    IpAddress = bridge.IpAddress,
-                    BridgeId = bridge.BridgeId,
+                    bridge.IpAddress,
+                    bridge.BridgeId,
                     DisplayName = $"Bridge #{count} - {bridge.BridgeId} - ({bridge.IpAddress})"
                 });
             }
@@ -57,6 +57,7 @@ namespace PhilipsHueController
 
                 return;
             }
+
             Close();
         }
 

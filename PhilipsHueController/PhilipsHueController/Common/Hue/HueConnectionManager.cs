@@ -13,7 +13,7 @@ namespace PhilipsHueController
 
         public static LocalHueClient GetLocalHueClient()
         {
-            if(LocalHueClient == null)
+            if (LocalHueClient == null)
             {
                 LoadConfiguredBridge();
             }
@@ -21,14 +21,16 @@ namespace PhilipsHueController
             return LocalHueClient;
         }
 
-        public static async Task<List<LocatedBridge>> GetNearbyBridges()
+        public static async Task<List<LocatedBridge>> GetLocalNetworkBridges()
         {
             return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
         }
 
         public async static Task<string> GetConnectedBridgeFooterInformation()
         {
-            var bridge = await GetLocalHueClient().GetBridgeAsync();
+            var client = GetLocalHueClient();
+            var bridge = await client.GetBridgeAsync();
+
             return $"Bridge Information - {bridge.Config.Name} | Id : {bridge.Config.BridgeId} | {bridge.Config.IpAddress} | {bridge.Config.MacAddress}";
         }
 
@@ -41,8 +43,8 @@ namespace PhilipsHueController
 
                 LocalHueClient.Initialize(appKey);
 
-                ConfigurationHelpers.AddOrUpdateAppSetting("AppKey", appKey);
-                ConfigurationHelpers.AddOrUpdateAppSetting("BridgeIpAddress", ipAddress);
+                ConfigurationHelpers.AddOrUpdateAppSettingByKey("AppKey", appKey);
+                ConfigurationHelpers.AddOrUpdateAppSettingByKey("BridgeIpAddress", ipAddress);
 
                 return true;
             }
@@ -54,8 +56,8 @@ namespace PhilipsHueController
 
         public static void LoadConfiguredBridge()
         {
-            var bridgeIpAddress = ConfigurationHelpers.GetSettingByKey("BridgeIpAddress");
-            var appKey = ConfigurationHelpers.GetSettingByKey("AppKey");
+            var bridgeIpAddress = ConfigurationHelpers.GetAppSettingByKey("BridgeIpAddress");
+            var appKey = ConfigurationHelpers.GetAppSettingByKey("AppKey");
 
             LocalHueClient = new LocalHueClient(bridgeIpAddress);
             LocalHueClient.Initialize(appKey);
@@ -63,7 +65,7 @@ namespace PhilipsHueController
 
         public static bool IsApplicationRegistered()
         {
-            var appKey = ConfigurationHelpers.GetSettingByKey("AppKey");
+            var appKey = ConfigurationHelpers.GetAppSettingByKey("AppKey");
             return appKey != null;
         }
     }

@@ -1,4 +1,3 @@
-using PhilipsHueController.Helpers;
 using System;
 using System.Windows.Forms;
 
