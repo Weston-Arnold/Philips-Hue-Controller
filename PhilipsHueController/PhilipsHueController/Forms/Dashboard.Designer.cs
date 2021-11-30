@@ -76,6 +76,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Size = new System.Drawing.Size(873, 1138);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
+            this.pnlContinueSetup.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlContinueSetup_Paint);
             // 
             // lblSetupRequiredTitle
             // 

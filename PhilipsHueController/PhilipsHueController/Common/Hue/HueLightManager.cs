@@ -1,5 +1,4 @@
 ﻿using PhilipsHueController.Common.Helpers;
-using PhilipsHueController.Extensions;
 using Q42.HueApi;
 using Q42.HueApi.ColorConverters;
 using Q42.HueApi.ColorConverters.Gamut;

@@ -295,5 +295,10 @@ namespace PhilipsHueController
 
             tbBrightness.Enabled = toggleOn;
         }
+
+        private void pnlContinueSetup_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
