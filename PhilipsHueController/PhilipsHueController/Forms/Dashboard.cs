@@ -268,7 +268,7 @@ namespace PhilipsHueController
             var selectedBrightness = tbBrightness.Value * 25.4;
             if (currentlySelectedLight != null)
             {
-                var lightId = currentlySelectedGroup.GetObjectPropertyByName("Id");
+                var lightId = currentlySelectedLight.GetObjectPropertyByName("Id");
 
                 await HueLightManager.SetLightBrightness(lightId, (byte)selectedBrightness);
                 txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lightId);
