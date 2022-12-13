@@ -11,8 +11,6 @@ namespace PhilipsHueController
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            //ConfigHelpers.DeleteSettingByKey("AppKey");
             Application.Run(new Dashboard());
         }
     }

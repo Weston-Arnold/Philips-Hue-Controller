@@ -6,8 +6,7 @@ namespace PhilipsHueController.Helpers
     {
         public static string GetAppSettingByKey(string key)
         {
-            var appSettings = ConfigurationManager.AppSettings;
-            return appSettings[key] ?? null;
+            return ConfigurationManager.AppSettings[key] ?? null;
         }
 
         public static void AddOrUpdateAppSettingByKey(string key, string value)
