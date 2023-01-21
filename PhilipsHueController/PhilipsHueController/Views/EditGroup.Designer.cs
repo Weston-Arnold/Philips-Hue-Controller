@@ -39,9 +39,9 @@ namespace PhilipsHueController.Forms
             // btnSaveChange
             // 
             this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveChange.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveChange.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSaveChange.Location = new System.Drawing.Point(101, 335);
-            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveChange.Name = "btnSaveChange";
             this.btnSaveChange.Size = new System.Drawing.Size(136, 30);
             this.btnSaveChange.TabIndex = 3;
@@ -51,22 +51,22 @@ namespace PhilipsHueController.Forms
             // 
             // txtRename
             // 
-            this.txtRename.Font = new System.Drawing.Font("Cascadia Code Light", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtRename.Location = new System.Drawing.Point(53, 47);
-            this.txtRename.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRename.Margin = new System.Windows.Forms.Padding(2);
             this.txtRename.MaxLength = 50;
             this.txtRename.Name = "txtRename";
-            this.txtRename.Size = new System.Drawing.Size(239, 21);
+            this.txtRename.Size = new System.Drawing.Size(239, 27);
             this.txtRename.TabIndex = 2;
             // 
             // lblRoomName
             // 
             this.lblRoomName.AutoSize = true;
-            this.lblRoomName.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblRoomName.Location = new System.Drawing.Point(53, 30);
+            this.lblRoomName.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblRoomName.Location = new System.Drawing.Point(53, 26);
             this.lblRoomName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblRoomName.Name = "lblRoomName";
-            this.lblRoomName.Size = new System.Drawing.Size(70, 16);
+            this.lblRoomName.Size = new System.Drawing.Size(88, 19);
             this.lblRoomName.TabIndex = 4;
             this.lblRoomName.Text = "Room Name";
             // 
@@ -74,22 +74,22 @@ namespace PhilipsHueController.Forms
             // 
             this.clbLights.CheckOnClick = true;
             this.clbLights.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clbLights.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.clbLights.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.clbLights.FormattingEnabled = true;
-            this.clbLights.Location = new System.Drawing.Point(53, 105);
-            this.clbLights.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clbLights.Location = new System.Drawing.Point(53, 116);
+            this.clbLights.Margin = new System.Windows.Forms.Padding(2);
             this.clbLights.Name = "clbLights";
-            this.clbLights.Size = new System.Drawing.Size(239, 212);
+            this.clbLights.Size = new System.Drawing.Size(239, 202);
             this.clbLights.TabIndex = 5;
             // 
             // lblLightsInRoom
             // 
             this.lblLightsInRoom.AutoSize = true;
-            this.lblLightsInRoom.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLightsInRoom.Location = new System.Drawing.Point(53, 88);
+            this.lblLightsInRoom.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLightsInRoom.Location = new System.Drawing.Point(53, 95);
             this.lblLightsInRoom.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLightsInRoom.Name = "lblLightsInRoom";
-            this.lblLightsInRoom.Size = new System.Drawing.Size(49, 16);
+            this.lblLightsInRoom.Size = new System.Drawing.Size(48, 19);
             this.lblLightsInRoom.TabIndex = 7;
             this.lblLightsInRoom.Text = "Lights";
             // 
@@ -105,7 +105,7 @@ namespace PhilipsHueController.Forms
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditGroup";

@@ -37,12 +37,12 @@ namespace PhilipsHueController
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(74, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.MaximumSize = new System.Drawing.Size(350, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(350, 48);
+            this.label1.Size = new System.Drawing.Size(340, 57);
             this.label1.TabIndex = 0;
             this.label1.Text = "Are you sure you want to disconnect from your Hue Bridge? To reconnect, you will " +
     "need to go back through the setup process.";
@@ -51,9 +51,9 @@ namespace PhilipsHueController
             // btnCancel
             // 
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCancel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.Location = new System.Drawing.Point(249, 67);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(155, 34);
             this.btnCancel.TabIndex = 1;
@@ -64,9 +64,9 @@ namespace PhilipsHueController
             // btnDisconnect
             // 
             this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDisconnect.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnDisconnect.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDisconnect.Location = new System.Drawing.Point(74, 67);
-            this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(155, 34);
             this.btnDisconnect.TabIndex = 2;
@@ -83,7 +83,7 @@ namespace PhilipsHueController
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Disconnect";

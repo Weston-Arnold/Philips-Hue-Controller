@@ -35,20 +35,22 @@ namespace PhilipsHueController
             // 
             // txtRename
             // 
-            this.txtRename.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtRename.Location = new System.Drawing.Point(80, 47);
+            this.txtRename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtRename.Location = new System.Drawing.Point(56, 28);
+            this.txtRename.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtRename.MaxLength = 50;
             this.txtRename.Name = "txtRename";
-            this.txtRename.Size = new System.Drawing.Size(501, 28);
+            this.txtRename.Size = new System.Drawing.Size(352, 27);
             this.txtRename.TabIndex = 0;
             // 
             // btnSaveChange
             // 
             this.btnSaveChange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSaveChange.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSaveChange.Location = new System.Drawing.Point(228, 100);
+            this.btnSaveChange.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveChange.Location = new System.Drawing.Point(160, 60);
+            this.btnSaveChange.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSaveChange.Name = "btnSaveChange";
-            this.btnSaveChange.Size = new System.Drawing.Size(195, 50);
+            this.btnSaveChange.Size = new System.Drawing.Size(136, 30);
             this.btnSaveChange.TabIndex = 1;
             this.btnSaveChange.Text = "Save Change";
             this.btnSaveChange.UseVisualStyleBackColor = true;
@@ -57,17 +59,18 @@ namespace PhilipsHueController
             // RenameLight
             // 
             this.AcceptButton = this.btnSaveChange;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 184);
+            this.ClientSize = new System.Drawing.Size(472, 110);
             this.Controls.Add(this.btnSaveChange);
             this.Controls.Add(this.txtRename);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RenameLight";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Rename Light";
+            this.Text = "Edit Light";
             this.ResumeLayout(false);
             this.PerformLayout();
 
