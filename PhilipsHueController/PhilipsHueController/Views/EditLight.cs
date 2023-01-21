@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace PhilipsHueController
 {
-    public partial class RenameLight : Form
+    public partial class EditLight : Form
     {
         private readonly string LightName = string.Empty;
         private readonly string LightId = string.Empty;
 
-        public RenameLight(object selectedLight)
+        public EditLight(object selectedLight)
         {
             InitializeComponent();
 

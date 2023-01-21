@@ -105,7 +105,7 @@ namespace PhilipsHueController
         private async void OpenLightEditDialogue()
         {
             var currentlySelectedLightIndex = lbLights.SelectedIndex;
-            var renameLightWindow = new RenameLight(lbLights.SelectedItem);
+            var renameLightWindow = new EditLight(lbLights.SelectedItem);
 
             renameLightWindow.ShowDialog();
 
