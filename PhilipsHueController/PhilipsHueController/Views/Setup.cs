@@ -1,4 +1,4 @@
-﻿using PhilipsHueController.Extensions;
+﻿using PhilipsHueController.Common.Extensions;
 using System;
 using System.Windows.Forms;
 
@@ -22,19 +22,19 @@ namespace PhilipsHueController
             btnSearch.Text = "Searching...";
             btnConnectBridge.Visible = false;
 
-            var bridges = await HueConnectionManager.GetLocalNetworkBridges();
+            var bridges = await HueConnectionService.GetLocalNetworkBridges();
 
             lbBridgeList.Items.Clear();
-            var count = 0;
+            var bridgeCount = 0;
 
             foreach(var bridge in bridges)
             {
-                count++;
+                bridgeCount++;
                 lbBridgeList.Items.Add(new
                 {
                     bridge.IpAddress,
                     bridge.BridgeId,
-                    DisplayName = $"Bridge #{count} - {bridge.BridgeId} - ({bridge.IpAddress})"
+                    DisplayName = $"Bridge #{bridgeCount} - {bridge.BridgeId} - ({bridge.IpAddress})"
                 });
             }
 
@@ -49,12 +49,11 @@ namespace PhilipsHueController
             var selectedItem = lbBridgeList.SelectedItem;
             var ipAddress = selectedItem.GetObjectPropertyByName("IpAddress");
 
-            var connectedSuccessfully = await HueConnectionManager.ConfigureBridge(ipAddress);
+            var connectedSuccessfully = await HueConnectionService.ConfigureBridge(ipAddress);
             if (!connectedSuccessfully)
             {
                 lblConnectionError.Visible = true;
                 btnConnectBridge.Text = "Connect Hue Bridge";
-
                 return;
             }
 

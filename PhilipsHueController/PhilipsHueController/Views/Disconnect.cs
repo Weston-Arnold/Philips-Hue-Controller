@@ -1,4 +1,4 @@
-﻿using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Common.Helpers;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -14,7 +14,6 @@ namespace PhilipsHueController
         {
             ConfigurationHelpers.DeleteSettingByKey("AppKey");
             ConfigurationHelpers.DeleteSettingByKey("BridgeIpAddress");
-
             Close();
         }
 

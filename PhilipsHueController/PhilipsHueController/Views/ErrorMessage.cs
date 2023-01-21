@@ -7,7 +7,6 @@ namespace PhilipsHueController.Forms
         public ErrorMessage(string errorMessage)
         {
             InitializeComponent();
-
             txtErrorMessage.Text = $"Error: {errorMessage}";
         }
 

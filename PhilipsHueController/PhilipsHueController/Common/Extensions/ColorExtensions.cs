@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace PhilipsHueController.Common.Helpers
+namespace PhilipsHueController.Common.Extensions
 {
     public static class ColorExtensions
     {

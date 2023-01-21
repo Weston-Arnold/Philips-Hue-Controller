@@ -1,4 +1,4 @@
-﻿using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Common.Helpers;
 using Q42.HueApi;
 using Q42.HueApi.Models.Bridge;
 using System;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PhilipsHueController
 {
-    public static class HueConnectionManager
+    public static class HueConnectionService
     {
         private static LocalHueClient LocalHueClient;
 
@@ -17,7 +17,6 @@ namespace PhilipsHueController
             {
                 LoadConfiguredBridge();
             }
-
             return LocalHueClient;
         }
 
@@ -65,8 +64,7 @@ namespace PhilipsHueController
 
         public static bool IsApplicationRegistered()
         {
-            var appKey = ConfigurationHelpers.GetAppSettingByKey("AppKey");
-            return appKey != null;
+            return ConfigurationHelpers.GetAppSettingByKey("AppKey") != null;
         }
     }
 }

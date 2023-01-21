@@ -1,5 +1,5 @@
-﻿using PhilipsHueController.Extensions;
-using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Common.Extensions;
+using PhilipsHueController.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +36,7 @@ namespace PhilipsHueController.Forms
                 selectedLights.Add(selectedLight.GetObjectPropertyByName("Id"));
             }
 
-            var successful = await HueGroupManager.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
+            var successful = await GroupController.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
             if (successful)
             {
                 Close();
@@ -45,8 +45,9 @@ namespace PhilipsHueController.Forms
 
         private async Task LoadLightList()
         {
-            var allLights = await HueLightManager.GetAllLights();
-            foreach (var light in allLights.OrderBy(x => x.Name))
+            var lights = await LightController.GetAllLights();
+
+            foreach (var light in lights.OrderBy(x => x.Name))
             {
                 clbLights.Items.Add(new
                 {
@@ -56,10 +57,11 @@ namespace PhilipsHueController.Forms
             }
             clbLights.DisplayMember = "LightName";
 
-            var groupLightIds = await HueLightManager.GetAllLightsByGroupId(GroupId);
-            foreach(var lightId in groupLightIds)
+            var groupLights = await LightController.GetAllLightsByGroupId(GroupId);
+
+            foreach(var lightId in groupLights)
             {
-                var light = await HueLightManager.GetLightById(lightId);
+                var light = await LightController.GetLightById(lightId);
                 var lightObject = new
                 {
                     Id = lightId,

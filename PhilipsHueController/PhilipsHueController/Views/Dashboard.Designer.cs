@@ -58,12 +58,12 @@ namespace PhilipsHueController
             // 
             this.btnCompleteSetup.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCompleteSetup.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCompleteSetup.Location = new System.Drawing.Point(176, 370);
+            this.btnCompleteSetup.Location = new System.Drawing.Point(197, 358);
             this.btnCompleteSetup.Margin = new System.Windows.Forms.Padding(2);
             this.btnCompleteSetup.Name = "btnCompleteSetup";
             this.btnCompleteSetup.Size = new System.Drawing.Size(241, 44);
             this.btnCompleteSetup.TabIndex = 0;
-            this.btnCompleteSetup.Text = "Complete Setup";
+            this.btnCompleteSetup.Text = "Go to setup";
             this.btnCompleteSetup.UseVisualStyleBackColor = true;
             this.btnCompleteSetup.Click += new System.EventHandler(this.btnCompleteSetup_Click);
             // 
@@ -75,7 +75,7 @@ namespace PhilipsHueController
             this.pnlContinueSetup.Location = new System.Drawing.Point(1, -1);
             this.pnlContinueSetup.Margin = new System.Windows.Forms.Padding(2);
             this.pnlContinueSetup.Name = "pnlContinueSetup";
-            this.pnlContinueSetup.Size = new System.Drawing.Size(612, 683);
+            this.pnlContinueSetup.Size = new System.Drawing.Size(610, 683);
             this.pnlContinueSetup.TabIndex = 1;
             this.pnlContinueSetup.Visible = false;
             // 
@@ -83,25 +83,24 @@ namespace PhilipsHueController
             // 
             this.lblSetupRequiredTitle.AutoSize = true;
             this.lblSetupRequiredTitle.Font = new System.Drawing.Font("Cascadia Code", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(134, 200);
+            this.lblSetupRequiredTitle.Location = new System.Drawing.Point(132, 200);
             this.lblSetupRequiredTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSetupRequiredTitle.Name = "lblSetupRequiredTitle";
-            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(330, 50);
+            this.lblSetupRequiredTitle.Size = new System.Drawing.Size(374, 50);
             this.lblSetupRequiredTitle.TabIndex = 2;
-            this.lblSetupRequiredTitle.Text = "Setup Required";
+            this.lblSetupRequiredTitle.Text = "Setup Incomplete";
             // 
             // lblContinueSetupPrompt
             // 
             this.lblContinueSetupPrompt.AutoSize = true;
             this.lblContinueSetupPrompt.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblContinueSetupPrompt.Location = new System.Drawing.Point(40, 292);
+            this.lblContinueSetupPrompt.Location = new System.Drawing.Point(132, 279);
             this.lblContinueSetupPrompt.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContinueSetupPrompt.MaximumSize = new System.Drawing.Size(525, 0);
             this.lblContinueSetupPrompt.Name = "lblContinueSetupPrompt";
-            this.lblContinueSetupPrompt.Size = new System.Drawing.Size(504, 32);
+            this.lblContinueSetupPrompt.Size = new System.Drawing.Size(371, 16);
             this.lblContinueSetupPrompt.TabIndex = 1;
-            this.lblContinueSetupPrompt.Text = "Connection to a Philips Hue Bridge is required to use this application. Please Co" +
-    "mplete the setup process before continuing.";
+            this.lblContinueSetupPrompt.Text = "Please complete the setup process before continuing.";
             this.lblContinueSetupPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbLights
@@ -126,9 +125,9 @@ namespace PhilipsHueController
             this.lblLightListHeader.Location = new System.Drawing.Point(19, 10);
             this.lblLightListHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLightListHeader.Name = "lblLightListHeader";
-            this.lblLightListHeader.Size = new System.Drawing.Size(120, 27);
+            this.lblLightListHeader.Size = new System.Drawing.Size(84, 27);
             this.lblLightListHeader.TabIndex = 3;
-            this.lblLightListHeader.Text = "My Lights";
+            this.lblLightListHeader.Text = "Lights";
             // 
             // btnRenameLight
             // 
@@ -139,7 +138,7 @@ namespace PhilipsHueController
             this.btnRenameLight.Name = "btnRenameLight";
             this.btnRenameLight.Size = new System.Drawing.Size(274, 39);
             this.btnRenameLight.TabIndex = 4;
-            this.btnRenameLight.Text = "Rename Light";
+            this.btnRenameLight.Text = "Edit Light";
             this.btnRenameLight.UseVisualStyleBackColor = true;
             this.btnRenameLight.Click += new System.EventHandler(this.btnRenameLight_Click);
             // 
@@ -183,12 +182,13 @@ namespace PhilipsHueController
             // 
             this.btnDisconnect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDisconnect.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDisconnect.Location = new System.Drawing.Point(307, 634);
+            this.btnDisconnect.ForeColor = System.Drawing.Color.Maroon;
+            this.btnDisconnect.Location = new System.Drawing.Point(19, 634);
             this.btnDisconnect.Margin = new System.Windows.Forms.Padding(2);
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(290, 37);
+            this.btnDisconnect.Size = new System.Drawing.Size(165, 37);
             this.btnDisconnect.TabIndex = 8;
-            this.btnDisconnect.Text = "Disconnect Hue Bridge";
+            this.btnDisconnect.Text = "Disconnect Bridge";
             this.btnDisconnect.UseVisualStyleBackColor = true;
             this.btnDisconnect.Click += new System.EventHandler(this.btnDisconnect_Click);
             // 
@@ -214,9 +214,9 @@ namespace PhilipsHueController
             this.lblLightRooms.Location = new System.Drawing.Point(307, 10);
             this.lblLightRooms.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLightRooms.Name = "lblLightRooms";
-            this.lblLightRooms.Size = new System.Drawing.Size(192, 27);
+            this.lblLightRooms.Size = new System.Drawing.Size(72, 27);
             this.lblLightRooms.TabIndex = 10;
-            this.lblLightRooms.Text = "My Light Groups";
+            this.lblLightRooms.Text = "Rooms";
             // 
             // btnEditGroup
             // 
@@ -227,7 +227,7 @@ namespace PhilipsHueController
             this.btnEditGroup.Name = "btnEditGroup";
             this.btnEditGroup.Size = new System.Drawing.Size(273, 39);
             this.btnEditGroup.TabIndex = 11;
-            this.btnEditGroup.Text = "Edit Group Name / Lights";
+            this.btnEditGroup.Text = "Edit Room";
             this.btnEditGroup.UseVisualStyleBackColor = true;
             this.btnEditGroup.Click += new System.EventHandler(this.btnEditGroup_Click);
             // 
@@ -251,7 +251,7 @@ namespace PhilipsHueController
             this.btnLightsOff.Name = "btnLightsOff";
             this.btnLightsOff.Size = new System.Drawing.Size(144, 39);
             this.btnLightsOff.TabIndex = 13;
-            this.btnLightsOff.Text = "Turn Light(s) Off";
+            this.btnLightsOff.Text = "OFF";
             this.btnLightsOff.UseVisualStyleBackColor = true;
             this.btnLightsOff.Click += new System.EventHandler(this.btnLightsOff_Click);
             // 
@@ -264,7 +264,7 @@ namespace PhilipsHueController
             this.btnLightsOn.Name = "btnLightsOn";
             this.btnLightsOn.Size = new System.Drawing.Size(136, 39);
             this.btnLightsOn.TabIndex = 14;
-            this.btnLightsOn.Text = "Turn Light(s) On";
+            this.btnLightsOn.Text = "ON";
             this.btnLightsOn.UseVisualStyleBackColor = true;
             this.btnLightsOn.Click += new System.EventHandler(this.btnLightsOn_Click);
             // 

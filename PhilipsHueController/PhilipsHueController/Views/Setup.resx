@@ -57,7 +57,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lblSetupInstructions.Text" xml:space="preserve">
-    <value>Click the button below to search for your Hue Bridge and select the one you wish to connect to. Once selected, press the button on your Hue bridge and click "Connect Hue Bridge" within 30 seconds of pressing the button.</value>
-  </data>
 </root>

@@ -1,4 +1,4 @@
-﻿using PhilipsHueController.Common.Helpers;
+﻿using PhilipsHueController.Common.Extensions;
 using PhilipsHueController.Forms;
 using Q42.HueApi;
 using Q42.HueApi.ColorConverters;
@@ -10,30 +10,34 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhilipsHueController.Helpers
+namespace PhilipsHueController.Controllers
 {
-    public static class HueGroupManager
+    public static class GroupController
     {
         public async static Task<IEnumerable<Group>> GetAllGroups(GroupType? groupType = null)
         {
-            var localHueClient = HueConnectionManager.GetLocalHueClient();
-            var groups = await localHueClient.GetGroupsAsync();
+            var groups = await HueConnectionService
+                .GetLocalHueClient()
+                .GetGroupsAsync();
 
             return groups.Where(x => groupType == null || x.Type == groupType);
         }
 
         public async static Task<Group> GetGroupById(string groupId)
         {
-            var localHueClient = HueConnectionManager.GetLocalHueClient();
-            return await localHueClient.GetGroupAsync(groupId);
+            return await HueConnectionService
+                .GetLocalHueClient()
+                .GetGroupAsync(groupId);
         }
 
         public async static Task<bool> UpdateGroupById(string groupId, List<string> lightIds, string name)
         {
             var group = await GetGroupById(groupId);
-            var hueClient = HueConnectionManager.GetLocalHueClient();
 
-            var result = await hueClient.UpdateGroupAsync(group.Id, lightIds, name);
+            var result = await HueConnectionService
+                .GetLocalHueClient()
+                .UpdateGroupAsync(group.Id, lightIds, name);
+
             var error = result
                 .Where(x => x.Error != null)
                 .Select(x => x.Error)
@@ -56,19 +60,17 @@ namespace PhilipsHueController.Helpers
                 ? new LightCommand().TurnOn()
                 : new LightCommand().TurnOff();
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendGroupCommandAsync(powerCommand, groupId);
+            await SendGroupCommandAsync(powerCommand, groupId);
         }
 
         public async static Task SetGroupColor(string groupId, Color color)
         {
-            var setLightCommand = new LightCommand();
             var hexColor = color.ConvertToHex();
 
+            var setLightCommand = new LightCommand();
             setLightCommand.SetColor(new RGBColor(hexColor));
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendGroupCommandAsync(setLightCommand, groupId);
+            await SendGroupCommandAsync(setLightCommand, groupId);
         }
 
         public async static Task SetGroupBrightness(string groupId, byte brightnessValue)
@@ -78,31 +80,37 @@ namespace PhilipsHueController.Helpers
                 Brightness = brightnessValue
             };
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendGroupCommandAsync(brightnessCommand, groupId);
+            await SendGroupCommandAsync(brightnessCommand, groupId);
         }
 
         public async static Task<string> GetGroupInformation(string groupId)
         {
             var group = await GetGroupById(groupId);
-            var groupLightIds = await HueLightManager.GetAllLightsByGroupId(groupId);
+            var groupLightIds = await LightController.GetAllLightsByGroupId(groupId);
             var groupLights = new List<string>();
 
-            foreach(var lightId in groupLightIds)
+            foreach (var lightId in groupLightIds)
             {
-                var light = await HueLightManager.GetLightById(lightId);
+                var light = await LightController.GetLightById(lightId);
                 groupLights.Add(light.Name);
             }
-            
+
             var groupLightsFormattedString = string.Join(", ", groupLights);
 
             return
-                $"Group Id: {group.Id}\n" +
-                $"Group Name: {group.Name}\n" +
-                $"Type: {group.Type}\n" + 
+                $"Room Id: {group.Id}\n" +
+                $"Room Name: {group.Name}\n" +
+                $"Type: {group.Type}\n" +
                 $"Class: {group.Class}\n" +
                 $"Number of Lights: {group.Lights.Count}\n\n" +
                 $"Lights: {groupLightsFormattedString}\n";
+        }
+
+        private async static Task SendGroupCommandAsync(LightCommand command, string groupId)
+        {
+            await HueConnectionService
+                .GetLocalHueClient()
+                .SendGroupCommandAsync(command, groupId);
         }
     }
 }

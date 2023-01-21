@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace PhilipsHueController.Helpers
+namespace PhilipsHueController.Common.Helpers
 {
     public class ConfigurationHelpers
     {
@@ -11,31 +11,31 @@ namespace PhilipsHueController.Helpers
 
         public static void AddOrUpdateAppSettingByKey(string key, string value)
         {
-            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var settings = configFile.AppSettings.Settings;
+            var configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var appSettings = configuration.AppSettings.Settings;
 
-            if (settings[key] == null)
+            if (appSettings[key] == null)
             {
-                settings.Add(key, value);
+                appSettings.Add(key, value);
             }
             else
             {
-                settings[key].Value = value;
+                appSettings[key].Value = value;
             }
 
-            configFile.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            configuration.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configuration.AppSettings.SectionInformation.Name);
         }
 
         public static void DeleteSettingByKey(string key)
         {
-            var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var settings = configFile.AppSettings.Settings;
+            var configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var appSettings = configuration.AppSettings.Settings;
 
-            settings.Remove(key);
+            appSettings.Remove(key);
 
-            configFile.Save(ConfigurationSaveMode.Modified);
-            ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            configuration.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection(configuration.AppSettings.SectionInformation.Name);
         }
     }
 }

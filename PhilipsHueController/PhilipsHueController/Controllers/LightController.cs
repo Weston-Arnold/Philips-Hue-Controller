@@ -1,5 +1,4 @@
-﻿using PhilipsHueController.Common.Helpers;
-using PhilipsHueController.Extensions;
+﻿using PhilipsHueController.Common.Extensions;
 using Q42.HueApi;
 using Q42.HueApi.ColorConverters;
 using Q42.HueApi.ColorConverters.Gamut;
@@ -9,31 +8,33 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhilipsHueController.Helpers
+namespace PhilipsHueController.Controllers
 {
-    public static class HueLightManager
+    public static class LightController
     {
         public async static Task<IEnumerable<Light>> GetAllLights()
         {
-            var localHueClient = HueConnectionManager.GetLocalHueClient();
-            return await localHueClient.GetLightsAsync();
+            return await HueConnectionService
+                .GetLocalHueClient()
+                .GetLightsAsync();
         }
 
         public async static Task<IEnumerable<string>> GetAllLightsByGroupId(string groupId)
         {
-            var lightsInGroup = await HueGroupManager.GetGroupById(groupId);
+            var lightsInGroup = await GroupController.GetGroupById(groupId);
             return lightsInGroup.Lights;
         }
 
         public async static Task<Light> GetLightById(string lightId)
         {
-            var localHueClient = HueConnectionManager.GetLocalHueClient();
-            return await localHueClient.GetLightAsync(lightId);
+            return await HueConnectionService
+                .GetLocalHueClient()
+                .GetLightAsync(lightId);
         }
 
         public async static Task<IEnumerable<string>> GetAllGroupNamesForLight(string lightId)
         {
-            var allGroups = await HueGroupManager.GetAllGroups();
+            var allGroups = await GroupController.GetAllGroups();
 
             return allGroups
                 .Where(x => x.Lights.Contains(lightId))
@@ -44,9 +45,10 @@ namespace PhilipsHueController.Helpers
         public async static Task RenameLightById(string lightId, string newName)
         {
             var light = await GetLightById(lightId);
-            var hueClient = HueConnectionManager.GetLocalHueClient();
 
-            await hueClient.SetLightNameAsync(light.Id, newName);
+            await HueConnectionService
+                .GetLocalHueClient()
+                .SetLightNameAsync(light.Id, newName);
         }
 
         public async static Task BlinkSelectedLight(string lightId)
@@ -65,18 +67,16 @@ namespace PhilipsHueController.Helpers
                 Brightness = brightnessValue
             };
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendCommandAsync(brightnessCommand, new List<string> { lightId });
+            await SendLightCommandAsync(brightnessCommand, lightId);
         }
 
         public async static Task SetLightOnOff(string lightId, bool on)
         {
-            var powerCommand = on 
-                ? new LightCommand().TurnOn() 
+            var powerCommand = on
+                ? new LightCommand().TurnOn()
                 : new LightCommand().TurnOff();
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendCommandAsync(powerCommand, new List<string> { lightId });
+            await SendLightCommandAsync(powerCommand, lightId);
         }
 
         public async static Task SetLightColor(string lightId, Color color)
@@ -86,8 +86,7 @@ namespace PhilipsHueController.Helpers
 
             setLightCommand.SetColor(new RGBColor(hexColor));
 
-            var client = HueConnectionManager.GetLocalHueClient();
-            await client.SendCommandAsync(setLightCommand, new List<string> { lightId });
+            await SendLightCommandAsync(setLightCommand, lightId);
         }
 
         public async static Task<byte> GetLightBrightness(string lightId)
@@ -103,7 +102,9 @@ namespace PhilipsHueController.Helpers
             var lightGroupsFormattedString = string.Join(", ", lightGroups);
 
             var lightPowerState = light.State.On ? "On" : "Off";
-            var isReachable = light.State.IsReachable.HasValue && light.State.IsReachable.Value ? "Yes" : "No";
+            var isReachable = light.State.IsReachable == true
+                ? "Yes" 
+                : "No";
 
             return
                 $"Light Id: {light.Id}\n" +
@@ -123,6 +124,13 @@ namespace PhilipsHueController.Helpers
                 $"Type: {light.Type}\n" +
                 $"Manufacturer Name: {light.ManufacturerName}\n\n" +
                 $"Groups: {lightGroupsFormattedString}\n";
+        }
+
+        private async static Task SendLightCommandAsync(LightCommand command, string lightId)
+        {
+            await HueConnectionService
+                .GetLocalHueClient()
+                .SendCommandAsync(command, new List<string> { lightId });
         }
     }
 }

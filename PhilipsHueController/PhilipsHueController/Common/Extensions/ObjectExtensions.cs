@@ -1,4 +1,4 @@
-﻿namespace PhilipsHueController.Extensions
+﻿namespace PhilipsHueController.Common.Extensions
 {
     public static class ObjectExtensions
     {

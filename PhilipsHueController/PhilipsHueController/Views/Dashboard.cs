@@ -1,6 +1,7 @@
-﻿using PhilipsHueController.Extensions;
+﻿using PhilipsHueController.Common.Extensions;
+using PhilipsHueController.Common.Helpers;
+using PhilipsHueController.Controllers;
 using PhilipsHueController.Forms;
-using PhilipsHueController.Helpers;
 using Q42.HueApi.Models.Groups;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,24 +20,22 @@ namespace PhilipsHueController
         {
             pnlContinueSetup.Visible = false;
 
-            var isApplicationRegistered = HueConnectionManager.IsApplicationRegistered();
+            var isApplicationRegistered = HueConnectionService.IsApplicationRegistered();
             if (!isApplicationRegistered)
             {
                 pnlContinueSetup.Visible = true;
                 LaunchSetup(sender, e);
-
                 return;
             }
 
-            HueConnectionManager.LoadConfiguredBridge();
+            HueConnectionService.LoadConfiguredBridge();
 
             btnRenameLight.Enabled = false;
             btnEditGroup.Enabled = false;
-
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light or group to show additional information...";
-            txtBridgeInfo.Text = await HueConnectionManager.GetConnectedBridgeFooterInformation();
 
+            txtBridgeInfo.Text = await HueConnectionService.GetConnectedBridgeFooterInformation();
             ToggleActionControls(false);
 
             await LoadLightListBox();
@@ -47,9 +46,9 @@ namespace PhilipsHueController
         {
             lbLights.Items.Clear();
 
-            var lightList = await HueLightManager.GetAllLights();
+            var lights = await LightController.GetAllLights();
 
-            foreach (var light in lightList.OrderBy(x => x.Name))
+            foreach (var light in lights.OrderBy(x => x.Name))
             {
                 lbLights.Items.Add(new
                 {
@@ -57,7 +56,6 @@ namespace PhilipsHueController
                     LightName = light.Name
                 });
             }
-
             lbLights.DisplayMember = "LightName";
         }
 
@@ -65,9 +63,9 @@ namespace PhilipsHueController
         {
             lbLightGroups.Items.Clear();
 
-            var groupList = await HueGroupManager.GetAllGroups(GroupType.Room);
+            var groups = await GroupController.GetAllGroups(GroupType.Room);
 
-            foreach (var group in groupList.OrderBy(x => x.Name))
+            foreach (var group in groups.OrderBy(x => x.Name))
             {
                 lbLightGroups.Items.Add(new
                 {
@@ -75,18 +73,15 @@ namespace PhilipsHueController
                     GroupName = group.Name
                 });
             }
-
             lbLightGroups.DisplayMember = "GroupName";
         }
 
         private void LaunchSetup(object sender, System.EventArgs e)
         {
             var setupWindow = new Setup();
-
             setupWindow.ShowDialog();
 
-            var isApplicationRegisteredAfterWindowClose = HueConnectionManager.IsApplicationRegistered();
-            if (isApplicationRegisteredAfterWindowClose)
+            if (HueConnectionService.IsApplicationRegistered())
             {
                 Dashboard_Load(sender, e);
             }
@@ -116,7 +111,7 @@ namespace PhilipsHueController
 
             var currentlySelectedLightId = lbLights.SelectedItem.GetObjectPropertyByName("Id");
 
-            txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(currentlySelectedLightId);
+            txtAdditionalInformation.Text = await LightController.GetSelectedLightInformation(currentlySelectedLightId);
             await LoadLightListBox();
 
             lbLights.SelectedIndex = currentlySelectedLightIndex;
@@ -131,7 +126,7 @@ namespace PhilipsHueController
 
             renameGroupWindow.ShowDialog();
 
-            txtAdditionalInformation.Text = await HueGroupManager.GetGroupInformation(currentlySelectedGroupId);
+            txtAdditionalInformation.Text = await GroupController.GetGroupInformation(currentlySelectedGroupId);
             await LoadGroupListBox();
 
             lbLightGroups.SelectedIndex = currentlySelectedGroupIndex;
@@ -160,7 +155,7 @@ namespace PhilipsHueController
 
                 ToggleActionControls(true);
 
-                txtAdditionalInformation.Text = await HueGroupManager.GetGroupInformation(selectedGroupId);
+                txtAdditionalInformation.Text = await GroupController.GetGroupInformation(selectedGroupId);
             }
             else
             {
@@ -181,10 +176,10 @@ namespace PhilipsHueController
 
                 var currentlySelectedLightId = lbLights.SelectedItem.GetObjectPropertyByName("Id");
 
-                txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(currentlySelectedLightId);
-                tbBrightness.Value = (int)(await HueLightManager.GetLightBrightness(currentlySelectedLightId) / 25.4);
+                txtAdditionalInformation.Text = await LightController.GetSelectedLightInformation(currentlySelectedLightId);
+                tbBrightness.Value = (int)(await LightController.GetLightBrightness(currentlySelectedLightId) / 25.4);
 
-                await HueLightManager.BlinkSelectedLight(currentlySelectedLightId);
+                await LightController.BlinkSelectedLight(currentlySelectedLightId);
             }
             else
             {
@@ -214,16 +209,16 @@ namespace PhilipsHueController
             await ToggleButtonPower(lbLights.SelectedItem, lbLightGroups.SelectedItem, false);
         }
 
-        public async static Task ToggleButtonPower(object selectedLight, object selectedGroup, bool turningOn)
+        public async static Task ToggleButtonPower(object selectedLight, object selectedGroup, bool on)
         {
             if (selectedLight != null)
             {
-                await HueLightManager.SetLightOnOff(selectedLight.GetObjectPropertyByName("Id"), turningOn);
+                await LightController.SetLightOnOff(selectedLight.GetObjectPropertyByName("Id"), on);
             }
 
             if (selectedGroup != null)
             {
-                await HueGroupManager.ToggleGroupLightsOnOff(selectedGroup.GetObjectPropertyByName("Id"), turningOn);
+                await GroupController.ToggleGroupLightsOnOff(selectedGroup.GetObjectPropertyByName("Id"), on);
             }
         }
 
@@ -238,17 +233,17 @@ namespace PhilipsHueController
             if (currentlySelectedLight != null)
             {
                 var lightId = currentlySelectedLight.GetObjectPropertyByName("Id");
-
-                await HueLightManager.SetLightColor(lightId, selectedColor);
-                txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lightId);
+                
+                await LightController.SetLightColor(lightId, selectedColor);
+                txtAdditionalInformation.Text = await LightController.GetSelectedLightInformation(lightId);
             }
 
             if (currentlySelectedGroup != null)
             {
                 var groupId = currentlySelectedGroup.GetObjectPropertyByName("Id");
 
-                await HueGroupManager.SetGroupColor(groupId, selectedColor);
-                txtAdditionalInformation.Text = await HueGroupManager.GetGroupInformation(groupId);
+                await GroupController.SetGroupColor(groupId, selectedColor);
+                txtAdditionalInformation.Text = await GroupController.GetGroupInformation(groupId);
             }
         }
 
@@ -262,16 +257,16 @@ namespace PhilipsHueController
             {
                 var lightId = currentlySelectedLight.GetObjectPropertyByName("Id");
 
-                await HueLightManager.SetLightBrightness(lightId, (byte)selectedBrightness);
-                txtAdditionalInformation.Text = await HueLightManager.GetSelectedLightInformation(lightId);
+                await LightController.SetLightBrightness(lightId, (byte)selectedBrightness);
+                txtAdditionalInformation.Text = await LightController.GetSelectedLightInformation(lightId);
             }
 
             if (currentlySelectedGroup != null)
             {
                 var groupId = currentlySelectedGroup.GetObjectPropertyByName("Id");
 
-                await HueGroupManager.SetGroupBrightness(groupId, (byte)selectedBrightness);
-                txtAdditionalInformation.Text = await HueGroupManager.GetGroupInformation(groupId);
+                await GroupController.SetGroupBrightness(groupId, (byte)selectedBrightness);
+                txtAdditionalInformation.Text = await GroupController.GetGroupInformation(groupId);
             }
         }
 
@@ -280,7 +275,6 @@ namespace PhilipsHueController
             btnChangeColor.Enabled = toggleOn;
             btnLightsOn.Enabled = toggleOn;
             btnLightsOff.Enabled = toggleOn;
-
             tbBrightness.Enabled = toggleOn;
         }
     }

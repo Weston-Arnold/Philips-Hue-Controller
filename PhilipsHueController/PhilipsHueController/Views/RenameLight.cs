@@ -1,5 +1,5 @@
-﻿using PhilipsHueController.Extensions;
-using PhilipsHueController.Helpers;
+﻿using PhilipsHueController.Common.Extensions;
+using PhilipsHueController.Controllers;
 using System.Windows.Forms;
 
 namespace PhilipsHueController
@@ -21,7 +21,7 @@ namespace PhilipsHueController
 
         private async void btnSaveChange_Click(object sender, System.EventArgs e)
         {
-            await HueLightManager.RenameLightById(LightId, txtRename.Text);
+            await LightController.RenameLightById(LightId, txtRename.Text);
             Close();
         }
     }
