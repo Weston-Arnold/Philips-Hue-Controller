@@ -20,12 +20,12 @@ namespace PhilipsHueController
             return LocalHueClient;
         }
 
-        public static async Task<List<LocatedBridge>> GetLocalNetworkBridges()
+        public static async Task<List<LocatedBridge>> GetLocalBridgesAsync()
         {
             return await HueBridgeDiscovery.CompleteDiscoveryAsync(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(30));
         }
 
-        public async static Task<string> GetConnectedBridgeFooterInformation()
+        public async static Task<string> GetBridgeInformationAsync()
         {
             var client = GetLocalHueClient();
             var bridge = await client.GetBridgeAsync();
@@ -33,7 +33,7 @@ namespace PhilipsHueController
             return $"Bridge Information - {bridge.Config.Name} | Id : {bridge.Config.BridgeId} | {bridge.Config.IpAddress} | {bridge.Config.MacAddress}";
         }
 
-        public static async Task<bool> ConfigureBridge(string ipAddress)
+        public static async Task<bool> ConfigureBridgeAsync(string ipAddress)
         {
             try
             {

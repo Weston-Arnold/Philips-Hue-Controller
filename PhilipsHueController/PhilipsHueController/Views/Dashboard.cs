@@ -35,7 +35,7 @@ namespace PhilipsHueController
             pnlContinueSetup.Visible = false;
             txtAdditionalInformation.Text = "Select a light or group to show additional information...";
 
-            txtBridgeInfo.Text = await HueConnectionService.GetConnectedBridgeFooterInformation();
+            txtBridgeInfo.Text = await HueConnectionService.GetBridgeInformationAsync();
             ToggleActionControls(false);
 
             await LoadLightListBox();
