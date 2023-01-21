@@ -21,7 +21,7 @@ namespace PhilipsHueController
 
         private async void btnSaveChange_Click(object sender, System.EventArgs e)
         {
-            await LightController.RenameLightById(LightId, txtRename.Text);
+            await LightController.UpdateByIdAsync(LightId, txtRename.Text);
             Close();
         }
     }

@@ -12,29 +12,29 @@ namespace PhilipsHueController.Controllers
 {
     public static class LightController
     {
-        public async static Task<IEnumerable<Light>> GetAllLights()
+        public async static Task<IEnumerable<Light>> GetAllAsync()
         {
             return await HueConnectionService
                 .GetLocalHueClient()
                 .GetLightsAsync();
         }
 
-        public async static Task<IEnumerable<string>> GetAllLightsByGroupId(string groupId)
+        public async static Task<IEnumerable<string>> GetAllByGroupIdAsync(string groupId)
         {
-            var lightsInGroup = await GroupController.GetGroupById(groupId);
+            var lightsInGroup = await GroupController.GetByIdAsync(groupId);
             return lightsInGroup.Lights;
         }
 
-        public async static Task<Light> GetLightById(string lightId)
+        public async static Task<Light> GetByIdAsync(string lightId)
         {
             return await HueConnectionService
                 .GetLocalHueClient()
                 .GetLightAsync(lightId);
         }
 
-        public async static Task<IEnumerable<string>> GetAllGroupNamesForLight(string lightId)
+        public async static Task<IEnumerable<string>> GetGroupListForLightAsync(string lightId)
         {
-            var allGroups = await GroupController.GetAllGroups();
+            var allGroups = await GroupController.GetAllAsync();
 
             return allGroups
                 .Where(x => x.Lights.Contains(lightId))
@@ -42,25 +42,25 @@ namespace PhilipsHueController.Controllers
                 .ToList();
         }
 
-        public async static Task RenameLightById(string lightId, string newName)
+        public async static Task UpdateByIdAsync(string lightId, string newName)
         {
-            var light = await GetLightById(lightId);
+            var light = await GetByIdAsync(lightId);
 
             await HueConnectionService
                 .GetLocalHueClient()
                 .SetLightNameAsync(light.Id, newName);
         }
 
-        public async static Task BlinkSelectedLight(string lightId)
+        public async static Task BlinkAsync(string lightId)
         {
-            var light = await GetLightById(lightId);
+            var light = await GetByIdAsync(lightId);
             var currentBrightness = light.State.Brightness;
 
-            await SetLightBrightness(lightId, 1);
-            await SetLightBrightness(lightId, currentBrightness);
+            await SetBrightnessAsync(lightId, 1);
+            await SetBrightnessAsync(lightId, currentBrightness);
         }
 
-        public async static Task SetLightBrightness(string lightId, byte brightnessValue)
+        public async static Task SetBrightnessAsync(string lightId, byte brightnessValue)
         {
             var brightnessCommand = new LightCommand
             {
@@ -70,7 +70,7 @@ namespace PhilipsHueController.Controllers
             await SendLightCommandAsync(brightnessCommand, lightId);
         }
 
-        public async static Task SetLightOnOff(string lightId, bool on)
+        public async static Task TogglePowerAsync(string lightId, bool on)
         {
             var powerCommand = on
                 ? new LightCommand().TurnOn()
@@ -79,7 +79,7 @@ namespace PhilipsHueController.Controllers
             await SendLightCommandAsync(powerCommand, lightId);
         }
 
-        public async static Task SetLightColor(string lightId, Color color)
+        public async static Task SetColorAsync(string lightId, Color color)
         {
             var setLightCommand = new LightCommand();
             var hexColor = color.ConvertToHex();
@@ -89,16 +89,16 @@ namespace PhilipsHueController.Controllers
             await SendLightCommandAsync(setLightCommand, lightId);
         }
 
-        public async static Task<byte> GetLightBrightness(string lightId)
+        public async static Task<byte> GetCurrentBrightnessAsync(string lightId)
         {
-            var light = await GetLightById(lightId);
+            var light = await GetByIdAsync(lightId);
             return light.State.Brightness;
         }
 
-        public async static Task<string> GetSelectedLightInformation(string lightId)
+        public async static Task<string> GetInformationAsync(string lightId)
         {
-            var light = await GetLightById(lightId);
-            var lightGroups = await GetAllGroupNamesForLight(lightId);
+            var light = await GetByIdAsync(lightId);
+            var lightGroups = await GetGroupListForLightAsync(lightId);
             var lightGroupsFormattedString = string.Join(", ", lightGroups);
 
             var lightPowerState = light.State.On ? "On" : "Off";

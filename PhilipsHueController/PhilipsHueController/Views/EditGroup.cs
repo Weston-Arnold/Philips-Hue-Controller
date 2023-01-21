@@ -36,7 +36,7 @@ namespace PhilipsHueController.Forms
                 selectedLights.Add(selectedLight.GetObjectPropertyByName("Id"));
             }
 
-            var successful = await GroupController.UpdateGroupById(GroupId, selectedLights, txtRename.Text);
+            var successful = await GroupController.UpdateByIdAsync(GroupId, selectedLights, txtRename.Text);
             if (successful)
             {
                 Close();
@@ -45,7 +45,7 @@ namespace PhilipsHueController.Forms
 
         private async Task LoadLightList()
         {
-            var lights = await LightController.GetAllLights();
+            var lights = await LightController.GetAllAsync();
 
             foreach (var light in lights.OrderBy(x => x.Name))
             {
@@ -57,11 +57,11 @@ namespace PhilipsHueController.Forms
             }
             clbLights.DisplayMember = "LightName";
 
-            var groupLights = await LightController.GetAllLightsByGroupId(GroupId);
+            var groupLights = await LightController.GetAllByGroupIdAsync(GroupId);
 
             foreach(var lightId in groupLights)
             {
-                var light = await LightController.GetLightById(lightId);
+                var light = await LightController.GetByIdAsync(lightId);
                 var lightObject = new
                 {
                     Id = lightId,

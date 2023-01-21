@@ -14,7 +14,7 @@ namespace PhilipsHueController.Controllers
 {
     public static class GroupController
     {
-        public async static Task<IEnumerable<Group>> GetAllGroups(GroupType? groupType = null)
+        public async static Task<IEnumerable<Group>> GetAllAsync(GroupType? groupType = null)
         {
             var groups = await HueConnectionService
                 .GetLocalHueClient()
@@ -23,16 +23,16 @@ namespace PhilipsHueController.Controllers
             return groups.Where(x => groupType == null || x.Type == groupType);
         }
 
-        public async static Task<Group> GetGroupById(string groupId)
+        public async static Task<Group> GetByIdAsync(string groupId)
         {
             return await HueConnectionService
                 .GetLocalHueClient()
                 .GetGroupAsync(groupId);
         }
 
-        public async static Task<bool> UpdateGroupById(string groupId, List<string> lightIds, string name)
+        public async static Task<bool> UpdateByIdAsync(string groupId, List<string> lightIds, string name)
         {
-            var group = await GetGroupById(groupId);
+            var group = await GetByIdAsync(groupId);
 
             var result = await HueConnectionService
                 .GetLocalHueClient()
@@ -54,7 +54,7 @@ namespace PhilipsHueController.Controllers
             return false;
         }
 
-        public async static Task ToggleGroupLightsOnOff(string groupId, bool on)
+        public async static Task TogglePowerAsync(string groupId, bool on)
         {
             var powerCommand = on
                 ? new LightCommand().TurnOn()
@@ -63,7 +63,7 @@ namespace PhilipsHueController.Controllers
             await SendGroupCommandAsync(powerCommand, groupId);
         }
 
-        public async static Task SetGroupColor(string groupId, Color color)
+        public async static Task SetColorAsync(string groupId, Color color)
         {
             var hexColor = color.ConvertToHex();
 
@@ -73,7 +73,7 @@ namespace PhilipsHueController.Controllers
             await SendGroupCommandAsync(setLightCommand, groupId);
         }
 
-        public async static Task SetGroupBrightness(string groupId, byte brightnessValue)
+        public async static Task SetBrightnessAsync(string groupId, byte brightnessValue)
         {
             var brightnessCommand = new LightCommand
             {
@@ -83,15 +83,15 @@ namespace PhilipsHueController.Controllers
             await SendGroupCommandAsync(brightnessCommand, groupId);
         }
 
-        public async static Task<string> GetGroupInformation(string groupId)
+        public async static Task<string> GetInformationAsync(string groupId)
         {
-            var group = await GetGroupById(groupId);
-            var groupLightIds = await LightController.GetAllLightsByGroupId(groupId);
+            var group = await GetByIdAsync(groupId);
+            var groupLightIds = await LightController.GetAllByGroupIdAsync(groupId);
             var groupLights = new List<string>();
 
             foreach (var lightId in groupLightIds)
             {
-                var light = await LightController.GetLightById(lightId);
+                var light = await LightController.GetByIdAsync(lightId);
                 groupLights.Add(light.Name);
             }
 
